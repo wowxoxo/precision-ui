@@ -16,3 +16,7 @@
 
 - lucide-react
 - @radix-ui/react-icons
+
+## Read more
+
+- https://stackoverflow.com/questions/74429397/what-is-the-purpose-of-the-tailwind-layer-directive
