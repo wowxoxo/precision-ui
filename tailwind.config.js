@@ -19,44 +19,44 @@ module.exports = {
     },
     extend: {
       colors: {
-        border: 'hsl(var(--border))',
-        input: 'hsl(var(--input))',
-        ring: 'hsl(var(--ring))',
-        background: 'hsl(var(--background))',
-        foreground: 'hsl(var(--foreground))',
+        border: 'hsl(var(--precision-ui-tw-border))',
+        input: 'hsl(var(--precision-ui-tw-input))',
+        ring: 'hsl(var(--precision-ui-tw-ring))',
+        background: 'hsl(var(--precision-ui-tw-background))',
+        foreground: 'hsl(var(--precision-ui-tw-foreground))',
         primary: {
-          DEFAULT: 'hsl(var(--primary))',
-          foreground: 'hsl(var(--primary-foreground))',
+          DEFAULT: 'hsl(var(--precision-ui-tw-primary))',
+          foreground: 'hsl(var(--precision-ui-tw-primary-foreground))',
         },
         secondary: {
-          DEFAULT: 'hsl(var(--secondary))',
-          foreground: 'hsl(var(--secondary-foreground))',
+          DEFAULT: 'hsl(var(--precision-ui-tw-secondary))',
+          foreground: 'hsl(var(--precision-ui-tw-secondary-foreground))',
         },
         destructive: {
-          DEFAULT: 'hsl(var(--destructive))',
-          foreground: 'hsl(var(--destructive-foreground))',
+          DEFAULT: 'hsl(var(--precision-ui-tw-destructive))',
+          foreground: 'hsl(var(--precision-ui-tw-destructive-foreground))',
         },
         muted: {
-          DEFAULT: 'hsl(var(--muted))',
-          foreground: 'hsl(var(--muted-foreground))',
+          DEFAULT: 'hsl(var(--precision-ui-tw-muted))',
+          foreground: 'hsl(var(--precision-ui-tw-muted-foreground))',
         },
         accent: {
-          DEFAULT: 'hsl(var(--accent))',
-          foreground: 'hsl(var(--accent-foreground))',
+          DEFAULT: 'hsl(var(--precision-ui-tw-accent))',
+          foreground: 'hsl(var(--precision-ui-tw-accent-foreground))',
         },
         popover: {
-          DEFAULT: 'hsl(var(--popover))',
-          foreground: 'hsl(var(--popover-foreground))',
+          DEFAULT: 'hsl(var(--precision-ui-tw-popover))',
+          foreground: 'hsl(var(--precision-ui-tw-popover-foreground))',
         },
         card: {
-          DEFAULT: 'hsl(var(--card))',
-          foreground: 'hsl(var(--card-foreground))',
+          DEFAULT: 'hsl(var(--precision-ui-tw-card))',
+          foreground: 'hsl(var(--precision-ui-tw-card-foreground))',
         },
       },
       borderRadius: {
-        lg: 'var(--radius)',
-        md: 'calc(var(--radius) - 2px)',
-        sm: 'calc(var(--radius) - 4px)',
+        lg: 'var(--precision-ui-tw-radius)',
+        md: 'calc(var(--precision-ui-tw-radius) - 2px)',
+        sm: 'calc(var(--precision-ui-tw-radius) - 4px)',
       },
       keyframes: {
         'accordion-down': {
@@ -75,4 +75,7 @@ module.exports = {
     },
   },
   plugins: [require('tailwindcss-animate')],
+  corePlugins: {
+    preflight: false,
+  },
 }
