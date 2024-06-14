@@ -16,6 +16,7 @@
 
 - lucide-react
 - @radix-ui/react-icons
+- tailwind foreground
 
 ## Read more
 

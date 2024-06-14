@@ -13,6 +13,28 @@
     --precision-ui-tw-popover: 0 0% 100%;
     --precision-ui-tw-popover-foreground: 222.2 84% 4.9%;
 
+    --precision-ui-tw-navy: 213.75, 78.43%, 27.45%;
+    --precision-ui-tw-navy-opacity-4: 213.75, 78.43%, 27.45%, 0.04;
+    --precision-ui-tw-navy-opacity-16: 213.75, 78.43%, 27.45%, 0.16;
+    --precision-ui-tw-navy-opacity-32: 213.75, 78.43%, 27.45%, 0.32;
+    --precision-ui-tw-navy-opacity-40: 213.75, 78.43%, 27.45%, 0.4;
+    --precision-ui-tw-navy-opacity-60: 213.75, 78.43%, 27.45%, 0.6;
+
+    --precision-ui-tw-sapphire: 219, 98%, 44%;
+    --precision-ui-tw-turquoise: 181, 100%, 41%;
+    --precision-ui-tw-turquoise-opacity-16: 181, 100%, 41%, 0.16;
+
+    --precision-ui-tw-whitish: 0, 0%, 100%;
+    --precision-ui-tw-whitish-opacity-8: 0, 0%, 100%, 0.08;
+    --precision-ui-tw-whitish-opacity-16: 0, 0%, 100%, 0.16;
+    --precision-ui-tw-whitish-opacity-32: 0, 0%, 100%, 0.32;
+    --precision-ui-tw-whitish-opacity-60: 0, 0%, 100%, 0.6;
+
+    --precision-ui-tw-grey-1: 0, 0%, 95%;
+    --precision-ui-tw-grey-2: 0, 0%, 97%;
+
+    --precision-ui-tw-danger: 1, 88%, 50%;
+
     --precision-ui-tw-primary: 222.2 47.4% 11.2%;
     --precision-ui-tw-primary-foreground: 210 40% 98%;
 
