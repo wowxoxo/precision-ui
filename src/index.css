@@ -58,6 +58,7 @@
   }
 
   .dark {
+    --precision-ui-tw-navy: 203.75, 78.43%, 67.45%;
     --precision-ui-tw-background: 222.2 84% 4.9%;
     --precision-ui-tw-foreground: 210 40% 98%;
 
