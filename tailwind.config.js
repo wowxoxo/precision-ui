@@ -71,7 +71,7 @@ module.exports = {
         primary: {
           DEFAULT: 'hsl(var(--precision-ui-tw-navy))',
           // foreground: 'hsl(var(--precision-ui-tw-primary-foreground))',
-          foreground: 'hsl(var(--precision-ui-tw-danger))',
+          foreground: 'hsl(var(--precision-ui-tw-navy-opacity-4))',
         },
         secondary: {
           DEFAULT: 'hsl(var(--precision-ui-tw-sapphire))',
@@ -89,7 +89,7 @@ module.exports = {
         accent: {
           DEFAULT: 'hsl(var(--precision-ui-tw-turquoise))',
           // foreground: 'hsl(var(--precision-ui-tw-accent-foreground))',
-          foreground: 'hsl(var(--precision-ui-tw-danger))',
+          foreground: 'hsl(var(--precision-ui-tw-turquoise-opacity-16))',
         },
         popover: {
           DEFAULT: 'hsl(var(--precision-ui-tw-popover))',
