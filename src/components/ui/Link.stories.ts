@@ -1,0 +1,70 @@
+import type { Meta, StoryObj } from '@storybook/react'
+
+import Link from './Link'
+
+const meta: Meta<typeof Link> = {
+  title: 'Components/Link',
+  component: Link,
+  parameters: {
+    layout: 'centered',
+  },
+  tags: ['autodocs'],
+  argTypes: {
+    variant: {
+      options: ['default', 'navy', 'white'],
+      control: { type: 'radio' },
+      description: 'The variant of the link.',
+      table: { defaultValue: { summary: 'default' } },
+    },
+    href: {
+      control: { type: 'text' },
+      description: 'URL to navigate to when the link is clicked.',
+    },
+    className: {
+      control: { type: 'text' },
+      description: 'Additional class names for styling.',
+    },
+    target: {
+      options: ['_self', '_blank'],
+      control: { type: 'select' },
+      description: 'Defines where to open the linked document.',
+    },
+    children: {
+      control: { type: 'text' },
+      description: 'Text or elements to display inside the link.',
+    },
+  },
+}
+
+export default meta
+type Story = StoryObj<typeof meta>
+
+export const DefaultLink: Story = {
+  args: {
+    variant: 'default',
+    href: '#',
+    children: 'Default Link',
+  },
+}
+
+export const NavyLink: Story = {
+  args: {
+    variant: 'navy',
+    href: '#',
+    children: 'Navy Link',
+  },
+}
+
+export const WhiteLink: Story = {
+  args: {
+    variant: 'white',
+    href: '#',
+    children: 'White Link',
+  },
+}
+
+// export const ExternalLink = () => (
+//   <Link variant="default" href="https://www.example.com" target="_blank">
+//     External Link
+//   </Link>
+// );

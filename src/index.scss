@@ -197,6 +197,53 @@ body {
   }
 }
 
+.bg-link-gradient {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(to top, transparent 1px, transparent 1px);
+    // background-image: linear-gradient(to top, rgba(255,137,106,.3) 1px, transparent 1px);
+    background-repeat: repeat-x;
+    // background-position: 0 -3px;
+    height: 1px;
+    width: 100%;
+    transition: all ease 0.3s;
+  }
+}
+
+.bg-link-white-gradient,
+.link_navy,
+.link_white {
+  @extend .bg-link-gradient;
+}
+
+@layer components {
+  .bg-link-gradient:hover::before {
+    background-color: hsl(var(--precision-ui-tw-navy));
+  }
+
+  .link_white:hover::before {
+    background-color: hsl(var(--precision-ui-tw-whitish));
+  }
+
+  .bg-link-gradient-container {
+    &:hover {
+      .bg-link-gradient::before {
+        background-color: hsl(var(--precision-ui-tw-navy));
+      }
+
+      .bg-link-white-gradient::before {
+        background-color: white;
+      }
+    }
+  }
+}
+
 .link,
 .link_navy,
 .link_white {
