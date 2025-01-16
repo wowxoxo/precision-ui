@@ -1,10 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import Link from './Link'
+import AppLink from './Link'
+import { LinkWrapperProvider } from '../../context/LinkWrapperContext'
+import React from 'react'
 
-const meta: Meta<typeof Link> = {
-  title: 'Components/Link',
-  component: Link,
+const meta: Meta<typeof AppLink> = {
+  title: 'Components/AppLink',
+  component: AppLink,
   parameters: {
     layout: 'centered',
   },
@@ -34,9 +36,23 @@ const meta: Meta<typeof Link> = {
       description: 'Text or elements to display inside the link.',
     },
   },
+  decorators: [
+    (Story) => (
+      <LinkWrapperProvider
+        LinkWrapper={({ href, children, target, ...props }) => (
+          <a href={href} target={target} {...props}>
+            {children}
+          </a>
+        )}
+      >
+        <Story />
+      </LinkWrapperProvider>
+    ),
+  ],
 }
 
 export default meta
+
 type Story = StoryObj<typeof meta>
 
 export const DefaultLink: Story = {
@@ -63,8 +79,11 @@ export const WhiteLink: Story = {
   },
 }
 
-// export const ExternalLink = () => (
-//   <Link variant="default" href="https://www.example.com" target="_blank">
-//     External Link
-//   </Link>
-// );
+export const ExternalLink: Story = {
+  args: {
+    variant: 'default',
+    href: 'https://www.example.com',
+    target: '_blank',
+    children: 'External Link',
+  },
+}
