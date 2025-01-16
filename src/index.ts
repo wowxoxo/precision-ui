@@ -21,3 +21,8 @@ export { ButtonPrimary, type ButtonPrimaryProps }
 export { ButtonSecondary, type ButtonSecondaryProps }
 export { ButtonText, type ButtonTextProps }
 export { ButtonUnique, type ButtonUniqueProps }
+
+// context
+import { useLinkWrapper } from './context/LinkWrapperContext'
+
+export { useLinkWrapper }
