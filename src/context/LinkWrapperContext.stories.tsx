@@ -1,12 +1,17 @@
-import { LinkWrapperProvider, useLinkWrapper } from './LinkWrapperContext'
+import {
+  LinkWrapperProvider,
+  useLinkWrapper,
+} from '../context/LinkWrapperContext'
 
 import { Meta } from '@storybook/react'
 import React from 'react'
 
-const SimpleLink: React.FC<{ href: string; children: React.ReactNode }> = ({
-  href,
-  children,
-}) => {
+interface SimpleLinkProps {
+  href: string
+  children: React.ReactNode
+}
+
+const SimpleLink: React.FC<SimpleLinkProps> = ({ href, children }) => {
   const LinkWrapper = useLinkWrapper()
   return <LinkWrapper href={href}>{children}</LinkWrapper>
 }
