@@ -9,7 +9,7 @@ import React, {
 interface LinkWrapperProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   href: string
   children: ReactNode
-  target?: HTMLAnchorElement['target']
+  target?: string
 }
 
 type LinkWrapperComponent = FC<LinkWrapperProps>
@@ -25,6 +25,7 @@ export const LinkWrapperProvider: FC<LinkWrapperProviderProps> = ({
   children,
   LinkWrapper,
 }) => {
+  console.log('LinkWrapperProvider: ', LinkWrapper) // Debugging statement
   return (
     <LinkWrapperContext.Provider value={LinkWrapper}>
       {children}
@@ -34,6 +35,7 @@ export const LinkWrapperProvider: FC<LinkWrapperProviderProps> = ({
 
 export const useLinkWrapper = (): LinkWrapperComponent => {
   const context = useContext(LinkWrapperContext)
+  console.log('useLinkWrapper context: ', context) // Debugging statement
   if (!context) {
     throw new Error('useLinkWrapper must be used within a LinkWrapperProvider')
   }
