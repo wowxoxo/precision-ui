@@ -2,10 +2,10 @@ import '@/index.scss'
 
 import { LinkWrapper } from '../src/decorators/LinkWrapper'
 import type { Preview } from '@storybook/react'
-import { setLinkWrapper } from '../src/components/LinkWrapper3'
+import { registerAdapter } from '../src/Adapters'
 import { withThemeByClassName } from '@storybook/addon-themes'
 
-setLinkWrapper(LinkWrapper)
+registerAdapter('LinkWrapper', LinkWrapper)
 
 const preview: Preview = {
   parameters: {

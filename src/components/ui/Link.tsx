@@ -1,7 +1,7 @@
 import React from 'react'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils/cn'
-import { getLinkWrapper } from '@/components/LinkWrapper3'
+import { getAdapter } from '@/Adapters'
 
 const linkVariants = cva('duration-200 transition-colors', {
   variants: {
@@ -34,7 +34,7 @@ const AppLink: React.FC<AppLinkProps> = ({
   rel,
   ...props
 }) => {
-  const LinkWrapper = getLinkWrapper()
+  const LinkWrapper = getAdapter('LinkWrapper')
 
   return (
     <LinkWrapper
