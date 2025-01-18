@@ -1,6 +1,7 @@
 import React from 'react'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils/cn'
+import { getLinkWrapper } from '@/components/LinkWrapper3'
 
 const linkVariants = cva('duration-200 transition-colors', {
   variants: {
@@ -16,32 +17,24 @@ const linkVariants = cva('duration-200 transition-colors', {
 })
 
 interface AppLinkProps
-  extends React.AnchorHTMLAttributes<HTMLAnchorElement>,
+  extends React.HTMLAttributes<HTMLAnchorElement>,
     VariantProps<typeof linkVariants> {
   href: string
   children: React.ReactNode
-  LinkWrapper: React.FC<{
-    href: string
-    children: React.ReactNode
-    className?: string
-    target?: string
-    rel?: string
-  }>
+  className?: string
+  target?: string
 }
 
-export const AppLink: React.FC<AppLinkProps> = ({
+const AppLink: React.FC<AppLinkProps> = ({
   href,
   children,
   className,
   variant,
   target,
   rel,
-  LinkWrapper,
   ...props
 }) => {
-  if (!LinkWrapper) {
-    throw new Error('AppLink requires a LinkWrapper to be provided.')
-  }
+  const LinkWrapper = getLinkWrapper()
 
   return (
     <LinkWrapper
@@ -56,4 +49,4 @@ export const AppLink: React.FC<AppLinkProps> = ({
   )
 }
 
-// export default AppLink
+export default AppLink

@@ -1,8 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import AppLink from './Link'
-import { LinkWrapperProvider } from '../../context/LinkWrapperContext'
-import React from 'react'
 
 const meta: Meta<typeof AppLink> = {
   title: 'Components/AppLink',
@@ -36,19 +34,6 @@ const meta: Meta<typeof AppLink> = {
       description: 'Text or elements to display inside the link.',
     },
   },
-  decorators: [
-    (Story) => (
-      <LinkWrapperProvider
-        LinkWrapper={({ href, children, target, ...props }) => (
-          <a href={href} target={target} {...props}>
-            {children}
-          </a>
-        )}
-      >
-        <Story />
-      </LinkWrapperProvider>
-    ),
-  ],
 }
 
 export default meta

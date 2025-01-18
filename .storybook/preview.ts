@@ -1,7 +1,11 @@
 import '@/index.scss'
 
+import { LinkWrapper } from '../src/decorators/LinkWrapper'
 import type { Preview } from '@storybook/react'
+import { setLinkWrapper } from '../src/components/LinkWrapper3'
 import { withThemeByClassName } from '@storybook/addon-themes'
+
+setLinkWrapper(LinkWrapper)
 
 const preview: Preview = {
   parameters: {
