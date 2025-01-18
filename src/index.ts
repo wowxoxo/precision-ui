@@ -13,7 +13,7 @@ import ButtonUnique, {
   type ButtonUniqueProps,
 } from './components/ui/button/ButtonUnique'
 import AppLink from './components/ui/Link'
-import { setLinkWrapper, getLinkWrapper } from './components/LinkWrapper3'
+import { registerAdapter } from './Adapters'
 
 // exports
 export { Alert, AlertDescription, AlertTitle } from './components/ui/alert'
@@ -27,4 +27,4 @@ export { ButtonUnique, type ButtonUniqueProps }
 
 export { AppLink }
 
-export { setLinkWrapper, getLinkWrapper }
+export { registerAdapter }
