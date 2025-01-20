@@ -10,6 +10,7 @@ lerna-debug.log*
 node_modules
 dist
 dist0
+dist1
 dist-ssr
 *.local
 
@@ -25,3 +26,6 @@ dist-ssr
 *.sw?
 
 *storybook.log
+
+# hide coverage fro now
+coverage

@@ -1,4 +1,6 @@
-import * as matchers from '@testing-library/jest-dom/vitest'
+// import 'vitest-dom/extend-expect'
+
+import * as matchers from 'vitest-dom/matchers'
 
 import { expect } from 'vitest'
 

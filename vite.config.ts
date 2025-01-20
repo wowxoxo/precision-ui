@@ -1,15 +1,13 @@
 import { dependencies, peerDependencies } from './package.json'
 
-import { defineConfig } from 'vite'
+import { defineConfig } from 'vitest/config'
 import dts from 'vite-plugin-dts'
 import react from '@vitejs/plugin-react'
 import { resolve } from 'path'
 
 export default defineConfig({
   plugins: [
-    react({
-      jsxRuntime: 'classic',
-    }),
+    react(),
     dts({
       include: ['src/**/*'],
       exclude: ['src/**/*.stories.tsx', 'src/**/*.test.tsx'],
@@ -43,5 +41,10 @@ export default defineConfig({
     },
     target: 'esnext',
     sourcemap: true,
+  },
+  test: {
+    globals: true,
+    setupFiles: ['./src/setupTests.ts'],
+    environment: 'jsdom',
   },
 })
