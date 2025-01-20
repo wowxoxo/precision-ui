@@ -1,5 +1,6 @@
 import type { Config } from 'tailwindcss'
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires, @typescript-eslint/no-unused-vars
 const { fontFamily, colors } = require('tailwindcss/defaultTheme')
 
 const config: Config = {

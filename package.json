@@ -1,15 +1,37 @@
 {
-  "name": "precision-ui",
+  "name": "@iit/precision-ui",
+  "title": "Precision UI",
+  "description": "Yet another React Component Library",
+  "author": {
+    "name": "wowxoxo",
+    "url": "https://github.com/wowxoxo"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/wowxoxo/precision-ui",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wowxoxo/precision-ui"
+  },
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
-  "main": "./dist/index.cjs.js",
   "module": "./dist/index.es.js",
   "types": "./dist/index.d.ts",
   "sideEffects": false,
   "files": [
     "dist"
   ],
+  "keywords": [
+    "react",
+    "ui",
+    "component",
+    "library",
+    "components",
+    "ui-library"
+  ],
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "scripts": {
     "dev": "vite",
     "build": "rm -rf dist && tsc && vite build && npm run build:styles",
@@ -17,7 +39,8 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@iit/precision-ui-icons": "^0.4.0",
@@ -44,6 +67,7 @@
     "@storybook/react": "^8.4.7",
     "@storybook/react-vite": "^8.4.7",
     "@storybook/test": "^8.4.7",
+    "@types/node": "^22.10.7",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
@@ -54,6 +78,8 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",
     "eslint-plugin-storybook": "^0.11.2",
+    "husky": "^8.0.0",
+    "lint-staged": "^15.4.1",
     "postcss": "^8.4.38",
     "postcss-cli": "^11.0.0",
     "postcss-replace": "^2.0.1",

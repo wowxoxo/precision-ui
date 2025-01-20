@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, ButtonProps } from './button'
+import { Button } from './button'
 import { ArrowRight16X16 } from '@iit/precision-ui-icons'
 
 import { cva, type VariantProps } from 'class-variance-authority'
@@ -69,9 +69,10 @@ const ButtonPrimary: React.FC<ButtonPrimaryProps> = ({
   children,
   theme,
   iconDirection,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   size,
   href,
-  asChild = false,
+  // asChild = false,
   ...props
 }) => {
   const containerStyles = 'flex justify-between items-center gap-8 w-full'

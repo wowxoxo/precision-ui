@@ -90,7 +90,7 @@ const ButtonText: React.FC<ButtonTextProps> = ({
   children,
   variant,
   icon,
-  asChild = false,
+  // asChild = false,
   ...props
 }) => {
   return (
