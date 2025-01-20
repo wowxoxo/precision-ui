@@ -12,7 +12,6 @@
     "type": "git",
     "url": "https://github.com/wowxoxo/precision-ui"
   },
-  "private": true,
   "version": "0.1.0",
   "type": "module",
   "module": "./dist/index.es.js",
