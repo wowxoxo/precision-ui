@@ -5,9 +5,13 @@ import dts from 'vite-plugin-dts'
 import react from '@vitejs/plugin-react'
 import { resolve } from 'path'
 
+const isTest = process.env.VITEST === 'true'
+
 export default defineConfig({
   plugins: [
-    react(),
+    react({
+      jsxRuntime: isTest ? undefined : 'classic',
+    }),
     dts({
       include: ['src/**/*'],
       exclude: ['src/**/*.stories.tsx', 'src/**/*.test.tsx'],
