@@ -1,11 +1,13 @@
 import '@/index.scss'
 
+import { ImageWrapper } from '../src/decorators/ImageWrapper'
 import { LinkWrapper } from '../src/decorators/LinkWrapper'
 import type { Preview } from '@storybook/react'
 import { registerAdapter } from '../src/Adapters'
 import { withThemeByClassName } from '@storybook/addon-themes'
 
 registerAdapter('LinkWrapper', LinkWrapper)
+registerAdapter('ImageWrapper', ImageWrapper)
 
 const preview: Preview = {
   parameters: {

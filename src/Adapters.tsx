@@ -14,6 +14,7 @@ interface Adapters {
     width?: number
     height?: number
     className?: string
+    objectFit?: string
   }>
 }
 

@@ -1,5 +1,6 @@
 {
-  "name": "@iit/precision-ui",
+  "name0": "@iit/precision-ui",
+  "name": "precision-ui",
   "title": "Precision UI",
   "description": "Yet another React Component Library",
   "author": {
