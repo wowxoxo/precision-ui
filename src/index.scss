@@ -1,3 +1,4 @@
+@import 'the-new-css-reset/css/reset.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -316,7 +317,7 @@ body {
     @extend .link;
   }
 
-  // link2 is experiment
+  /* link2 is experiment */
 
   .link2,
   .link_navy2 {
@@ -324,7 +325,7 @@ body {
       transparent 50%,
       hsl(var(--precision-ui-tw-turquoise)) 50%
     );
-    // background-size: auto 175%;
+    /* background-size: auto 175%; */
     background-size: auto 200%;
     transition: background 0.15s ease-in;
   }
@@ -340,7 +341,7 @@ body {
 
   .link2:hover {
     background-position-y: 8.35%;
-    // color: white;
+    /* color: white; */
   }
 }
 
@@ -380,7 +381,7 @@ body {
     width: 1px;
     background: hsla(
       var(--precision-ui-tw-whitish-opacity-24)
-    ); // TODO: 20 on figma, not in ui kit
+    ); /* TODO: 20 on figma, not in ui kit */
   }
 }
 
@@ -429,8 +430,8 @@ body {
     width: calc(100% - 16px);
     background: transparent;
     transition: all ease 0.3s;
-    // background: hsla(var(--precision-ui-tw-navy-opacity-32));
-    // background: red;
+    /* background: hsla(var(--precision-ui-tw-navy-opacity-32)); */
+    /* background: red; */
   }
 
   &_variant {
@@ -478,7 +479,7 @@ body {
   }
 }
 
-// TODO: rename
+/* TODO: rename */
 .vertical-white-divider-on-center {
   position: relative;
   &::before {
@@ -495,7 +496,7 @@ body {
 
 .author-card {
   transition: transform 0.2s ease;
-  // will-change: transform;
+  /* will-change: transform; */
 
   &:hover {
     transform: scale3d(1.02, 1.02, 1.02);
@@ -539,13 +540,13 @@ body {
 .breadcrumb {
   position: relative;
   padding-left: 2rem;
-  // padding-left: calc((var(--counter, 1) * 1rem) + 1rem);
+  /* padding-left: calc((var(--counter, 1) * 1rem) + 1rem); */
 
   &::before {
     content: '';
     position: absolute;
     left: 1rem;
-    // bottom: 0.5rem;
+    /* bottom: 0.5rem; */
     top: 0.33rem;
     height: 5px;
     width: 5px;
@@ -560,7 +561,7 @@ body {
     height: 150px;
     width: 1px;
     background: transparent;
-    // border-left: 1px dashed hsla(var(--precision-ui-tw-whitish-opacity-40));
+    /* border-left: 1px dashed hsla(var(--precision-ui-tw-whitish-opacity-40)); */
 
     background-image: linear-gradient(
       hsla(var(--precision-ui-tw-whitish-opacity-40)) 53%,
@@ -585,16 +586,16 @@ body {
 }
 
 .primary-gradient {
-  // background: linear-gradient(180deg, hsl(var(--precision-ui-tw-navy)) 0%, hsl(var(--precision-ui-tw-sapphire)) 100%);
-  // transition: all ease .3s;
+  /* background: linear-gradient(180deg, hsl(var(--precision-ui-tw-navy)) 0%, hsl(var(--precision-ui-tw-sapphire)) 100%); */
+  /* transition: all ease .3s; */
   background: linear-gradient(var(--myColor1), var(--myColor2));
   transition: --myColor1 0.3s, --myColor2 0.3s, bottom 0.3s;
 
   &:hover {
-    //   background: linear-gradient(180deg, hsl(var(--precision-ui-tw-sapphire)) 0%, hsl(var(--precision-ui-tw-navy)) 100%)
-    // --myColor1: red;
+    /*   background: linear-gradient(180deg, hsl(var(--precision-ui-tw-sapphire)) 0%, hsl(var(--precision-ui-tw-navy)) 100%) */
+    /* --myColor1: red; */
     --myColor1: #024fe0;
-    // --myColor2: #E1AF2F;
+    /* --myColor2: #E1AF2F; */
     --myColor2: #012b7a;
   }
 }
@@ -604,7 +605,7 @@ body {
   color: hsl(var(--precision-ui-tw-turquoise));
 }
 
-// not used
+/* not used */
 .card-animation1 {
   position: relative;
 
@@ -747,12 +748,12 @@ html {
     transform: translatey(0px) perspective(400px) rotate3d(1, -1, 0, -8deg);
   }
   50% {
-    // transform: translatey(-15px);
+    /* transform: translatey(-15px); */
     transform: translatey(-15px) perspective(400px) rotate3d(1, -1, 0, 8deg);
   }
-  // 90% {
-  //   transform: translatey(0px);
-  // }
+  /* 90% {
+     transform: translatey(0px);
+   } */
   100% {
     transform: translatey(0px) perspective(400px) rotate3d(1, -1, 0, -8deg);
   }
@@ -760,5 +761,5 @@ html {
 
 .floating {
   animation: float 6s ease-in-out infinite;
-  // animation-delay: 1s;
+  /* animation-delay: 1s; */
 }

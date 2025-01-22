@@ -8,14 +8,14 @@ import Hero from './Hero'
 // const ImageWrapper = getAdapter('ImageWrapper')
 
 const meta: Meta<typeof Hero> = {
-  title: 'Components/Hero',
+  title: 'Sections/Hero',
   component: Hero,
   parameters: {
     layout: 'centered',
   },
-  globals: {
-    backgrounds: { value: '#333', grid: false },
-  },
+  // globals: {
+  //   backgrounds: { value: '#333', grid: false },
+  // },
   tags: ['autodocs'],
   argTypes: {
     title: {
@@ -73,14 +73,14 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const defaultButtons: CommonButtonProps[] = [
-  { text: 'Primary Button', theme: 'primary' },
-  { text: 'Secondary Button', theme: 'secondary' },
+  { text: 'Primary Button', theme: 'default' },
+  { text: 'Secondary Button', theme: 'opacity' },
 ]
 
 const defaultBreadcrumbs = [
-  { label: 'Home', href: '/' },
-  { label: 'Products', href: '/products' },
-  { label: 'Hero Section', href: '/hero' },
+  { title: 'Home', href: '/' },
+  { title: 'Products', href: '/products' },
+  { title: 'Hero Section', href: '/hero' },
 ]
 
 export const Default: Story = {
@@ -139,14 +139,14 @@ export const DefaultHero: Story = {
     desc: 'Discover amazing features and benefits tailored for you.',
     price: '$99.99',
     oldPrice: '$129.99',
-    image: '/path/to/image.jpg', // Replace with actual image path
+    image: '/slides/crossed-circles.svg', // Replace with actual image path
     buttons: [
-      { text: 'Get Started', href: '#', theme: 'primary' },
-      { text: 'Learn More', href: '#', theme: 'secondary' },
+      { text: 'Get Started', href: '#', theme: 'default' },
+      { text: 'Learn More', href: '#', theme: 'opacity' },
     ],
     breadcrumbs: [
-      { text: 'Home', href: '/' },
-      { text: 'Services', href: '/services' },
+      { title: 'Home', href: '/' },
+      { title: 'Services', href: '/services' },
     ],
   },
 }
@@ -155,7 +155,7 @@ export const HeroWithSearchInput: Story = {
   args: {
     title: 'Search Our Services',
     desc: 'Find exactly what you need with our search feature.',
-    buttons: [{ text: 'Search', href: '#', theme: 'primary' }],
+    buttons: [{ text: 'Search', href: '#', theme: 'default' }],
     childrenComponentType: 'search-news', // Assuming this will render a search input
   },
 }
@@ -167,6 +167,6 @@ export const HeroWithImageAndButtons: Story = {
     price: '$49.99',
     oldPrice: '$79.99',
     image: '/path/to/offer-image.jpg', // Replace with actual image path
-    buttons: [{ text: 'Claim Offer', href: '#', theme: 'primary' }],
+    buttons: [{ text: 'Claim Offer', href: '#', theme: 'default' }],
   },
 }

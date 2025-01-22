@@ -1,13 +1,13 @@
-import Section, { SectionProps } from "./Section";
+import Section, { SectionProps } from './Section'
 
-import Advantage from "@/components/cards/Advantage";
-import Advantage2 from "@/components/cards/Advantage2";
-import FeaturedCard from "@/components/FeaturedCard";
-import GridIterator from "@/components/GridIterator";
-import Plate from "@/components/cards/Plate";
-import Product from "@/components/cards/Product";
-import Rate from "@/components/cards/Rate";
-import React from "react";
+import Advantage from '@/components/cards/Advantage'
+import Advantage2 from '@/components/cards/Advantage2'
+import FeaturedCard from '@/components/cards/FeaturedCard'
+import GridIterator from '@/components/GridIterator'
+import Plate from '@/components/cards/Plate'
+import Product from '@/components/cards/Product'
+import Rate from '@/components/cards/Rate'
+import React from 'react'
 
 // Map component names to actual components
 const componentMap: { [key: string]: React.ElementType } = {
@@ -17,30 +17,30 @@ const componentMap: { [key: string]: React.ElementType } = {
   Product,
   FeaturedCard,
   Plate,
-};
+}
 
 interface CardsGridSectionProps<T> {
-  title: string;
-  desc?: string;
-  items: T[];
-  component?: string;
-  withoutTopPadding?: boolean;
-  withoutBottomPadding?: boolean;
-  withTopMargin?: boolean;
-  withBottomMargin?: boolean;
-  variant?: SectionProps["variant"];
-  corners?: SectionProps["corners"];
-  columns?: number;
-  showControlsOnDesktop?: boolean;
-  withoutCarousel?: boolean;
-  footnote?: string;
+  title: string
+  desc?: string
+  items: T[]
+  component?: string
+  withoutTopPadding?: boolean
+  withoutBottomPadding?: boolean
+  withTopMargin?: boolean
+  withBottomMargin?: boolean
+  variant?: SectionProps['variant']
+  corners?: SectionProps['corners']
+  columns?: number
+  showControlsOnDesktop?: boolean
+  withoutCarousel?: boolean
+  footnote?: string
 }
 
 const CardsGridSection = <T,>({
   title,
   desc,
   items,
-  component = "Advantage",
+  component = 'Advantage',
   withoutTopPadding = false,
   withTopMargin = false,
   withBottomMargin = false,
@@ -52,7 +52,7 @@ const CardsGridSection = <T,>({
   withoutCarousel,
   footnote,
 }: CardsGridSectionProps<T>) => {
-  const Component = componentMap[component] || Advantage;
+  const Component = componentMap[component] || Advantage
 
   return (
     <Section
@@ -74,7 +74,7 @@ const CardsGridSection = <T,>({
         footnote={footnote}
       />
     </Section>
-  );
-};
+  )
+}
 
-export default CardsGridSection;
+export default CardsGridSection
