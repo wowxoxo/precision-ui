@@ -26,7 +26,20 @@ const GridIterator = <T,>({
   withoutCarousel = true, // TODO: add to props chain
   footnote,
 }: GridIteratorProps<T>) => {
-  const gridClasses = `grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-${columns} gap-3`
+  const getGridClasses = (columns: number) => {
+    switch (columns) {
+      case 1:
+        return 'grid grid-cols-1 gap-3'
+      case 2:
+        return 'grid grid-cols-1 sm:grid-cols-2 gap-3'
+      case 3:
+        return 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3'
+      case 4:
+        return 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3'
+      default:
+        return 'grid grid-cols-1 gap-3'
+    }
+  }
   const carouselColumnsClasses = (columns: number = 3) => {
     switch (columns) {
       case 2:
@@ -46,7 +59,7 @@ const GridIterator = <T,>({
   return (
     <div>
       {withoutCarousel ? (
-        <div className={gridClasses}>
+        <div className={getGridClasses(columns)}>
           {items.map((item, index) => (
             <React.Fragment key={index}>
               {renderItem(item, index)}

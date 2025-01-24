@@ -194,7 +194,7 @@ const Hero: React.FC<HeroProps> = ({
           {/* Slider Content */}
           <div
             className={cn(
-              'w-auto p-10 pt-32 flex flex-col justify-center items-start max-w-[800px] col-span-7 border-l border-whitish-opacity-16',
+              'w-auto p-10 pt-32 flex flex-col justify-center items-start max-w-[800px] col-span-7 border-[1px] border-t-0 border-r-0 border-b-0 border-whitish-opacity-16 border-solid',
               sliderContentVariants({ size })
             )}
           >
