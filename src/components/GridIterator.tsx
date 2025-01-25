@@ -1,13 +1,6 @@
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from './ui/carousel'
-
 import React from 'react'
 import Text from './core/typography/Text'
+import { getAdapter } from '@/Adapters'
 
 interface GridIteratorProps<T> {
   items: T[]
@@ -40,21 +33,7 @@ const GridIterator = <T,>({
         return 'grid grid-cols-1 gap-3'
     }
   }
-  const carouselColumnsClasses = (columns: number = 3) => {
-    switch (columns) {
-      case 2:
-        return 'md:basis-1/2 lg:basis-1/2' // FIXME: md sizes
-      case 3:
-        return 'md:basis-1/2 lg:basis-1/3'
-      case 4:
-        return 'md:basis-1/2 lg:basis-1/4'
-      default:
-        return 'md:basis-1/2 lg:basis-1/3'
-    }
-  }
-  const carouselGridClasses = `pl-4 md:basis-1/2 ${carouselColumnsClasses(
-    columns
-  )}`
+  const CarouselWrapper = getAdapter('CarouselWrapper')
 
   return (
     <div>
@@ -67,24 +46,13 @@ const GridIterator = <T,>({
           ))}
         </div>
       ) : (
-        <Carousel className="my-carousel w-full">
-          <CarouselContent className="-ml-4">
-            {items.map((item, index) => (
-              <CarouselItem key={index} className={carouselGridClasses}>
-                {renderItem(item, index)}
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-
-          {showControlsOnDesktop && (
-            <div className="flex justify-center mt-4">
-              {/* <CarouselPrevious />
-              <CarouselNext /> */}
-              <CarouselPrevious className="relative left-auto top-auto right-auto translate-y-0" />
-              <CarouselNext className="relative left-auto top-auto right-auto translate-y-0" />
-            </div>
-          )}
-        </Carousel>
+        <CarouselWrapper
+          items={items}
+          // renderItem={renderItem}
+          renderItem={(item, index) => renderItem(item as T, index)}
+          columns={columns}
+          showControlsOnDesktop={showControlsOnDesktop}
+        />
       )}
 
       {footnote && (

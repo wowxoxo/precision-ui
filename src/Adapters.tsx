@@ -16,6 +16,13 @@ interface Adapters {
     className?: string
     objectFit?: string
   }>
+  CarouselWrapper?: ComponentAdapter<{
+    items: unknown[]
+    renderItem: (item: unknown, index: number) => React.ReactNode
+    columns: number
+    showControlsOnDesktop: boolean
+    className?: string
+  }>
 }
 
 const adapters: Adapters = {}
