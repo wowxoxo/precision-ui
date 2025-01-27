@@ -26,7 +26,7 @@ const Advantage2: React.FC<Advantage2Props> = ({
   size,
 }) => {
   const sizeCls = size === 2 ? 'sm:col-span-2' : 'sm:col-span-1'
-  const classes = `${sizeCls} p-6 bg-whitish rounded-lg`
+  const classes = `${sizeCls} p-6 bg-whitish rounded-lg h-full`
 
   const LinkWrapper = getAdapter('LinkWrapper')
   const ImageWrapper = getAdapter('ImageWrapper')

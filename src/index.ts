@@ -57,3 +57,8 @@ export { Hero }
 export { Partners }
 export { Section }
 export { CardsGridSection }
+
+import Heading from './components/core/typography/Heading'
+import Text from './components/core/typography/Text'
+
+export { Heading, Text }

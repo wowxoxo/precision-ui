@@ -8,7 +8,7 @@ import Text from '../core/typography/Text'
 import { cn } from '@/lib/utils/cn'
 import { getAdapter } from '@/Adapters'
 
-const plateCardVariants = cva('rounded-lg p-6 min-h-[190px]', {
+const plateCardVariants = cva('rounded-lg p-6 min-h-[190px] h-full', {
   variants: {
     variant: {
       default: 'bg-white',

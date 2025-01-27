@@ -14,7 +14,7 @@ import { getAdapter } from '@/Adapters'
 import Informer from '../Informer'
 
 const rateCardVariants = cva(
-  'group p-6 rounded-lg min-h-[360px] flex flex-col justify-between',
+  'group p-6 rounded-lg min-h-[360px] flex flex-col justify-between h-full',
   {
     variants: {
       variant: {

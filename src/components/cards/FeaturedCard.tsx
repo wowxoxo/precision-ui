@@ -34,7 +34,7 @@ const FeaturedCard: React.FC<FeaturedCardProps> = ({
   detailsText,
 }) => {
   const cardStyles = cva(
-    'p-6 pb-4 bg-whitish rounded-lg transition-all bottom-0 transform duration-300 hover:scale1-[1.015] border border-transparent hover:border-sapphire1 relative hover:bottom-1 cursor-pointer col-span-1 flex flex-col justify-between items-start sm:min-h-[264px]',
+    'p-6 pb-4 bg-whitish rounded-lg transition-all bottom-0 transform duration-300 hover:scale1-[1.015] border border-transparent hover:border-sapphire1 relative hover:bottom-1 cursor-pointer col-span-1 flex flex-col justify-between items-start sm:min-h-[264px] h-full',
     {
       variants: {
         size: {

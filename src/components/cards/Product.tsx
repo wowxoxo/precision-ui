@@ -12,7 +12,7 @@ import { cn } from '@/lib/utils/cn'
 import { getAdapter } from '@/Adapters'
 
 const productCardVariants = cva(
-  'group p-6 rounded-lg min-h-[300px] flex flex-col justify-between gap-12 items-start relative hover:scale1-[1.005]',
+  'group p-6 rounded-lg min-h-[300px] flex flex-col justify-between gap-12 items-start relative hover:scale1-[1.005] h-full',
   {
     variants: {
       variant: {

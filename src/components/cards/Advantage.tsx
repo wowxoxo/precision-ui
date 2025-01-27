@@ -14,7 +14,7 @@ const Advantage: React.FC<AdvantageProps> = ({ title, desc, icon }) => {
   const ImageWrapper = getAdapter('ImageWrapper')
 
   return (
-    <div className="p-6 bg-whitish rounded-lg">
+    <div className="p-6 bg-whitish rounded-lg h-full">
       <div className="p-4 bg-turquoise-opacity-20 rounded-lg mb-12 inline-flex">
         <ImageWrapper
           src={icon}
