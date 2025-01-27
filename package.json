@@ -1,6 +1,6 @@
 {
-  "name0": "@iit/precision-ui",
-  "name": "precision-ui",
+  "name": "@iit/precision-ui",
+  "name0": "precision-ui",
   "title": "Precision UI",
   "description": "Yet another React Component Library",
   "author": {
@@ -13,7 +13,7 @@
     "type": "git",
     "url": "https://github.com/wowxoxo/precision-ui"
   },
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
   "module": "./dist/index.es.js",
   "types": "./dist/index.d.ts",
