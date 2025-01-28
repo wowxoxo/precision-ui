@@ -34,10 +34,10 @@ const config: Config = {
       // padding: '2rem',
       padding: '1.5rem',
       // not presented in next app
-      screens: {
-        // todo: add more screen sizes
-        '2xl': '1400px',
-      },
+      // screens: {
+      //   // todo: add more screen sizes
+      //   '2xl': '1400px',
+      // },
     },
     extend: {
       colors: {

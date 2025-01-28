@@ -34,7 +34,12 @@ export const CarouselWrapper: React.FC<{
   )}`
 
   return (
-    <Carousel className={cn('my-carousel w-full', className)}>
+    <Carousel
+      opts={{
+        align: 'start',
+      }}
+      className={cn('my-carousel w-full', className)}
+    >
       <CarouselContent className="-ml-4">
         {items.map((item, index) => (
           <CarouselItem key={index} className={carouselGridClasses}>
