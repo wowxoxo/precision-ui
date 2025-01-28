@@ -4,13 +4,13 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils/cn'
 
 const inputVariants = cva(
-  'flex h-11 w-full rounded-lg border border-transparent border-b bg-background px-3 pt-[14px] pb-[11px] typo_variant_small-body ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none  disabled:cursor-not-allowed disabled:opacity-50 duration-200 transition-colors',
+  'pui-flex pui-h-11 pui-w-full pui-rounded-lg pui-border pui-border-transparent pui-border-b pui-bg-background pui-px-3 pui-pt-[14px] pui-pb-[11px] typo_variant_small-body pui-ring-offset-background pui-file:border-0 pui-file:bg-transparent pui-file:text-sm pui-file:font-medium pui-placeholder:text-muted-foreground focus-visible:pui-outline-none pui-disabled:cursor-not-allowed pui-disabled:opacity-50 pui-duration-200 pui-transition-colors',
   {
     variants: {
       variant: {
         default:
-          'bg-navy-opacity-4 text-navy focus:border-navy hover:bg-navy-opacity-8 border-b-navy-opacity-32',
-        blue: 'bg-whitish-opacity-8 text-white focus:border-white hover:bg-whitish-opacity-16 border-b-whitish-opacity-32',
+          'pui-bg-navy-opacity-4 pui-text-navy focus:pui-border-navy hover:pui-bg-navy-opacity-8 pui-border-b-navy-opacity-32',
+        blue: 'pui-bg-whitish-opacity-8 pui-text-white focus:pui-border-white hover:pui-bg-whitish-opacity-16 pui-border-b-whitish-opacity-32',
       },
     },
     defaultVariants: {

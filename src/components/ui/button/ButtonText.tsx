@@ -10,24 +10,27 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils/cn'
 import { ArrowDownToLine } from 'lucide-react'
 
-const buttonVariants = cva('bg-link-gradient-container hover:cursor-pointer', {
-  variants: {
-    variant: {
-      default: 'text-navy',
-      white: 'text-white',
+const buttonVariants = cva(
+  'bg-link-gradient-container hover:pui-cursor-pointer',
+  {
+    variants: {
+      variant: {
+        default: 'pui-text-navy',
+        white: 'pui-text-white',
+      },
     },
-  },
-  defaultVariants: {
-    variant: 'default',
-  },
-})
+    defaultVariants: {
+      variant: 'default',
+    },
+  }
+)
 
-const iconContainerVariants = cva('rounded-full p-[5px]', {
+const iconContainerVariants = cva('pui-rounded-full pui-p-[5px]', {
   variants: {
     variant: {
-      default: 'bg-navy-opacity-4',
+      default: 'pui-bg-navy-opacity-4',
       // default: "bg-red-500",
-      white: 'bg-whitish-opacity-8',
+      white: 'pui-bg-whitish-opacity-8',
     },
   },
   defaultVariants: {
@@ -99,7 +102,7 @@ const ButtonText: React.FC<ButtonTextProps> = ({
       asChild
       {...props}
     >
-      <div className="gap-2 flex items-center">
+      <div className="pui-gap-2 pui-flex pui-items-center">
         {icon && (
           <div className={cn(iconContainerVariants({ variant }))}>
             {iconDefiner(icon)}

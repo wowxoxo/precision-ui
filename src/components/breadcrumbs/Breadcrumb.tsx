@@ -13,16 +13,16 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ title, href }) => {
 
   if (!href)
     return (
-      <Text variant="link" className="text-whitish breadcrumb">
+      <Text variant="link" className="pui-text-whitish breadcrumb">
         {truncateText(title, 55)}
       </Text>
     )
 
   return (
-    <Text variant="small-body" className="text-whitish-opacity-32">
+    <Text variant="small-body" className="pui-text-whitish-opacity-32">
       <LinkWrapper
         href={href}
-        className="breadcrumb hover:text-whitish-opacity-60 duration-200"
+        className="breadcrumb hover:pui-text-whitish-opacity-60 pui-duration-200"
       >
         {truncateText(title, 55)}
       </LinkWrapper>

@@ -5,16 +5,16 @@ import Heading from '@/components/core/typography/Heading'
 import Text from '@/components/core/typography/Text'
 import ButtonPrimary from '@/components/ui/button/ButtonPrimary'
 
-const sectionVariants = cva('space-y-12', {
+const sectionVariants = cva('pui-space-y-12', {
   variants: {
     variant: {
-      default: 'py-[120px]',
-      muted: 'bg-grey-2 py-[88px] px-6',
+      default: 'pui-py-[120px]',
+      muted: 'pui-bg-grey-2 pui-py-[88px] pui-px-6',
     },
     corners: {
-      default: 'rounded-2xl',
-      onlyTop: 'rounded-t-2xl',
-      onlyBottom: 'rounded-b-2xl',
+      default: 'pui-rounded-2xl',
+      onlyTop: 'pui-rounded-t-2xl',
+      onlyBottom: 'pui-rounded-b-2xl',
     },
   },
   defaultVariants: {
@@ -53,9 +53,9 @@ const Section: React.FC<SectionProps> = ({
   className,
 }) => {
   const sectionClasses = [
-    'container',
-    withTopMargin && 'mt-6',
-    withBottomMargin && 'mb-6',
+    'pui-container',
+    withTopMargin && 'pui-mt-6',
+    withBottomMargin && 'pui-mb-6',
   ]
     .filter(Boolean)
     .map((item) => item)
@@ -67,22 +67,24 @@ const Section: React.FC<SectionProps> = ({
       <div
         className={cn(
           sectionVariants({ variant, corners }),
-          withoutTopPadding && 'pt-0',
-          withoutBottomPadding && 'pb-0',
+          withoutTopPadding && 'pui-pt-0',
+          withoutBottomPadding && 'pui-pb-0',
           className
         )}
       >
         {title && (
-          <div className="space-y-4 flex flex-col items-center">
-            <Heading level={2} className="text-center max-w-[900px]">
+          <div className="pui-space-y-4 pui-flex pui-flex-col pui-items-center">
+            <Heading level={2} className="pui-text-center pui-max-w-[900px]">
               {title}
             </Heading>
-            {desc && <Text className="text-center max-w-6xl">{desc}</Text>}
+            {desc && (
+              <Text className="pui-text-center pui-max-w-6xl">{desc}</Text>
+            )}
           </div>
         )}
         {children}
         {moreLink && (
-          <div className="flex justify-center">
+          <div className="pui-flex pui-justify-center">
             <ButtonPrimary href={moreLink}>{moreText}</ButtonPrimary>
           </div>
         )}

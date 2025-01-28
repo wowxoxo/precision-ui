@@ -59,6 +59,7 @@ const icons: Record<
 }
 
 const iconMap = generateIconMap(icons)
+
 export const iconDefiner = (
   icon?: IconName,
   width?: number | string,

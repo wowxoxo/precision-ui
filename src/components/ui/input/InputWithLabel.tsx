@@ -26,11 +26,13 @@ export function InputWithLabel({
 
   const labelClasses =
     variant === 'default'
-      ? 'group-focus-within:text-navy-opacity-40'
-      : 'group-focus-within:text-whitish-opacity-60'
+      ? 'pui-group-focus-within:text-navy-opacity-40'
+      : 'pui-group-focus-within:text-whitish-opacity-60'
 
   return (
-    <div className={`grid w-full items-center gap-1 group ${className}`}>
+    <div
+      className={`pui-grid pui-w-full pui-items-center pui-gap-1 pui-group ${className}`}
+    >
       {label && (
         <Label variant={variant} htmlFor={inputId} className={labelClasses}>
           {label}
@@ -41,7 +43,7 @@ export function InputWithLabel({
         type={type}
         id={inputId}
         placeholder={placeholder}
-        className="focus:outline-none"
+        className="focus:pui-outline-none"
       />
     </div>
   )

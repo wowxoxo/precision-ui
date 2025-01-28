@@ -12,23 +12,23 @@ import { Slot } from '@radix-ui/react-slot'
 import { cva, type VariantProps } from 'class-variance-authority'
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center whitespace-nowrap rounded-full typo_variant_button ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed border-none',
+  'pui-inline-flex pui-items-center pui-justify-center pui-whitespace-nowrap pui-rounded-full typo_variant_button pui-ring-offset-background pui-transition-colors focus-visible:pui-outline-none focus-visible:pui-ring-2 focus-visible:pui-ring-ring focus-visible:pui-ring-offset-2 pui-disabled:pointer-events-none pui-disabled:opacity-50 pui-disabled:cursor-not-allowed pui-border-none',
   {
     variants: {
       variant: {
-        default: 'bg-white text-navy hover:bg-navy-opacity-4',
+        default: 'pui-bg-white pui-text-navy hover:pui-bg-navy-opacity-4',
         destructive:
-          'bg-destructive text-destructive-foreground hover:bg-destructive/90',
+          'pui-bg-destructive pui-text-destructive-foreground hover:pui-bg-destructive/90',
         outline:
-          'border border-input bg-background hover:bg-accent hover:text-accent-foreground',
-        ghost: 'hover:bg-accent hover:text-accent-foreground',
-        link: 'text-primary underline-offset-4 hover:underline',
+          'pui-border pui-border-input pui-bg-background hover:pui-bg-accent hover:pui-text-accent-foreground',
+        ghost: 'hover:pui-bg-accent hover:pui-text-accent-foreground',
+        link: 'pui-text-primary pui-underline-offset-4 hover:pui-underline',
       },
       size: {
-        default: 'h-10 px-4 py-2',
-        sm: 'h-9 rounded-md px-3',
-        lg: 'h-11 rounded-md px-8',
-        icon: 'h-10 w-10',
+        default: 'pui-h-10 pui-px-4 pui-py-2',
+        sm: 'pui-h-9 pui-rounded-md pui-px-3',
+        lg: 'pui-h-11 pui-rounded-md pui-px-8',
+        icon: 'pui-h-10 pui-w-10',
       },
     },
     defaultVariants: {
@@ -196,7 +196,7 @@ const Carousel = React.forwardRef<
         <div
           ref={ref}
           onKeyDownCapture={handleKeyDown}
-          className={cn('relative', className)}
+          className={cn('pui-relative', className)}
           role="region"
           aria-roledescription="carousel"
           {...props}
@@ -204,19 +204,19 @@ const Carousel = React.forwardRef<
           {children}
 
           {/* Scroll Progress Indicator */}
-          <div className="relative w-full mt-4 h-1 bg-gray-300 rounded-full overflow-hidden md:max-w-3xl mx-auto">
+          <div className="pui-relative pui-w-full pui-mt-4 pui-h-1 pui-bg-gray-300 pui-rounded-full pui-overflow-hidden md:pui-max-w-3xl pui-mx-auto">
             <div
-              className="absolute top-0 left-0 h-full w-full bg-navy rounded-full transition-transform duration-0"
+              className="pui-absolute pui-top-0 pui-left-0 pui-h-full pui-w-full pui-bg-navy pui-rounded-full pui-transition-transform pui-duration-0"
               style={{
                 transform: `translateX(${scrollProgress - 100}%)`,
               }}
             ></div>
           </div>
 
-          <div className="embla__controls max-w-sm mx-auto mt-6 flex justify-center gap-4">
+          <div className="embla__controls pui-max-w-sm pui-mx-auto pui-mt-6 pui-flex pui-justify-center pui-gap-4">
             <div className="embla__buttons">
-              <CarouselPrevious className="relative left-auto top-auto right-auto translate-y-0" />
-              <CarouselNext className="relative left-auto top-auto right-auto translate-y-0" />
+              <CarouselPrevious className="pui-relative pui-left-auto pui-top-auto pui-right-auto pui-translate-y-0" />
+              <CarouselNext className="pui-relative pui-left-auto pui-top-auto pui-right-auto pui-translate-y-0" />
             </div>
 
             <div className="embla__progress">
@@ -260,12 +260,12 @@ const CarouselContent = React.forwardRef<
   const { carouselRef, orientation } = useCarousel()
 
   return (
-    <div ref={carouselRef} className="overflow-hidden">
+    <div ref={carouselRef} className="pui-overflow-hidden">
       <div
         ref={ref}
         className={cn(
-          'flex',
-          orientation === 'horizontal' ? '-ml-4' : '-mt-4 flex-col',
+          'pui-flex',
+          orientation === 'horizontal' ? '-pui-ml-4' : '-pui-mt-4 pui-flex-col',
           className
         )}
         {...props}
@@ -287,8 +287,8 @@ const CarouselItem = React.forwardRef<
       role="group"
       aria-roledescription="slide"
       className={cn(
-        'min-w-0 shrink-0 grow-0 basis-full',
-        orientation === 'horizontal' ? 'pl-4' : 'pt-4',
+        'pui-min-w-0 pui-shrink-0 pui-grow-0 pui-basis-full',
+        orientation === 'horizontal' ? 'pui-pl-4' : 'pui-pt-4',
         className
       )}
       {...props}
@@ -309,7 +309,7 @@ const CarouselPrevious = React.forwardRef<
       variant={variant}
       size={size}
       className={cn(
-        'absolute h-8 w-8 rounded-full',
+        'pui-absolute pui-h-8 pui-w-8 pui-rounded-full',
         orientation === 'horizontal'
           ? '-left-12 top-1/2 -translate-y-1/2'
           : '-top-12 left-1/2 -translate-x-1/2 rotate-90',
@@ -338,7 +338,7 @@ const CarouselNext = React.forwardRef<
       variant={variant}
       size={size}
       className={cn(
-        'absolute h-8 w-8 rounded-full',
+        'pui-absolute pui-h-8 pui-w-8 pui-rounded-full',
         orientation === 'horizontal'
           ? '-right-12 top-1/2 -translate-y-1/2'
           : '-bottom-12 left-1/2 -translate-x-1/2 rotate-90',

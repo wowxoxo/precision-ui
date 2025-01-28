@@ -5,12 +5,12 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils/cn'
 
 const labelVariants = cva(
-  'typo_variant_h6 leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 duration-200',
+  'typo_variant_h6 pui-leading-none pui-peer-disabled:cursor-not-allowed pui-peer-disabled:opacity-70 pui-duration-200',
   {
     variants: {
       variant: {
-        default: 'text-navy',
-        blue: 'text-whitish',
+        default: 'pui-text-navy',
+        blue: 'pui-text-whitish',
       },
     },
     defaultVariants: {

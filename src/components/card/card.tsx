@@ -4,16 +4,15 @@ type CardProps = {
   title: string
   description: string
 }
-
 export const Card = ({ title, description }: CardProps) => {
   return (
     <div className="ui">
-      <div className="ui-bg-white ui-rounded-lg ui-shadow-lg ui-overflow-hidden sm:max-w-xs lg:max-w-sm xl:max-w-md">
-        <div className="ui-px-6 ui-py-4">
-          <h2 className="ui-font-sans ui-text-red-700 ui-font-bold ui-text-xl ui-mb-2">
+      <div className="ui pui-bg-white pui-rounded-lg pui-shadow-lg pui-overflow-hidden sm:pui-max-w-xs lg:pui-max-w-sm xl:pui-max-w-md">
+        <div className="ui pui-px-6 pui-py-4">
+          <h2 className="pui-font-sans pui-text-red-700 pui-font-bold pui-text-xl pui-mb-2">
             {title}
           </h2>
-          <p className="ui-bg-white ui-border-none ui-rounded-none ui-font-sans ui-text-gray-700 ui-text-base">
+          <p className="pui-bg-white pui-border-none pui-rounded-none pui-font-sans pui-text-gray-700 pui-text-base">
             {description}
           </p>
         </div>

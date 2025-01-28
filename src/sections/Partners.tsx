@@ -51,16 +51,16 @@ const Partners: React.FC<PartnersProps> = ({
       withTopMargin={withTopMargin}
       withBottomMargin={withBottomMargin}
     >
-      <div className="grid grid-cols-2 auto-rows-[222px] sm:grid-cols-3 lg:grid-cols-6 gap-3 mt-4">
-        <div className="p-6 bg-whitish rounded-lg col-span-3 row-start-1 row-end-3 flex flex-col justify-between">
+      <div className="pui-grid pui-grid-cols-2 pui-auto-rows-[222px] sm:pui-grid-cols-3 lg:pui-grid-cols-6 pui-gap-3 pui-mt-4">
+        <div className="pui-p-6 pui-bg-whitish pui-rounded-lg pui-col-span-3 pui-row-start-1 pui-row-end-3 pui-flex pui-flex-col pui-justify-between">
           <Heading level={2}>
             Более 500{' '}
-            <span className="text-navy-opacity-40">
+            <span className="pui-text-navy-opacity-40">
               компаний работают с нами
             </span>
           </Heading>
 
-          <Text variant="body" className="w-[87.5%]">
+          <Text variant="body" className="pui-w-[87.5%]">
             Среди наших клиентов — крупнейшие холдинги, государственные
             учреждения, финансовые и производственные компании, а также более 50
             000 представителей малого и среднего бизнеса.
@@ -69,13 +69,13 @@ const Partners: React.FC<PartnersProps> = ({
         {partners.map((partner, index) => (
           <div
             key={index}
-            className="rounded-lg border border-navy-opacity-16 flex align-middle justify-center"
+            className="pui-rounded-lg pui-border pui-border-navy-opacity-16 pui-flex pui-align-middle pui-justify-center"
           >
             <ImageWrapper src={partner} width={160} height={64} alt={partner} />
           </div>
         ))}
-        <div className="bg-whitish rounded-lg flex items-center justify-center">
-          <Text variant="body" className="text-navy-opacity-40">
+        <div className="pui-bg-whitish pui-rounded-lg pui-flex pui-items-center pui-justify-center">
+          <Text variant="body" className="pui-text-navy-opacity-40">
             500+
           </Text>
         </div>

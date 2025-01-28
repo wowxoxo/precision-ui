@@ -3,12 +3,12 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils/cn'
 import { getAdapter } from '@/Adapters'
 
-const linkVariants = cva('duration-200 transition-colors', {
+const linkVariants = cva('pui-duration-200 pui-transition-colors', {
   variants: {
     variant: {
-      default: 'text-turquoise link',
-      navy: 'text-navy link_navy',
-      white: 'text-white link_white',
+      default: 'pui-text-turquoise link',
+      navy: 'pui-text-navy link_navy',
+      white: 'pui-text-white link_white',
     },
   },
   defaultVariants: {

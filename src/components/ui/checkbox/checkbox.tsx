@@ -7,14 +7,14 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils/cn'
 
 const checkboxVariants = cva(
-  'peer h-[18px] w-[18px] shrink-0 rounded-sm border ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 duration-200',
+  'pui-peer pui-h-[18px] pui-w-[18px] pui-shrink-0 pui-rounded-sm pui-border pui-ring-offset-background focus-visible:pui-outline-none focus-visible:pui-ring-2 focus-visible:pui-ring-ring focus-visible:pui-ring-offset-2 pui-disabled:cursor-not-allowed pui-disabled:opacity-50 pui-duration-200',
   {
     variants: {
       variant: {
         default:
-          'border-navy hover:bg-navy-opacity-8 hover:data-[state=checked]:bg-navy-opacity-80 data-[state=checked]:bg-navy data-[state=checked]:text-whitish',
+          'pui-border-navy hover:pui-bg-navy-opacity-8 hover:data-[state=checked]:pui-bg-navy-opacity-80 data-[state=checked]:pui-bg-navy data-[state=checked]:pui-text-whitish',
         white:
-          'border-whitish hover:bg-whitish-opacity-16 text-whitish hover:data-[state=checked]:bg-whitish-opacity-80 data-[state=checked]:bg-whitish data-[state=checked]:text-navy',
+          'pui-border-whitish hover:pui-bg-whitish-opacity-16 pui-text-whitish hover:data-[state=checked]:pui-bg-whitish-opacity-80 data-[state=checked]:pui-bg-whitish data-[state=checked]:pui-text-navy',
       },
     },
     defaultVariants: {
@@ -39,9 +39,11 @@ const Checkbox = React.forwardRef<
     {...props}
   >
     <CheckboxPrimitive.Indicator
-      className={cn('flex items-center justify-center text-current')}
+      className={cn(
+        'pui-flex pui-items-center pui-justify-center pui-text-current'
+      )}
     >
-      <Check16X16 className="h-[18px] w-[18px] relative bottom-[1px]" />
+      <Check16X16 className="pui-h-[18px] pui-w-[18px] pui-relative pui-bottom-[1px]" />
     </CheckboxPrimitive.Indicator>
   </CheckboxPrimitive.Root>
 ))

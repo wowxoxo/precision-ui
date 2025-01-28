@@ -16,9 +16,9 @@ import { getAdapter } from '@/Adapters'
 const contentContainerVariants = cva('', {
   variants: {
     size: {
-      default: 'pb-32',
-      medium: 'pb-[116px]',
-      small: 'pb-10',
+      default: 'pui-pb-32',
+      medium: 'pui-pb-[116px]',
+      small: 'pui-pb-10',
     },
   },
   defaultVariants: {
@@ -29,9 +29,9 @@ const contentContainerVariants = cva('', {
 const sliderContentVariants = cva('', {
   variants: {
     size: {
-      default: 'pb-[76px]',
-      medium: 'pb-6',
-      small: 'pb-6',
+      default: 'pui-pb-[76px]',
+      medium: 'pui-pb-6',
+      small: 'pui-pb-6',
     },
   },
   defaultVariants: {
@@ -42,7 +42,7 @@ const sliderContentVariants = cva('', {
 const titleVariants = cva('', {
   variants: {
     size: {
-      default: 'mb-5',
+      default: 'pui-mb-5',
       medium: '',
       small: '',
     },
@@ -122,14 +122,14 @@ const childrenComponent = (componentType: 'search-news') => {
       return (
         <div
           data-test-id="search-news"
-          className="w-full h-full flex justify-center items-center"
+          className="pui-w-full pui-h-full pui-flex pui-justify-center pui-items-center"
         >
           <SearchInputWithButton
             placeholder="Фильтр по тарифам"
             onChange={(event) => {
               console.log(event.target.value)
             }}
-            className="w-[456px]"
+            className="pui-w-[456px]"
             // className="h-16 w-72 mt-2 bg-whitish"
           />
         </div>
@@ -177,51 +177,51 @@ const Hero: React.FC<HeroProps> = ({
   const ImageWrapper = getAdapter('ImageWrapper')
 
   return (
-    <section className="container relative">
-      <div className="mx-auto w-full h-[606px]1 bg-gradient-to-b from-navy to-sapphire text-white rounded-2xl px-6 relative overflow-hidden">
+    <section className="pui-container pui-relative">
+      <div className="pui-mx-auto pui-w-full pui-h-[606px]1 pui-bg-gradient-to-b pui-from-navy pui-to-sapphire pui-text-white pui-rounded-2xl pui-px-6 pui-relative pui-overflow-hidden">
         <div
           data-test-id="content-container"
           className={cn(
-            'w-full relative z-20 grid grid-cols-1 sm:grid-cols-9 pb-32',
+            'pui-w-full pui-relative pui-z-20 pui-grid pui-grid-cols-1 sm:pui-grid-cols-9 pui-pb-32',
             contentContainerVariants({ size })
           )}
         >
           {/* Navigation */}
-          <div className="right-divider_with-tongue1 col-span-2 mt-6 pr-4 relative">
+          <div className="right-divider_with-tongue1 pui-col-span-2 pui-mt-6 pui-pr-4 pui-relative">
             {breadcrumbs && <Breadcrumbs list={breadcrumbs} />}
           </div>
 
           {/* Slider Content */}
           <div
             className={cn(
-              'w-auto p-10 pt-32 flex flex-col justify-center items-start max-w-[800px] col-span-7 border-[1px] border-t-0 border-r-0 border-b-0 border-whitish-opacity-16 border-solid',
+              'pui-w-auto pui-p-10 pui-pt-32 pui-flex pui-flex-col pui-justify-center pui-items-start pui-max-w-[800px] pui-col-span-7 pui-border-[1px] pui-border-t-0 pui-border-r-0 pui-border-b-0 pui-border-whitish-opacity-16 pui-border-solid',
               sliderContentVariants({ size })
             )}
           >
             <Heading
               level={1}
               as={'h1'}
-              className={cn('max-w-[694px]', titleVariants({ size }))}
+              className={cn('pui-max-w-[694px]', titleVariants({ size }))}
             >
               <SafeHtmlRenderer html={title} />
             </Heading>
 
-            <div className="space-y-10">
+            <div className="pui-space-y-10">
               <Text
                 variant="body"
-                className={`text-whitish-opacity-60 max-w-[460px] ${
-                  size === 'medium' ? 'mt-5' : ''
+                className={`pui-text-whitish-opacity-60 pui-max-w-[460px] ${
+                  size === 'medium' ? 'pui-mt-5' : ''
                 }`}
               >
                 {desc}
               </Text>
 
               {(price || oldPrice) && (
-                <div className="flex space-x-5 items-baseline">
+                <div className="pui-flex pui-space-x-5 pui-items-baseline">
                   {oldPrice && (
                     <Text
                       variant="lead-text"
-                      className="text-whitish-opacity-32 line-through"
+                      className="pui-text-whitish-opacity-32 pui-line-through"
                     >
                       {oldPrice}
                     </Text>
@@ -233,7 +233,7 @@ const Hero: React.FC<HeroProps> = ({
               )}
 
               {buttons && (
-                <div className="flex gap-4 mt-12">
+                <div className="pui-flex pui-gap-4 pui-mt-12">
                   {buttons.map((button) => (
                     <HeroButton key={button.text} {...button} />
                   ))}
@@ -242,7 +242,7 @@ const Hero: React.FC<HeroProps> = ({
             </div>
 
             {childrenComponentType && (
-              <div className="mt-5">
+              <div className="pui-mt-5">
                 {childrenComponent(childrenComponentType)}
               </div>
             )}
@@ -250,21 +250,21 @@ const Hero: React.FC<HeroProps> = ({
         </div>
 
         {bottomButtons && (
-          <div className="flex gap-4 absolute bottom-8 z-30 w-[96%] mx-auto">
+          <div className="pui-flex pui-gap-4 pui-absolute pui-bottom-8 pui-z-30 pui-w-[96%] pui-mx-auto">
             {bottomButtons.map((button) => (
               <HeroButton
                 key={button.text}
                 theme="opacity"
                 {...button}
-                className="w-full backdrop-blur-[8px]"
-                linkClassName="w-full"
+                className="pui-w-full pui-backdrop-blur-[8px]"
+                linkClassName="pui-w-full"
               />
             ))}
           </div>
         )}
 
         {image && (
-          <div className="absolute bottom-0 right-6 floating">
+          <div className="pui-absolute pui-bottom-0 pui-right-6 floating">
             <ImageWrapper
               src={image}
               alt={title}

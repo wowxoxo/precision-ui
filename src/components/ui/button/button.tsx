@@ -5,23 +5,23 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils/cn'
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center whitespace-nowrap rounded-full typo_variant_button ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed border-none',
+  'pui-inline-flex pui-items-center pui-justify-center pui-whitespace-nowrap pui-rounded-full typo_variant_button pui-ring-offset-background pui-transition-colors focus-visible:pui-outline-none focus-visible:pui-ring-2 focus-visible:pui-ring-ring focus-visible:pui-ring-offset-2 pui-disabled:pointer-events-none pui-disabled:opacity-50 pui-disabled:cursor-not-allowed pui-border-none',
   {
     variants: {
       variant: {
-        default: 'bg-white text-navy hover:bg-navy-opacity-4',
+        default: 'pui-bg-white pui-text-navy hover:pui-bg-navy-opacity-4',
         destructive:
-          'bg-destructive text-destructive-foreground hover:bg-destructive/90',
+          'pui-bg-destructive pui-text-destructive-foreground hover:pui-bg-destructive/90',
         outline:
-          'border border-input bg-background hover:bg-accent hover:text-accent-foreground',
-        ghost: 'hover:bg-accent hover:text-accent-foreground',
-        link: 'text-primary underline-offset-4 hover:underline',
+          'pui-border pui-border-input pui-bg-background hover:pui-bg-accent hover:pui-text-accent-foreground',
+        ghost: 'hover:pui-bg-accent hover:pui-text-accent-foreground',
+        link: 'pui-text-primary pui-underline-offset-4 hover:pui-underline',
       },
       size: {
-        default: 'h-10 px-4 py-2',
-        sm: 'h-9 rounded-md px-3',
-        lg: 'h-11 rounded-md px-8',
-        icon: 'h-10 w-10',
+        default: 'pui-h-10 pui-px-4 pui-py-2',
+        sm: 'pui-h-9 pui-rounded-md pui-px-3',
+        lg: 'pui-h-11 pui-rounded-md pui-px-8',
+        icon: 'pui-h-10 pui-w-10',
       },
     },
     defaultVariants: {

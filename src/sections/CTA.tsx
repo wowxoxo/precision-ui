@@ -17,24 +17,24 @@ const CTA: React.FC<CTAProps> = ({ title, desc, img, buttons }) => {
   const ImageWrapper = getAdapter('ImageWrapper')
 
   return (
-    <section className="container">
-      <div className="mx-auto w-full h-[606px]1 bg-gradient-to-b from-navy to-sapphire text-white rounded-2xl px-6 relative xl:min-h-[500px]">
-        <div className="space-y-12 relative z-10">
-          <div className="w-full grid grid-cols-1 lg:grid-cols-2">
+    <section className="pui-container">
+      <div className="pui-mx-auto pui-w-full pui-h-[606px] pui-bg-gradient-to-b pui-from-navy pui-to-sapphire pui-text-white pui-rounded-2xl pui-px-6 pui-relative xl:pui-min-h-[500px]">
+        <div className="pui-space-y-12 pui-relative pui-z-10">
+          <div className="pui-w-full pui-grid pui-grid-cols-1 lg:pui-grid-cols-2">
             <div></div>
-            <div className="space-y-12 mb-24 mt-[128px] pr-8 lg:pr-8 xl:pr-28">
-              <div className=" space-y-6">
+            <div className="pui-space-y-12 pui-mb-24 pui-mt-[128px] pui-pr-8 lg:pui-pr-8 xl:pui-pr-28">
+              <div className="pui-space-y-6">
                 <Heading level={2}>{title}</Heading>
                 <Text
                   variant="body"
-                  className="text-whitish-opacity-60"
+                  className="pui-text-whitish-opacity-60"
                   as="div"
                 >
                   <SafeHtmlRenderer html={desc} />
                 </Text>
               </div>
 
-              <div className="flex space-x-4">
+              <div className="pui-flex pui-space-x-4">
                 {buttons.map((button, index) => (
                   <HeroButton key={index} {...button} />
                 ))}
@@ -44,7 +44,7 @@ const CTA: React.FC<CTAProps> = ({ title, desc, img, buttons }) => {
         </div>
 
         {img && (
-          <div className="absolute bottom-0 left-0 z-0">
+          <div className="pui-absolute pui-bottom-0 pui-left-0 pui-z-0">
             <ImageWrapper
               src={img}
               alt={title}

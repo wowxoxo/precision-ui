@@ -6,15 +6,17 @@ import { cn } from '@/lib/utils/cn'
 import { iconDefiner, IconName } from '../icon'
 
 const buttonVariants = cva(
-  'rounded-lg p-[10px] transition-all hover:rounded-[24px]',
+  'pui-rounded-lg pui-p-[10px] pui-transition-all hover:pui-rounded-[24px]',
   {
     variants: {
       variant: {
-        default: 'text-navy bg-navy-opacity-4',
-        outline: 'text-navy border border-navy-opacity-32 hover:bg-white',
-        white: 'text-white bg-whitish-opacity-8 hover:bg-whitish-opacity-16',
+        default: 'pui-text-navy pui-bg-navy-opacity-4',
+        outline:
+          'pui-text-navy pui-border pui-border-navy-opacity-32 hover:pui-bg-white',
+        white:
+          'pui-text-white pui-bg-whitish-opacity-8 hover:pui-bg-whitish-opacity-16',
         outlineWhite:
-          'text-white border border-whitish-opacity-32 hover:bg-white hover:text-navy',
+          'pui-text-white pui-border pui-border-whitish-opacity-32 hover:pui-bg-white hover:pui-text-navy',
       },
     },
     defaultVariants: {

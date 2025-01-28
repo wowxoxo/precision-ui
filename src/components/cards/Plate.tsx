@@ -8,23 +8,26 @@ import Text from '../core/typography/Text'
 import { cn } from '@/lib/utils/cn'
 import { getAdapter } from '@/Adapters'
 
-const plateCardVariants = cva('rounded-lg p-6 min-h-[190px] h-full', {
-  variants: {
-    variant: {
-      default: 'bg-white',
-      sapphire: 'bg-sapphire text-whitish',
+const plateCardVariants = cva(
+  'pui-rounded-lg pui-p-6 pui-min-h-[190px] pui-h-full',
+  {
+    variants: {
+      variant: {
+        default: 'pui-bg-white',
+        sapphire: 'pui-bg-sapphire pui-text-whitish',
+      },
     },
-  },
-  defaultVariants: {
-    variant: 'default',
-  },
-})
+    defaultVariants: {
+      variant: 'default',
+    },
+  }
+)
 
 const descVariants = cva('', {
   variants: {
     variant: {
-      default: 'text-navy-opacity-60',
-      sapphire: 'text-whitish-opacity-60',
+      default: 'pui-text-navy-opacity-60',
+      sapphire: 'pui-text-whitish-opacity-60',
     },
   },
   defaultVariants: {
@@ -47,7 +50,7 @@ const PlateCard: React.FC<PlateCardProps> = ({
   detailsText,
 }) => {
   const content = (
-    <div className="space-y-2">
+    <div className="pui-space-y-2">
       <Heading level={4} as="div">
         {title}
       </Heading>
@@ -64,10 +67,10 @@ const PlateCard: React.FC<PlateCardProps> = ({
       href={link}
       className={cn(
         plateCardVariants({ variant }),
-        'transition-all bottom-0 hover:bottom-1 transform duration-300 relative hover:scale1-[1.005]'
+        'pui-transition-all pui-bottom-0 hover:pui-bottom-1 pui-transform pui-duration-300 pui-relative hover:pui-scale1-[1.005]'
       )}
     >
-      <div className="flex flex-col justify-between h-full items-start">
+      <div className="pui-flex pui-flex-col pui-justify-between pui-h-full pui-items-start">
         {content}
         {detailsText && (
           <ButtonText

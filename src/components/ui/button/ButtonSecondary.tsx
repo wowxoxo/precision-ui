@@ -4,20 +4,20 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils/cn'
 
 const buttonVariants = cva(
-  'transition-all rounded-lg hover:rounded-[24px] border',
+  'pui-transition-all pui-duration-200 pui-rounded-lg hover:pui-rounded-[24px] pui-border',
   {
     variants: {
       variant: {
-        default: 'bg-navy text-white',
-        white: 'bg-white text-navy',
+        default: 'pui-bg-navy pui-text-white',
+        white: 'pui-bg-white pui-text-navy',
         outline:
-          'bg-transparent text-navy border border-solid border-navy-opacity-32',
+          'pui-bg-transparent pui-text-navy pui-border pui-border-solid pui-border-navy-opacity-32',
         outlineWhite:
-          'bg-transparent text-white border border-solid border-whitish-opacity-32',
+          'pui-bg-transparent pui-text-white pui-border pui-border-solid pui-border-whitish-opacity-32',
       },
       size: {
-        default: 'px-[18px] py-[15px]',
-        sm: 'px-[13.5px] py-[11px] hover:bg-white hover:text-navy',
+        default: 'pui-px-[18px] pui-py-[15px]',
+        sm: 'pui-px-[13.5px] pui-py-[11px] hover:pui-bg-white hover:pui-text-navy',
       },
     },
     defaultVariants: {

@@ -14,21 +14,25 @@ const Advantage: React.FC<AdvantageProps> = ({ title, desc, icon }) => {
   const ImageWrapper = getAdapter('ImageWrapper')
 
   return (
-    <div className="p-6 bg-whitish rounded-lg h-full">
-      <div className="p-4 bg-turquoise-opacity-20 rounded-lg mb-12 inline-flex">
+    <div className="pui-p-6 pui-bg-whitish pui-rounded-lg pui-h-full">
+      <div className="pui-p-4 pui-bg-turquoise-opacity-20 pui-rounded-lg pui-mb-12 pui-inline-flex">
         <ImageWrapper
           src={icon}
           alt={`Изображение для ${title}`}
           width={32}
           height={32}
-          className="object-contain"
+          className="pui-object-contain"
         />
       </div>
-      <Heading level={5} className="mb-2">
+      <Heading level={5} className="pui-mb-2">
         {title}
       </Heading>
       {desc && (
-        <Text variant="small-body" className="text-navy-opacity-60" as={'div'}>
+        <Text
+          variant="small-body"
+          className="pui-text-navy-opacity-60"
+          as={'div'}
+        >
           <SafeHtmlRenderer html={desc} />
         </Text>
       )}

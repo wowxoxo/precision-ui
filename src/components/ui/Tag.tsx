@@ -3,14 +3,14 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils/cn'
 
 const tagVariants = cva(
-  'inline-flex items-center rounded-sm pt-[9px] pb-[4px] px-[13px] typo_variant_caption',
+  'pui-inline-flex pui-items-center pui-rounded-sm pui-pt-[9px] pui-pb-[4px] pui-px-[13px] typo_variant_caption',
   {
     variants: {
       variant: {
-        default: 'bg-navy-opacity-4 text-navy',
-        turquoise: 'bg-turquoise-opacity-16 text-turquoise',
-        white: 'bg-white text-navy',
-        lightWhite: 'bg-whitish-opacity-8 text-white',
+        default: 'pui-bg-navy-opacity-4 pui-text-navy',
+        turquoise: 'pui-bg-turquoise-opacity-16 pui-text-turquoise',
+        white: 'pui-bg-white pui-text-navy',
+        lightWhite: 'pui-bg-whitish-opacity-8 pui-text-white',
       },
     },
     defaultVariants: {

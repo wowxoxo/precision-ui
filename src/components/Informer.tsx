@@ -21,16 +21,16 @@ interface InformerProps {
 const Informer = ({ content }: InformerProps) => {
   return (
     <TooltipProvider delayDuration={0}>
-      <div className="hidden xl:block">
+      <div className="pui-hidden xl:pui-block">
         <Tooltip>
           <TooltipTrigger asChild>
             <Button
               variant="ghost"
               size="icon"
-              className="rounded-full group/informer h-8 w-8"
+              className="pui-rounded-full pui-group/informer pui-h-8 pui-w-8"
             >
-              <Info className="w-5 h-5 text-navy-opacity-40 group-hover/informer:text-navy transition-colors" />
-              <span className="sr-only">Warning</span>
+              <Info className="pui-w-5 pui-h-5 pui-text-navy-opacity-40 pui-group-hover/informer:text-navy pui-transition-colors" />
+              <span className="pui-sr-only">Warning</span>
             </Button>
           </TooltipTrigger>
           <TooltipContent>
@@ -38,19 +38,19 @@ const Informer = ({ content }: InformerProps) => {
           </TooltipContent>
         </Tooltip>
       </div>
-      <div className="block xl:hidden">
+      <div className="pui-block xl:pui-hidden">
         <Popover>
           <PopoverTrigger asChild>
             <Button
               variant="ghost"
               size="icon"
-              className="rounded-full group/informer h-8 w-8"
+              className="pui-rounded-full pui-group/informer pui-h-8 pui-w-8"
             >
-              <Info className="w-5 h-5 text-navy-opacity-40 group-hover/informer:text-navy transition-colors" />
-              <span className="sr-only">Warning</span>
+              <Info className="pui-w-5 pui-h-5 pui-text-navy-opacity-40 pui-group-hover/informer:text-navy pui-transition-colors" />
+              <span className="pui-sr-only">Warning</span>
             </Button>
           </PopoverTrigger>
-          <PopoverContent className="px-3 py-1.5">
+          <PopoverContent className="pui-px-3 pui-py-1.5">
             <div>{content}</div>
           </PopoverContent>
         </Popover>

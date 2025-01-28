@@ -19,23 +19,23 @@ export const CarouselWrapper: React.FC<{
   const carouselColumnsClasses = (columns: number = 3) => {
     switch (columns) {
       case 2:
-        return 'md:basis-1/2 lg:basis-1/2'
+        return 'md:pui-basis-1/2 lg:pui-basis-1/2'
       case 3:
-        return 'md:basis-1/2 lg:basis-1/3'
+        return 'md:pui-basis-1/2 lg:pui-basis-1/3'
       case 4:
-        return 'md:basis-1/2 lg:basis-1/4'
+        return 'md:pui-basis-1/2 lg:pui-basis-1/4'
       default:
-        return 'md:basis-1/2 lg:basis-1/3'
+        return 'md:pui-basis-1/2 lg:pui-basis-1/3'
     }
   }
 
-  const carouselGridClasses = `pl-4 md:basis-1/2 ${carouselColumnsClasses(
+  const carouselGridClasses = `pui-pl-4 md:pui-basis-1/2 ${carouselColumnsClasses(
     columns
   )}`
 
   return (
-    <Carousel className={cn('my-carousel w-full', className)}>
-      <CarouselContent className="-ml-4">
+    <Carousel className={cn('my-carousel pui-w-full', className)}>
+      <CarouselContent className="-pui-ml-4">
         {items.map((item, index) => (
           <CarouselItem key={index} className={carouselGridClasses}>
             {renderItem(item, index)}
@@ -44,9 +44,9 @@ export const CarouselWrapper: React.FC<{
       </CarouselContent>
 
       {showControlsOnDesktop && (
-        <div className="flex justify-center mt-4">
-          <CarouselPrevious className="relative left-auto top-auto right-auto translate-y-0" />
-          <CarouselNext className="relative left-auto top-auto right-auto translate-y-0" />
+        <div className="pui-flex pui-justify-center pui-mt-4">
+          <CarouselPrevious className="pui-relative pui-left-auto pui-top-auto pui-right-auto pui-translate-y-0" />
+          <CarouselNext className="pui-relative pui-left-auto pui-top-auto pui-right-auto pui-translate-y-0" />
         </div>
       )}
     </Carousel>

@@ -34,13 +34,13 @@ const FeaturedCard: React.FC<FeaturedCardProps> = ({
   detailsText,
 }) => {
   const cardStyles = cva(
-    'p-6 pb-4 bg-whitish rounded-lg transition-all bottom-0 transform duration-300 hover:scale1-[1.015] border border-transparent hover:border-sapphire1 relative hover:bottom-1 cursor-pointer col-span-1 flex flex-col justify-between items-start sm:min-h-[264px] h-full',
+    'pui-p-6 pui-pb-4 pui-bg-whitish pui-rounded-lg pui-transition-all pui-bottom-0 pui-transform pui-duration-300 hover:pui-scale1-[1.015] pui-border pui-border-transparent hover:pui-border-sapphire1 pui-relative hover:pui-bottom-1 pui-cursor-pointer pui-col-span-1 pui-flex pui-flex-col pui-justify-between pui-items-start sm:pui-min-h-[264px] pui-h-full',
     {
       variants: {
         size: {
-          1: 'sm:col-span-1',
-          2: 'sm:col-span-2',
-          3: 'sm:col-span-3',
+          1: 'sm:pui-col-span-1',
+          2: 'sm:pui-col-span-2',
+          3: 'sm:pui-col-span-3',
         },
       },
       defaultVariants: {
@@ -54,32 +54,34 @@ const FeaturedCard: React.FC<FeaturedCardProps> = ({
   return (
     <LinkWrapper href={link} className={cn(cardStyles({ size, className }))}>
       <div data-test-id="content-container">
-        <div className="flex space-x-2">
+        <div className="pui-flex pui-space-x-2">
           {tags.map((tag, index) => (
             <Tag key={index} variant={tag.color}>
               {tag.title}
             </Tag>
           ))}
         </div>
-        <div className="space-y-2">
-          <Heading level={5} className="mt-6" as={'div'}>
+        <div className="pui-space-y-2">
+          <Heading level={5} className="pui-mt-6" as={'div'}>
             {title}
           </Heading>
           {desc && (
-            <Text variant="small-body" className="text-navy-opacity-60">
+            <Text variant="small-body" className="pui-text-navy-opacity-60">
               {desc}
             </Text>
           )}
         </div>
       </div>
       {/* TODO: here is the button, should be a link */}
-      <div className="mt-2 sm:mt-6 space-y-6 w-full">
-        {showDivider && <div className="border-t border-navy-opacity-16"></div>}
-        <div className="flex space-x-4 items-baseline">
+      <div className="pui-mt-2 sm:pui-mt-6 pui-space-y-6 pui-w-full">
+        {showDivider && (
+          <div className="pui-border-t pui-border-navy-opacity-16"></div>
+        )}
+        <div className="pui-flex pui-space-x-4 pui-items-baseline">
           {oldPrice && (
             <Text
               variant="caption"
-              className="text-navy-opacity-40 line-through"
+              className="pui-text-navy-opacity-40 pui-line-through"
             >
               {oldPrice}
             </Text>

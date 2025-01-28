@@ -190,10 +190,10 @@ body {
 
 @layer base {
   * {
-    @apply border-border;
+    @apply pui-border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply pui-bg-background pui-text-foreground;
     font-feature-settings: 'rlig' 1, 'calt' 1;
   }
 }
@@ -217,7 +217,7 @@ body {
 
 @layer components {
   #__next {
-    @apply h-full;
+    @apply pui-h-full;
   }
 
   .container {

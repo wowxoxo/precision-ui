@@ -48,14 +48,14 @@ const SearchInput: React.FC<SearchInputProps> = ({
   }
 
   return (
-    <div className="relative w-full max-w-md">
+    <div className="pui-relative pui-w-full pui-max-w-md">
       {/* TODO: replace with icon from icon lib */}
-      <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+      <SearchIcon className="pui-absolute pui-left-3 pui-top-1/2 -pui-translate-y-1/2 pui-h-5 pui-w-5 pui-text-muted-foreground" />
       <Input
         ref={inputRef}
         id={id}
         placeholder={placeholder}
-        className={`w-full pl-10 pr-10 ${className}`}
+        className={`pui-w-full pui-pl-10 pui-pr-10 ${className}`}
         value={inputValue}
         onChange={handleInputChange}
         {...props}
@@ -64,12 +64,12 @@ const SearchInput: React.FC<SearchInputProps> = ({
         type="button"
         variant="ghost"
         size="icon"
-        className="absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground bg-navy-opacity-8 p-0 hover:bg-navy group"
+        className="pui-absolute pui-right-3 pui-top-1/2 -pui-translate-y-1/2 pui-h-5 pui-w-5 pui-text-muted-foreground pui-bg-navy-opacity-8 pui-p-0 hover:pui-bg-navy pui-group"
         onClick={handleClearClick}
         style={{ display: inputValue ? 'block' : 'none' }}
       >
         {/* <XIcon className="h-4 w-4 left-[2px] top-0 relative group-hover:text-whitish" /> */}
-        <Close16X16 className="h-[10px] w-[10px] left-[5px] top-0 relative group-hover:text-whitish" />
+        <Close16X16 className="pui-h-[10px] pui-w-[10px] pui-left-[5px] pui-top-0 pui-relative pui-group-hover:text-whitish" />
         <span className="sr-only">Очистить</span>
       </Button>
     </div>

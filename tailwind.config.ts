@@ -13,7 +13,12 @@ const config: Config = {
     './src/**/*.{ts,tsx}',
   ],
   safelist: ['dark'],
-  prefix: '',
+  prefix: 'pui-',
+  variants: {
+    extend: {
+      textColor: ['group-hover'], // Enable group-hover for textColor
+    },
+  },
   theme: {
     // todo: test in next app before use here
     screens: {

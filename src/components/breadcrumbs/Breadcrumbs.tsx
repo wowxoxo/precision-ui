@@ -1,28 +1,28 @@
-import Breadcrumb, { BreadcrumbProps } from "./Breadcrumb";
+import Breadcrumb, { BreadcrumbProps } from './Breadcrumb'
 
-import React from "react";
+import React from 'react'
 
 interface BreadcrumbsProps {
-  list: BreadcrumbProps[];
+  list: BreadcrumbProps[]
 }
 
 interface CustomInlineStyles extends React.CSSProperties {
-  "--counter"?: number;
+  '--counter'?: number
 }
 
 const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ list }) => {
   return (
-    <ul className="breadcrumbs space-y-2">
+    <ul className="breadcrumbs pui-space-y-2">
       {list.map((item, index) => (
         <li
           key={index}
-          style={{ "--counter": index + 1 } as CustomInlineStyles}
+          style={{ '--counter': index + 1 } as CustomInlineStyles}
         >
           <Breadcrumb {...item} />
         </li>
       ))}
     </ul>
-  );
-};
+  )
+}
 
-export default Breadcrumbs;
+export default Breadcrumbs

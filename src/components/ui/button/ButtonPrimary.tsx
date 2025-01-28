@@ -6,17 +6,18 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils/cn'
 
 const buttonVariants = cva(
-  'bg-white text-navy hover:bg-whitish-opacity-80 cursor-pointer',
+  'pui-bg-white pui-text-navy hover:pui-bg-whitish-opacity-80 pui-cursor-pointer',
   {
     variants: {
       theme: {
         default: '',
-        opacity: 'bg-whitish-opacity-16 text-white hover:bg-whitish-opacity-24',
-        sapphire: 'bg-sapphire text-white hover:bg-sapphire-hover',
+        opacity:
+          'pui-bg-whitish-opacity-16 pui-text-white hover:pui-bg-whitish-opacity-24',
+        sapphire: 'pui-bg-sapphire pui-text-white hover:pui-bg-sapphire-hover',
       },
       size: {
-        default: 'h-14 px-8 py-4 pr-2 gap-8 group',
-        defaultWithoutIcon: 'h-14 px-4 py-4',
+        default: 'pui-h-14 pui-px-8 pui-py-4 pui-pr-2 pui-gap-8 pui-group',
+        defaultWithoutIcon: 'pui-h-14 pui-px-4 pui-py-4',
       },
     },
     defaultVariants: {
@@ -27,17 +28,17 @@ const buttonVariants = cva(
 )
 
 const arrowContainerVariants = cva(
-  'rounded-full bg-navy-opacity-4 h-10 w-10 inline-flex items-center justify-center group-hover:bg-transparent duration-200',
+  'pui-rounded-full pui-bg-navy-opacity-4 pui-h-10 pui-w-10 pui-inline-flex pui-items-center pui-justify-center pui-group-hover:bg-transparent pui-duration-200',
   {
     variants: {
       theme: {
         default: '',
-        opacity: 'bg-whitish-opacity-8',
-        sapphire: 'bg-whitish-opacity-32',
+        opacity: 'pui-bg-whitish-opacity-8',
+        sapphire: 'pui-bg-whitish-opacity-32',
       },
       iconDirection: {
         default: '',
-        down: 'rotate-90',
+        down: 'pui-rotate-90',
       },
     },
     defaultVariants: {
@@ -75,7 +76,8 @@ const ButtonPrimary: React.FC<ButtonPrimaryProps> = ({
   // asChild = false,
   ...props
 }) => {
-  const containerStyles = 'flex justify-between items-center gap-8 w-full'
+  const containerStyles =
+    'pui-flex pui-justify-between pui-items-center pui-gap-8 pui-w-full'
   if (href) {
     return (
       <a href={href} className={linkClassName}>

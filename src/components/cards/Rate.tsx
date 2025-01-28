@@ -14,13 +14,13 @@ import { getAdapter } from '@/Adapters'
 import Informer from '../Informer'
 
 const rateCardVariants = cva(
-  'group p-6 rounded-lg min-h-[360px] flex flex-col justify-between h-full',
+  'pui-group pui-p-6 pui-rounded-lg pui-min-h-[360px] pui-flex pui-flex-col pui-justify-between pui-h-full',
   {
     variants: {
       variant: {
         default:
-          'text-navy bg-whitish hover1:bg-navy-opacity-4 hover1:text-navy',
-        navy: 'text-whitish bg-gradient-to-b from-navy to-sapphire hover1:from-sapphire hover1:to-navy',
+          'pui-text-navy pui-bg-whitish hover1:pui-bg-navy-opacity-4 hover1:pui-text-navy',
+        navy: 'pui-text-whitish pui-bg-gradient-to-b pui-from-navy pui-to-sapphire hover1:pui-from-sapphire hover1:pui-to-navy',
       },
     },
     defaultVariants: {
@@ -29,11 +29,11 @@ const rateCardVariants = cva(
   }
 )
 
-const dividerVariants = cva('w-full h-[1px]', {
+const dividerVariants = cva('pui-w-full pui-h-[1px]', {
   variants: {
     variant: {
-      default: 'bg-grey-1',
-      navy: 'bg-whitish-opacity-16',
+      default: 'pui-bg-grey-1',
+      navy: 'pui-bg-whitish-opacity-16',
     },
   },
   defaultVariants: {
@@ -44,8 +44,8 @@ const dividerVariants = cva('w-full h-[1px]', {
 const descVariants = cva('', {
   variants: {
     variant: {
-      default: 'text-navy-opacity-60',
-      navy: 'text-whitish-opacity-60',
+      default: 'pui-text-navy-opacity-60',
+      navy: 'pui-text-whitish-opacity-60',
     },
   },
   defaultVariants: {
@@ -120,7 +120,7 @@ const RateCard: React.FC<RateCardProps> = ({
     <div className={cn(rateCardVariants({ variant, className }))}>
       <div>
         {tags && (
-          <div className="flex space-x-2 mb-6">
+          <div className="pui-flex pui-space-x-2 pui-mb-6">
             {tags.map((tag, index) => (
               <Tag key={index} variant={tag.color}>
                 {tag.title}
@@ -128,9 +128,9 @@ const RateCard: React.FC<RateCardProps> = ({
             ))}
           </div>
         )}
-        <div className="space-y-12 mb-6">
-          <div className="space-y-4">
-            <div className="flex space-x-2 items-center relative">
+        <div className="pui-space-y-12 pui-mb-6">
+          <div className="pui-space-y-4">
+            <div className="pui-flex pui-space-x-2 pui-items-center pui-relative">
               <AppLink
                 href={link}
                 variant={variant === 'navy' ? 'white' : 'navy'}
@@ -141,11 +141,11 @@ const RateCard: React.FC<RateCardProps> = ({
               </AppLink>
               {titleInformer && <Informer content={titleInformer} />}
             </div>
-            <div className="flex space-x-4 items-baseline">
+            <div className="pui-flex pui-space-x-4 pui-items-baseline">
               {oldPrice && (
                 <Text
                   variant="caption"
-                  className="text-navy-opacity-40 line-through"
+                  className="pui-text-navy-opacity-40 pui-line-through"
                 >
                   {oldPrice}
                 </Text>
@@ -155,7 +155,7 @@ const RateCard: React.FC<RateCardProps> = ({
               </Heading>
             </div>
           </div>
-          <div className="space-y-4">
+          <div className="pui-space-y-4">
             <div className={cn(dividerVariants({ variant }))}></div>
             <Text
               variant="small-body"
@@ -168,7 +168,7 @@ const RateCard: React.FC<RateCardProps> = ({
         </div>
       </div>
 
-      <div className="w-full gap-2 flex">
+      <div className="pui-w-full pui-gap-2 pui-flex">
         {buttons?.map((button, index) => (
           <RateButton
             key={index}

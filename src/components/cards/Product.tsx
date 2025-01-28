@@ -12,18 +12,18 @@ import { cn } from '@/lib/utils/cn'
 import { getAdapter } from '@/Adapters'
 
 const productCardVariants = cva(
-  'group p-6 rounded-lg min-h-[300px] flex flex-col justify-between gap-12 items-start relative hover:scale1-[1.005] h-full',
+  'pui-group pui-p-6 pui-rounded-lg pui-min-h-[300px] pui-flex pui-flex-col pui-justify-between pui-gap-12 pui-items-start pui-relative hover:pui-scale1-[1.005] pui-h-full',
   {
     variants: {
       variant: {
         default:
-          'text-navy bg-whitish hover1:bg-navy-opacity-4 hover1:text-navy',
-        // navy: "text-whitish bg-gradient-to-b from-navy to-sapphire hover:from-sapphire hover:to-navy",
-        navy: 'text-whitish primary-gradient',
+          'pui-text-navy pui-bg-whitish hover1:pui-bg-navy-opacity-4 hover1:pui-text-navy',
+        // navy: "pui-text-whitish pui-bg-gradient-to-b pui-from-navy pui-to-sapphire hover:pui-from-sapphire hover:pui-to-navy",
+        navy: 'pui-text-whitish pui-primary-gradient',
       },
       size: {
-        1: 'sm:col-span-1',
-        2: 'sm:col-span-2',
+        1: 'pui-sm:col-span-1',
+        2: 'pui-sm:col-span-2',
       },
     },
     defaultVariants: {
@@ -36,8 +36,8 @@ const productCardVariants = cva(
 const descVariants = cva('', {
   variants: {
     variant: {
-      default: 'text-navy-opacity-60',
-      navy: 'text-whitish-opacity-60',
+      default: 'pui-text-navy-opacity-60',
+      navy: 'pui-text-whitish-opacity-60',
     },
   },
   defaultVariants: {
@@ -83,17 +83,17 @@ const ProductCard: React.FC<ProductCardProps> = ({
 
   let component = (
     <div className={cn(productCardVariants({ variant, size }))}>
-      <div className="rounded-lg p-4 bg-turquoise-opacity-20">
+      <div className="pui-rounded-lg pui-p-4 pui-bg-turquoise-opacity-20">
         <ImageWrapper
           src={icon}
           alt={`Изображение для ${title}`}
           width={32}
           height={32}
-          className="object-contain"
+          className="pui-object-contain"
         />
       </div>
-      <div className="space-y-2">
-        <Heading level={5} className="mt-4 mb-2">
+      <div className="pui-space-y-2">
+        <Heading level={5} className="pui-mt-4 pui-mb-2">
           {title}
         </Heading>
         <Text variant="small-body" className={cn(descVariants({ variant }))}>
@@ -112,7 +112,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
       )}
 
       {buttons && (
-        <div className="flex space-x-3">
+        <div className="pui-flex pui-space-x-3">
           {buttons?.map((button, index) => (
             <div key={index}>
               <ButtonText
@@ -145,8 +145,8 @@ const ProductCard: React.FC<ProductCardProps> = ({
       <LinkWrapper
         href={link}
         className={cn(
-          'relative transition-all bottom-0 hover:bottom-2 transform duration-300 border border-transparent rounded-lg hover1:border-navy-opacity-16',
-          size === 2 ? 'sm:col-span-2' : 'sm:col-span-1'
+          'pui-relative pui-transition-all pui-bottom-0 hover:pui-bottom-2 pui-transform pui-duration-300 pui-border pui-border-transparent pui-rounded-lg hover1:pui-border-navy-opacity-16',
+          size === 2 ? 'pui-sm:col-span-2' : 'pui-sm:col-span-1'
         )}
       >
         {component}

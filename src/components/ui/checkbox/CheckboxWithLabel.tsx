@@ -5,11 +5,11 @@ import { cn } from '@/lib/utils/cn'
 import { Checkbox } from './checkbox'
 import React from 'react'
 
-const CheckboxWithLabelVariants = cva('items-top flex space-x-2', {
+const CheckboxWithLabelVariants = cva('pui-items-top pui-flex pui-space-x-2', {
   variants: {
     variant: {
-      default: 'text-navy-opacity-60',
-      white: 'text-whitish-opacity-60',
+      default: 'pui-text-navy-opacity-60',
+      white: 'pui-text-whitish-opacity-60',
     },
   },
   defaultVariants: {
@@ -37,14 +37,16 @@ export function CheckboxWithLabel({
     <div className={cn(CheckboxWithLabelVariants({ variant }))}>
       <Checkbox id={inputId} variant={variant} />
       {children && (
-        <div className="grid gap-1 leading-none">
+        <div className="pui-grid pui-gap-1 pui-leading-none">
           <label
             htmlFor={inputId}
-            className="typo_variant_small-body leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
+            className="typo_variant_small-body pui-leading-none pui-peer-disabled:cursor-not-allowed pui-peer-disabled:opacity-70 pui-cursor-pointer"
           >
             {children}
           </label>
-          {desc && <p className="text-sm text-muted-foreground">{desc}</p>}
+          {desc && (
+            <p className="pui-text-sm pui-text-muted-foreground">{desc}</p>
+          )}
         </div>
       )}
     </div>

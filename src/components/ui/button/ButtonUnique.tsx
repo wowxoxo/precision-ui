@@ -5,17 +5,20 @@ import { Login16X16, ServicesModal16X16 } from '@iit/precision-ui-icons'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils/cn'
 
-const buttonVariants = cva('bg-link-gradient-container group cursor-pointer', {
-  variants: {
-    variant: {
-      default: 'text-navy',
-      white: 'text-white',
+const buttonVariants = cva(
+  'bg-link-gradient-container pui-group pui-cursor-pointer',
+  {
+    variants: {
+      variant: {
+        default: 'pui-text-navy',
+        white: 'pui-text-white',
+      },
     },
-  },
-  defaultVariants: {
-    variant: 'default',
-  },
-})
+    defaultVariants: {
+      variant: 'default',
+    },
+  }
+)
 
 const textContainerVariants = cva('', {
   variants: {
@@ -65,9 +68,9 @@ const ButtonUnique: React.FC<ButtonUniqueProps> = ({
       asChild
       {...props}
     >
-      <div className="gap-2 flex items-center">
+      <div className="pui-gap-2 pui-flex pui-items-center">
         {icon && (
-          <div className="group-hover:transform group-hover:scale-125 duration-200">
+          <div className="pui-group-hover:transform pui-group-hover:scale-125 pui-duration-200">
             {iconDefiner(icon)}
           </div>
         )}
