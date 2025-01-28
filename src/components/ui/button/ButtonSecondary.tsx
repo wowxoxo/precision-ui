@@ -4,7 +4,7 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils/cn'
 
 const buttonVariants = cva(
-  'pui-transition-all pui-duration-200 pui-rounded-lg hover:pui-rounded-[24px] pui-border',
+  'pui-rounded-lg hover:pui-rounded-[24px] pui-duration-500 pui-border pui-transition-all util_trans_500',
   {
     variants: {
       variant: {

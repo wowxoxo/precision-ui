@@ -3,6 +3,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover'
+import React, { useState } from 'react'
 import {
   Tooltip,
   TooltipContent,
@@ -12,13 +13,14 @@ import {
 
 import { Button } from '@/components/ui/button'
 import { Info } from 'lucide-react'
-import React from 'react'
 
 interface InformerProps {
   content: string
 }
 
 const Informer = ({ content }: InformerProps) => {
+  const [isHovered, setIsHovered] = useState(false)
+
   return (
     <TooltipProvider delayDuration={0}>
       <div className="pui-hidden xl:pui-block">
@@ -27,9 +29,15 @@ const Informer = ({ content }: InformerProps) => {
             <Button
               variant="ghost"
               size="icon"
-              className="pui-rounded-full pui-group/informer pui-h-8 pui-w-8"
+              className="pui-rounded-full pui-h-8 pui-w-8"
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
             >
-              <Info className="pui-w-5 pui-h-5 pui-text-navy-opacity-40 pui-group-hover/informer:text-navy pui-transition-colors" />
+              <Info
+                className={`pui-w-5 pui-h-5 pui-text-navy-opacity-40 ${
+                  isHovered ? '!pui-text-navy' : ''
+                } pui-transition-colors`}
+              />
               <span className="pui-sr-only">Warning</span>
             </Button>
           </TooltipTrigger>
@@ -44,9 +52,15 @@ const Informer = ({ content }: InformerProps) => {
             <Button
               variant="ghost"
               size="icon"
-              className="pui-rounded-full pui-group/informer pui-h-8 pui-w-8"
+              className="pui-rounded-full pui-h-8 pui-w-8"
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
             >
-              <Info className="pui-w-5 pui-h-5 pui-text-navy-opacity-40 pui-group-hover/informer:text-navy pui-transition-colors" />
+              <Info
+                className={`pui-w-5 pui-h-5 pui-text-navy-opacity-40 ${
+                  isHovered ? '!pui-text-navy' : ''
+                } pui-transition-colors`}
+              />
               <span className="pui-sr-only">Warning</span>
             </Button>
           </PopoverTrigger>

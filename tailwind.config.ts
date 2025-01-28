@@ -14,11 +14,6 @@ const config: Config = {
   ],
   safelist: ['dark'],
   prefix: 'pui-',
-  variants: {
-    extend: {
-      textColor: ['group-hover'], // Enable group-hover for textColor
-    },
-  },
   theme: {
     // todo: test in next app before use here
     screens: {
