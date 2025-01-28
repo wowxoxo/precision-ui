@@ -1,6 +1,8 @@
+import { CarouselWrapper } from '@/decorators/CarouselWrapper'
 import React from 'react'
 import Text from './core/typography/Text'
-import { getAdapter } from '@/Adapters'
+
+// import { getAdapter } from '@/Adapters'
 
 interface GridIteratorProps<T> {
   items: T[]
@@ -33,7 +35,7 @@ const GridIterator = <T,>({
         return 'grid grid-cols-1 gap-3'
     }
   }
-  const CarouselWrapper = getAdapter('CarouselWrapper')
+  // const CarouselWrapper = getAdapter('CarouselWrapper')
 
   return (
     <div>

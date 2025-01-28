@@ -1,15 +1,16 @@
 import '@/index.scss'
 
-import { CarouselWrapper } from '../src/decorators/CarouselWrapper'
 import { ImageWrapper } from '../src/decorators/ImageWrapper'
 import { LinkWrapper } from '../src/decorators/LinkWrapper'
 import type { Preview } from '@storybook/react'
 import { registerAdapter } from '../src/Adapters'
 import { withThemeByClassName } from '@storybook/addon-themes'
 
+// import { CarouselWrapper } from '../src/decorators/CarouselWrapper'
+
 registerAdapter('LinkWrapper', LinkWrapper)
 registerAdapter('ImageWrapper', ImageWrapper)
-registerAdapter('CarouselWrapper', CarouselWrapper)
+// registerAdapter('CarouselWrapper', CarouselWrapper)
 
 const preview: Preview = {
   parameters: {

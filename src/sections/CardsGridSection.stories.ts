@@ -195,10 +195,39 @@ export const CardsGridWithoutCarousel: Story = {
     title: 'Our Services',
     desc: 'Explore our range of services designed to meet your needs.',
     items: [
-      { serviceName: 'Service A', details: 'Details about Service A' },
-      { serviceName: 'Service B', details: 'Details about Service B' },
+      {
+        title: 'Service A',
+        size: 2,
+        desc: 'Details about Service A',
+        tags: [{ title: 'New', color: 'default' }],
+      },
+      {
+        title: 'Service B',
+        desc: 'Details about Service B',
+        tags: [{ title: 'Popular', color: 'turquoise' }],
+      },
+      {
+        title: 'Service C',
+        desc: 'Details about Service C',
+        tags: [{ title: 'New', color: 'default' }],
+      },
+      {
+        title: 'Service D',
+        desc: 'Details about Service D',
+        tags: [{ title: 'Popular', color: 'turquoise' }],
+      },
+      {
+        title: 'Service E',
+        desc: 'Details about Service E',
+        tags: [{ title: 'New', color: 'default' }],
+      },
+      {
+        title: 'Service F',
+        desc: 'Details about Service F',
+        tags: [{ title: 'Popular', color: 'turquoise' }],
+      },
     ],
     component: 'FeaturedCard',
-    withoutCarousel: true,
+    withoutCarousel: false,
   },
 }

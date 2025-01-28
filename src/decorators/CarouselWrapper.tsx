@@ -9,15 +9,21 @@ import {
 import React from 'react'
 import { cn } from '@/lib/utils/cn'
 
-export const CarouselWrapper: React.FC<{
-  items: unknown[]
-  renderItem: (item: unknown, index: number) => React.ReactNode
+export const CarouselWrapper = <T,>({
+  items,
+  renderItem,
+  columns,
+  showControlsOnDesktop,
+  className,
+}: {
+  items: T[]
+  renderItem: (item: T, index: number) => React.ReactNode
   columns: number
   showControlsOnDesktop: boolean
   className?: string
-}> = ({ items, renderItem, columns, showControlsOnDesktop, className }) => {
-  const carouselColumnsClasses = (columns: number = 3) => {
-    switch (columns) {
+}) => {
+  const carouselColumnsClasses = (size?: number) => {
+    switch (size ?? columns) {
       case 2:
         return 'md:basis-1/2 lg:basis-1/2'
       case 3:
@@ -29,10 +35,6 @@ export const CarouselWrapper: React.FC<{
     }
   }
 
-  const carouselGridClasses = `pl-4 md:basis-1/2 ${carouselColumnsClasses(
-    columns
-  )}`
-
   return (
     <Carousel
       opts={{
@@ -42,7 +44,12 @@ export const CarouselWrapper: React.FC<{
     >
       <CarouselContent className="-ml-4">
         {items.map((item, index) => (
-          <CarouselItem key={index} className={carouselGridClasses}>
+          <CarouselItem
+            key={index}
+            className={`pl-4 ${carouselColumnsClasses(
+              (item as { size?: number }).size // Safely access `size` property
+            )}`}
+          >
             {renderItem(item, index)}
           </CarouselItem>
         ))}
