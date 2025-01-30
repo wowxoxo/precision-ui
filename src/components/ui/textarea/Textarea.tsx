@@ -1,24 +1,24 @@
-import * as React from "react";
+import * as React from 'react'
 
-import { VariantProps, cva } from "class-variance-authority";
+import { VariantProps, cva } from 'class-variance-authority'
 
-import { cn } from "@/lib/utils/cn";
+import { cn } from '@/lib/utils/cn'
 
 const textareaVariants = cva(
-  "flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible0:ring-2 focus-visible0:ring-ring focus-visible0:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
+  'flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible0:ring-2 focus-visible0:ring-ring focus-visible0:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
   {
     variants: {
       variant: {
         default:
-          "bg-navy-opacity-4 text-navy focus:border-navy hover:bg-navy-opacity-8 border-b-navy-opacity-32",
-        blue: "bg-whitish-opacity-8 text-white focus:border-white hover:bg-whitish-opacity-16 border-b-whitish-opacity-32",
+          'bg-navy-opacity-4 text-navy focus:border-navy hover:bg-navy-opacity-8 border-b-navy-opacity-32',
+        blue: 'bg-whitish-opacity-8 text-white focus:border-white hover:bg-whitish-opacity-16 border-b-whitish-opacity-32',
       },
     },
     defaultVariants: {
-      variant: "default",
+      variant: 'default',
     },
   }
-);
+)
 
 export interface TextareaProps
   extends React.TextareaHTMLAttributes<HTMLTextAreaElement>,
@@ -34,9 +34,9 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
         ref={ref}
         {...props}
       />
-    );
+    )
   }
-);
-Textarea.displayName = "Textarea";
+)
+Textarea.displayName = 'Textarea'
 
-export { Textarea };
+export { Textarea }

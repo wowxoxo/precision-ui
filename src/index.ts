@@ -32,6 +32,9 @@ export { registerAdapter }
 // ui
 import { Input } from './components/ui/input/Input'
 import { InputWithLabel } from './components/ui/input/InputWithLabel'
+import { Textarea } from './components/ui/textarea'
+import { TextareaWithLabel } from './components/ui/textarea'
+import { Label } from './components/ui/label'
 import Informer from './components/Informer'
 import SafeHtmlRenderer from './components/SafeHtml'
 import { Checkbox } from './components/ui/checkbox'
@@ -39,6 +42,8 @@ import { CheckboxWithLabel } from './components/ui/checkbox'
 import { Tag } from './components/ui/Tag'
 
 export { Input, InputWithLabel }
+export { Textarea, TextareaWithLabel }
+export { Label }
 export { Informer }
 export { SafeHtmlRenderer }
 export { Checkbox, CheckboxWithLabel }
@@ -62,3 +67,14 @@ import Heading from './components/core/typography/Heading'
 import Text from './components/core/typography/Text'
 
 export { Heading, Text }
+
+// import { useFormField, Form, FormItem, FormLabel, FormControl, FormDescription, FormMessage } from './components/ui/form'
+export {
+  useFormField,
+  Form,
+  FormItem,
+  FormLabel,
+  FormControl,
+  FormDescription,
+  FormMessage,
+} from '@/components/ui/form'

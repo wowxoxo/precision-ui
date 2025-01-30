@@ -1,4 +1,4 @@
-import { Textarea } from "./Textarea";
-import { TextareaWithLabel } from "./TextareaWithLabel";
+import { Textarea } from './Textarea'
+import { TextareaWithLabel } from './TextareaWithLabel'
 
-export { Textarea, TextareaWithLabel };
+export { Textarea, TextareaWithLabel }
