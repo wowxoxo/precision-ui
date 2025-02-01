@@ -79,3 +79,18 @@ export {
   FormMessage,
   FormField,
 } from '@/components/ui/form'
+
+export {
+  Dialog,
+  DialogPortal,
+  DialogOverlay,
+  DialogClose,
+  DialogTrigger,
+  DialogContent,
+  DialogHeader,
+  DialogFooter,
+  DialogTitle,
+  DialogDescription,
+} from './components/ui/dialog'
+
+export { ScrollArea, ScrollBar } from './components/ui/scroll-area'
