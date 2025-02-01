@@ -86,7 +86,7 @@ export {
   DialogOverlay,
   DialogClose,
   DialogTrigger,
-  DialogContent,
+  // DialogContent, // animation bug, should be implemented in consumer app
   DialogHeader,
   DialogFooter,
   DialogTitle,
