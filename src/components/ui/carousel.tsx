@@ -204,7 +204,7 @@ const Carousel = React.forwardRef<
           {children}
 
           {/* Scroll Progress Indicator */}
-          <div className="relative w-full mt-4 h-1 bg-gray-300 rounded-full overflow-hidden md:max-w-3xl mx-auto">
+          <div className="relative w-full mt-4 h-1 bg-navy-opacity-16 rounded-full overflow-hidden md:max-w-3xl mx-auto">
             <div
               className="absolute top-0 left-0 h-full w-full bg-navy rounded-full transition-transform duration-0"
               style={{
@@ -213,18 +213,18 @@ const Carousel = React.forwardRef<
             ></div>
           </div>
 
-          <div className="embla__controls max-w-sm mx-auto mt-6 flex justify-center gap-4">
-            <div className="embla__buttons">
-              <CarouselPrevious className="relative left-auto top-auto right-auto translate-y-0" />
-              <CarouselNext className="relative left-auto top-auto right-auto translate-y-0" />
+          <div className="embla__controls max-w-sm mx-auto mt-5 flex justify-center gap-4">
+            <div className="embla__buttons space-x-2">
+              <CarouselPrevious className="relative left-auto top-auto right-auto translate-y-0 border border-solid border-navy-opacity-32 rounded-md bg-transparent" />
+              <CarouselNext className="relative left-auto top-auto right-auto translate-y-0 border border-solid border-navy-opacity-32 rounded-md bg-transparent" />
             </div>
 
-            <div className="embla__progress">
+            {/* <div className="embla__progress">
               <div
                 className="embla__progress__bar"
                 style={{ transform: `translate3d(${scrollProgress}%,0px,0px)` }}
               />
-            </div>
+            </div> */}
           </div>
 
           {/* Dots: not used */}

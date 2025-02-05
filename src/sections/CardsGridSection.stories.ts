@@ -8,9 +8,9 @@ const meta: Meta<typeof CardsGridSection> = {
   parameters: {
     layout: 'centered',
   },
-  globals: {
-    backgrounds: { value: '#333', grid: false },
-  },
+  // globals: {
+  //   backgrounds: { value: '#333', grid: false },
+  // },
   tags: ['autodocs'],
   argTypes: {
     title: {

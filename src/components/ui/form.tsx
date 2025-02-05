@@ -9,9 +9,10 @@ import {
   FormProvider,
   useFormContext,
 } from 'react-hook-form'
+import { Label, labelVariants } from '@/components/ui/label'
 
-import { Label } from '@/components/ui/label'
 import { Slot } from '@radix-ui/react-slot'
+import { VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils/cn'
 
 const Form = FormProvider
@@ -87,7 +88,8 @@ FormItem.displayName = 'FormItem'
 
 const FormLabel = React.forwardRef<
   React.ElementRef<typeof LabelPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root>
+  React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root> &
+    VariantProps<typeof labelVariants>
 >(({ className, ...props }, ref) => {
   const { error, formItemId } = useFormField()
 

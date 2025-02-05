@@ -4,7 +4,7 @@ import { cva, type VariantProps } from 'class-variance-authority'
 
 import { cn } from '@/lib/utils/cn'
 
-const labelVariants = cva(
+export const labelVariants = cva(
   'typo_variant_h6 leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 duration-200',
   {
     variants: {
