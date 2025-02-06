@@ -21,6 +21,7 @@ const componentMap: { [key: string]: React.ElementType } = {
 
 interface CardsGridSectionProps<T> {
   title: string
+  sectionId?: string
   desc?: string
   items: T[]
   component?: string
@@ -38,6 +39,7 @@ interface CardsGridSectionProps<T> {
 
 const CardsGridSection = <T,>({
   title,
+  sectionId,
   desc,
   items,
   component = 'Advantage',
@@ -57,6 +59,7 @@ const CardsGridSection = <T,>({
   return (
     <Section
       title={title}
+      sectionId={sectionId}
       desc={desc}
       variant={variant}
       corners={corners}
