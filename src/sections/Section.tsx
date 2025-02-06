@@ -27,6 +27,7 @@ export interface SectionProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof sectionVariants> {
   title: string
+  sectionId?: string
   desc?: string
   children?: React.ReactNode
   moreLink?: string
@@ -40,6 +41,7 @@ export interface SectionProps
 
 const Section: React.FC<SectionProps> = ({
   title,
+  sectionId,
   desc,
   children,
   moreLink,
@@ -63,7 +65,7 @@ const Section: React.FC<SectionProps> = ({
     .trim()
 
   return (
-    <section className={sectionClasses}>
+    <section className={sectionClasses} id={sectionId}>
       <div
         className={cn(
           sectionVariants({ variant, corners }),

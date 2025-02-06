@@ -16,9 +16,9 @@ import { getAdapter } from '@/Adapters'
 const contentContainerVariants = cva('', {
   variants: {
     size: {
-      default: 'pb-32',
-      medium: 'pb-[116px]',
-      small: 'pb-10',
+      default: 'sm:pb-32',
+      medium: 'sm:pb-[116px]',
+      small: 'sm:pb-10',
     },
   },
   defaultVariants: {
@@ -29,9 +29,9 @@ const contentContainerVariants = cva('', {
 const sliderContentVariants = cva('', {
   variants: {
     size: {
-      default: 'pb-[76px]',
-      medium: 'pb-6',
-      small: 'pb-6',
+      default: 'sm:pb-[76px]',
+      medium: 'sm:pb-6',
+      small: 'sm:pb-6',
     },
   },
   defaultVariants: {
@@ -182,19 +182,19 @@ const Hero: React.FC<HeroProps> = ({
         <div
           data-test-id="content-container"
           className={cn(
-            'w-full relative z-20 grid grid-cols-1 sm:grid-cols-9 pb-32',
+            'w-full relative z-20 grid grid-cols-1 sm:grid-cols-9 pb-12',
             contentContainerVariants({ size })
           )}
         >
           {/* Navigation */}
-          <div className="right-divider_with-tongue1 col-span-2 mt-6 pr-4 relative">
+          <div className="right-divider_with-tongue1 col-span-2 mt-6 pr-4 relative hidden lg:block">
             {breadcrumbs && <Breadcrumbs list={breadcrumbs} />}
           </div>
 
           {/* Slider Content */}
           <div
             className={cn(
-              'w-auto p-10 pt-32 flex flex-col justify-center items-start max-w-[800px] col-span-7 border-[1px] border-t-0 border-r-0 border-b-0 border-whitish-opacity-16 border-solid',
+              'w-auto sm:p-10 pt-10 sm:pt-32 flex flex-col justify-center items-start max-w-[800px] col-span-7 border-[1px] border-t-0 border-r-0 border-b-0 border-l-0 lg:border-l-[1px] border-whitish-opacity-16 border-solid pb-4',
               sliderContentVariants({ size })
             )}
           >
@@ -264,7 +264,7 @@ const Hero: React.FC<HeroProps> = ({
         )}
 
         {image && (
-          <div className="absolute bottom-0 right-6 floating">
+          <div className="hidden sm:block absolute bottom-0 right-6 floating">
             <ImageWrapper
               src={image}
               alt={title}

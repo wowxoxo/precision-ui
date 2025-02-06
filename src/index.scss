@@ -466,6 +466,11 @@ body {
 }
 
 .horizontal-white-divider-on-center {
+  display: none;
+  @media screen and (min-width: 768px) {
+    display: block;
+  }
+
   position: relative;
   &::before {
     content: '';

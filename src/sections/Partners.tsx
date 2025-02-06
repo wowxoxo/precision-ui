@@ -51,8 +51,8 @@ const Partners: React.FC<PartnersProps> = ({
       withTopMargin={withTopMargin}
       withBottomMargin={withBottomMargin}
     >
-      <div className="grid grid-cols-2 auto-rows-[222px] sm:grid-cols-3 lg:grid-cols-6 gap-3 mt-4">
-        <div className="p-6 bg-whitish rounded-lg col-span-3 row-start-1 row-end-3 flex flex-col justify-between">
+      <div className="grid grid-cols-1 sm:auto-rows-[222px] sm:grid-cols-3 lg:grid-cols-6 gap-3 mt-4">
+        <div className="p-6 bg-whitish rounded-lg col-span-1 sm:col-span-3 row-start-1 row-end-3 flex flex-col justify-between">
           <Heading level={2}>
             Более 500{' '}
             <span className="text-navy-opacity-40">
@@ -69,13 +69,13 @@ const Partners: React.FC<PartnersProps> = ({
         {partners.map((partner, index) => (
           <div
             key={index}
-            className="rounded-lg border border-navy-opacity-16 flex align-middle justify-center"
+            className="rounded-lg border border-solid border-navy-opacity-16 flex align-middle justify-center items-center"
           >
             <ImageWrapper src={partner} width={160} height={64} alt={partner} />
           </div>
         ))}
         <div className="bg-whitish rounded-lg flex items-center justify-center">
-          <Text variant="body" className="text-navy-opacity-40">
+          <Text variant="body" className="text-navy-opacity-40 py-6 sm:py-0">
             500+
           </Text>
         </div>
