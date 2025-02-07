@@ -233,7 +233,7 @@ const Hero: React.FC<HeroProps> = ({
               )}
 
               {buttons && (
-                <div className="flex gap-4 mt-12">
+                <div className="flex gap-4 mt-12 w-full">
                   {buttons.map((button) => (
                     <HeroButton key={button.text} {...button} />
                   ))}

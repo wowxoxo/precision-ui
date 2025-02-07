@@ -12,6 +12,7 @@ const meta: Meta<typeof Hero> = {
   component: Hero,
   parameters: {
     layout: 'centered',
+    // layout: 'fullscreen',
   },
   // globals: {
   //   backgrounds: { value: '#333', grid: false },
