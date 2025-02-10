@@ -8,6 +8,7 @@ const linkVariants = cva('duration-200 transition-colors', {
     variant: {
       default: 'text-turquoise link',
       navy: 'text-navy link_navy',
+      navy_light: 'text-navy link_navy opacity-40 hover:opacity-60',
       white: 'text-white link_white',
     },
   },

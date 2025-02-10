@@ -764,7 +764,68 @@ html {
   }
 }
 
+@keyframes float2 {
+  0% {
+    transform: translatey(0px) perspective(400px) rotate3d(1, 1, 0, -8deg);
+  }
+  50% {
+    transform: translatey(-15px) translateZ(20px) perspective(400px)
+      rotate3d(1, -1, 0, 8deg) scale(1.1);
+  }
+  100% {
+    transform: translatey(0px) perspective(400px) rotate3d(1, 1, 0, -8deg);
+  }
+
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  30%,
+  70% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+
+  0% {
+    transform: translateX(-20px);
+  }
+  100% {
+    transform: translateX(20px);
+  }
+}
+
 .floating {
   animation: float 6s ease-in-out infinite;
   /* animation-delay: 1s; */
+}
+
+@keyframes slowBlinkFadeAndSoar {
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  30%,
+  70% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+
+  0% {
+    transform: translateX(-20px);
+  }
+  100% {
+    transform: translateX(20px);
+  }
+}
+
+.fadeLines {
+  /* animation: slowBlinkFadeAndSoar 6s infinite ease-in-out alternate; */
+  /* animation: slowBlinkFadeAndSoar 6s infinite ease-in-out alternate-reverse; */
+  animation: float2 6s infinite ease-in-out alternate;
 }

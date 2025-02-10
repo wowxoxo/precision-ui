@@ -41,14 +41,14 @@ const sliderContentVariants = cva('', {
 
 const titleVariants = cva('', {
   variants: {
-    size: {
-      default: 'mb-5',
-      medium: '',
-      small: '',
+    titleContainerSize: {
+      default: 'mb-5 max-w-[700px]',
+      medium: 'max-w-[550px]',
+      // small: '',
     },
   },
   defaultVariants: {
-    size: 'default',
+    titleContainerSize: 'default',
   },
 })
 
@@ -63,7 +63,9 @@ export interface HeroProps {
   breadcrumbs?: BreadcrumbProps[]
   bottomButtons?: CommonButtonProps[]
   size?: 'default' | 'small' | 'medium'
+  titleContainerSize?: 'default' | 'medium'
   imageSize?: 'default' | 'small' | 'medium'
+  linesImage?: string
 }
 
 export const HeroButton: React.FC<CommonButtonProps> = ({
@@ -142,6 +144,7 @@ const childrenComponent = (componentType: 'search-news') => {
 
 const Hero: React.FC<HeroProps> = ({
   title,
+  titleContainerSize,
   desc,
   price,
   oldPrice,
@@ -152,6 +155,7 @@ const Hero: React.FC<HeroProps> = ({
   bottomButtons,
   size = 'default',
   imageSize,
+  linesImage,
 }) => {
   const imageWidth = (size: 'small' | 'medium' | 'default') => {
     switch (size) {
@@ -201,7 +205,7 @@ const Hero: React.FC<HeroProps> = ({
             <Heading
               level={1}
               as={'h1'}
-              className={cn('max-w-[694px]', titleVariants({ size }))}
+              className={cn('', titleVariants({ titleContainerSize }))}
             >
               <SafeHtmlRenderer html={title} />
             </Heading>
@@ -209,9 +213,13 @@ const Hero: React.FC<HeroProps> = ({
             <div className="space-y-10">
               <Text
                 variant="body"
-                className={`text-whitish-opacity-60 max-w-[460px] ${
-                  size === 'medium' ? 'mt-5' : ''
-                }`}
+                className={`text-whitish-opacity-60 mt-5
+                  ${
+                    titleContainerSize === 'medium'
+                      ? 'max-w-[370px]'
+                      : 'max-w-[460px]'
+                  }
+                    `}
               >
                 {desc}
               </Text>
@@ -267,6 +275,20 @@ const Hero: React.FC<HeroProps> = ({
           <div className="hidden sm:block absolute bottom-0 right-6 floating">
             <ImageWrapper
               src={image}
+              alt={title}
+              // width={size === "default" ? 664 : 448}
+              // height={size === "default" ? 544 : 336}
+              width={imageWidth(imageSize || size)}
+              height={imageHeight(imageSize || size)}
+              objectFit="contain"
+            />
+          </div>
+        )}
+
+        {linesImage && (
+          <div className="absolute bottom-0 right-6 fadeLines">
+            <ImageWrapper
+              src={linesImage}
               alt={title}
               // width={size === "default" ? 664 : 448}
               // height={size === "default" ? 544 : 336}

@@ -62,7 +62,7 @@ const FeaturedCard: React.FC<FeaturedCardProps> = ({
           ))}
         </div>
         <div className="space-y-2">
-          <Heading level={5} className="mt-6" as={'div'}>
+          <Heading level={5} className="mt-6 lg:max-w-sm" as={'div'}>
             {title}
           </Heading>
           {desc && (
