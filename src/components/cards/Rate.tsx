@@ -32,7 +32,7 @@ const rateCardVariants = cva(
 const dividerVariants = cva('w-full h-[1px]', {
   variants: {
     variant: {
-      default: 'bg-grey-1',
+      default: 'bg-grey-3',
       navy: 'bg-whitish-opacity-16',
     },
   },

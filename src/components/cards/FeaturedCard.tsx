@@ -66,7 +66,10 @@ const FeaturedCard: React.FC<FeaturedCardProps> = ({
             {title}
           </Heading>
           {desc && (
-            <Text variant="small-body" className="text-navy-opacity-60">
+            <Text
+              variant="small-body"
+              className="text-navy-opacity-60 lg:max-w-sm"
+            >
               {desc}
             </Text>
           )}
