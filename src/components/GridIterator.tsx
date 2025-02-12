@@ -8,7 +8,7 @@ interface GridIteratorProps<T> {
   items: T[]
   renderItem: (item: T, index: number) => React.ReactNode
   columns?: number
-  showControlsOnDesktop?: boolean
+  hideControlsOnDesktop?: boolean
   withoutCarousel?: boolean
   footnote?: string
 }
@@ -17,8 +17,8 @@ const GridIterator = <T,>({
   items,
   renderItem,
   columns = 4,
-  showControlsOnDesktop = false,
-  withoutCarousel = true, // TODO: add to props chain
+  hideControlsOnDesktop = false,
+  withoutCarousel = false, // TODO: add to props chain
   footnote,
 }: GridIteratorProps<T>) => {
   const getGridClasses = (columns: number) => {
@@ -53,7 +53,7 @@ const GridIterator = <T,>({
           // renderItem={renderItem}
           renderItem={(item, index) => renderItem(item as T, index)}
           columns={columns}
-          showControlsOnDesktop={showControlsOnDesktop}
+          hideControlsOnDesktop={hideControlsOnDesktop}
         />
       )}
 

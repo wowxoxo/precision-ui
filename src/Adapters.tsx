@@ -7,6 +7,7 @@ interface Adapters {
     className?: string
     target?: string
     rel?: string
+    passHref?: boolean
   }>
   ImageWrapper?: ComponentAdapter<{
     src: string
@@ -20,7 +21,7 @@ interface Adapters {
   //   items: unknown[]
   //   renderItem: (item: unknown, index: number) => React.ReactNode
   //   columns: number
-  //   showControlsOnDesktop: boolean
+  //   hideControlsOnDesktop: boolean
   //   className?: string
   // }>
 }

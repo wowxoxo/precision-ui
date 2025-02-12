@@ -82,7 +82,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
   const ImageWrapper = getAdapter('ImageWrapper')
 
   let component = (
-    <div className={cn(productCardVariants({ variant, size }))}>
+    <div className={cn(productCardVariants({ variant, size }), 'h-full')}>
       <div className="rounded-lg p-4 bg-turquoise-opacity-20">
         <ImageWrapper
           src={icon}
@@ -145,7 +145,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
       <LinkWrapper
         href={link}
         className={cn(
-          'relative transition-all bottom-0 hover:bottom-2 transform duration-300 border border-transparent rounded-lg hover1:border-navy-opacity-16',
+          'block h-full relative transition-all bottom-0 hover:bottom-2 transform duration-300 border border-transparent rounded-lg hover1:border-navy-opacity-16',
           size === 2 ? 'sm:col-span-2' : 'sm:col-span-1'
         )}
       >

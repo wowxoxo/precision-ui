@@ -67,9 +67,9 @@ const meta: Meta<typeof CardsGridSection> = {
       control: { type: 'number' },
       description: 'The number of columns in the grid.',
     },
-    showControlsOnDesktop: {
+    hideControlsOnDesktop: {
       control: { type: 'boolean' },
-      description: 'Whether to show controls on desktop.',
+      description: 'Whether to hide controls on desktop.',
     },
     withoutCarousel: {
       control: { type: 'boolean' },
@@ -105,7 +105,7 @@ export const Default: Story = {
     variant: 'default',
     corners: 'default',
     columns: 3,
-    showControlsOnDesktop: false,
+    hideControlsOnDesktop: false,
     withoutCarousel: false,
     footnote: 'This is a footnote.',
   },
@@ -124,7 +124,7 @@ export const Advantage2Section: Story = {
     variant: 'default',
     corners: 'default',
     columns: 3,
-    showControlsOnDesktop: false,
+    hideControlsOnDesktop: false,
     withoutCarousel: false,
     footnote: 'This is a footnote.',
   },
@@ -143,7 +143,7 @@ export const RateSection: Story = {
     variant: 'default',
     corners: 'default',
     columns: 3,
-    showControlsOnDesktop: false,
+    hideControlsOnDesktop: false,
     withoutCarousel: false,
     footnote: 'This is a footnote.',
   },
@@ -185,7 +185,7 @@ export const CardsGridWithProductComponentAndMarginsAndPaddingOptions: Story = {
     withoutTopPadding: true,
     withBottomMargin: true,
     columns: 2,
-    showControlsOnDesktop: true,
+    hideControlsOnDesktop: true,
     footnote: '*All prices are subject to change.',
   },
 }

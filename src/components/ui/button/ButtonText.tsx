@@ -9,6 +9,7 @@ import {
 import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils/cn'
 import { ArrowDownToLine } from 'lucide-react'
+import { getAdapter } from '@/Adapters'
 
 const buttonVariants = cva('bg-link-gradient-container hover:cursor-pointer', {
   variants: {
@@ -22,7 +23,7 @@ const buttonVariants = cva('bg-link-gradient-container hover:cursor-pointer', {
   },
 })
 
-const iconContainerVariants = cva('rounded-full p-[5px]', {
+const iconContainerVariants = cva('rounded-full p-[8px]', {
   variants: {
     variant: {
       default: 'bg-navy-opacity-4',
@@ -49,19 +50,19 @@ const textContainerVariants = cva('', {
 
 export type ButtonTextIconName = 'arrowRight' | 'plus' | 'minus' | 'download'
 
-const iconDefiner = (icon?: ButtonTextIconName) => {
+const iconDefiner = (icon?: ButtonTextIconName, size?: number) => {
   switch (icon) {
     case 'arrowRight':
-      return <ArrowLinkRight16X16 />
+      return <ArrowLinkRight16X16 width={size} height={size} />
 
     case 'plus':
-      return <MoreLink16X16 />
+      return <MoreLink16X16 width={size} height={size} />
 
     case 'minus':
-      return <LessLink16X16 />
+      return <LessLink16X16 width={size} height={size} />
 
     case 'download':
-      return <ArrowDownToLine size={18} />
+      return <ArrowDownToLine size={16} width={size} height={size} />
 
     default:
       return null
@@ -73,6 +74,7 @@ interface NewProps {
   children?: React.ReactNode
   icon?: ButtonTextIconName
   asChild?: boolean
+  href?: string
 }
 
 export interface ButtonTextProps
@@ -91,9 +93,12 @@ const ButtonText: React.FC<ButtonTextProps> = ({
   variant,
   icon,
   // asChild = false,
+  href,
   ...props
 }) => {
-  return (
+  const LinkWrapper = getAdapter('LinkWrapper')
+
+  const component = (
     <Button
       className={cn(buttonVariants({ variant, className }))}
       asChild
@@ -102,13 +107,23 @@ const ButtonText: React.FC<ButtonTextProps> = ({
       <div className="gap-2 flex items-center">
         {icon && (
           <div className={cn(iconContainerVariants({ variant }))}>
-            {iconDefiner(icon)}
+            {iconDefiner(icon, 16)}
           </div>
         )}
         <div className={cn(textContainerVariants({ variant }))}>{children}</div>
       </div>
     </Button>
   )
+
+  if (href) {
+    return (
+      <LinkWrapper href={href} passHref>
+        {component}
+      </LinkWrapper>
+    )
+  }
+
+  return component
 }
 
 export default ButtonText

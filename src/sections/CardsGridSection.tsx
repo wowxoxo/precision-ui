@@ -32,7 +32,7 @@ interface CardsGridSectionProps<T> {
   variant?: SectionProps['variant']
   corners?: SectionProps['corners']
   columns?: number
-  showControlsOnDesktop?: boolean
+  hideControlsOnDesktop?: boolean
   withoutCarousel?: boolean
   footnote?: string
 }
@@ -50,7 +50,7 @@ const CardsGridSection = <T,>({
   variant,
   corners,
   columns,
-  showControlsOnDesktop,
+  hideControlsOnDesktop,
   withoutCarousel,
   footnote,
 }: CardsGridSectionProps<T>) => {
@@ -71,7 +71,7 @@ const CardsGridSection = <T,>({
       <GridIterator
         items={items}
         columns={columns}
-        showControlsOnDesktop={showControlsOnDesktop}
+        hideControlsOnDesktop={hideControlsOnDesktop}
         withoutCarousel={withoutCarousel}
         renderItem={(item, index) => <Component key={index} {...item} />}
         footnote={footnote}

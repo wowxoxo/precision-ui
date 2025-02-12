@@ -2,8 +2,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from '@/components/ui/carousel'
 
 import React from 'react'
@@ -13,13 +11,13 @@ export const CarouselWrapper = <T,>({
   items,
   renderItem,
   columns,
-  showControlsOnDesktop,
+  hideControlsOnDesktop,
   className,
 }: {
   items: T[]
   renderItem: (item: T, index: number) => React.ReactNode
   columns: number
-  showControlsOnDesktop: boolean
+  hideControlsOnDesktop: boolean
   className?: string
 }) => {
   const carouselColumnsClasses = (size?: number) => {
@@ -40,9 +38,10 @@ export const CarouselWrapper = <T,>({
       opts={{
         align: 'start',
       }}
-      className={cn('my-carousel w-full', className)}
+      className={cn('my-carousel w-full -mt-3', className)}
+      hideControlsOnDesktop={hideControlsOnDesktop}
     >
-      <CarouselContent className="-ml-4">
+      <CarouselContent className="-ml-4 pt-3">
         {items.map((item, index) => (
           <CarouselItem
             key={index}
@@ -54,13 +53,6 @@ export const CarouselWrapper = <T,>({
           </CarouselItem>
         ))}
       </CarouselContent>
-
-      {showControlsOnDesktop && (
-        <div className="flex justify-center mt-4">
-          <CarouselPrevious className="relative left-auto top-auto right-auto translate-y-0" />
-          <CarouselNext className="relative left-auto top-auto right-auto translate-y-0" />
-        </div>
-      )}
     </Carousel>
   )
 }

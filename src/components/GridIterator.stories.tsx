@@ -20,9 +20,9 @@ const meta: Meta<typeof GridIterator> = {
       control: { type: 'number' },
       description: 'Number of columns in the grid (default is 4).',
     },
-    showControlsOnDesktop: {
+    hideControlsOnDesktop: {
       control: { type: 'boolean' },
-      description: 'Whether to show carousel controls on desktop view.',
+      description: 'Whether to hide carousel controls on desktop view.',
     },
     withoutCarousel: {
       control: { type: 'boolean' },
@@ -71,7 +71,7 @@ export const CarouselView: Story = {
     items: sampleItems,
     columns: 3,
     withoutCarousel: false,
-    showControlsOnDesktop: true,
+    hideControlsOnDesktop: true,
     // @ts-expect-error Argument of type '(item: { id: number; content: string; }) => JSX.Element' is not assignable to parameter of type 'RenderItem'.
     renderItem: (item) => <Text key={item.id}>{item.content}</Text>,
   },
