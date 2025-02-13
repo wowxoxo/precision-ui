@@ -2,7 +2,7 @@ import React from 'react'
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
 } from 'embla-carousel-react'
-import { ArrowLeft, ArrowRight } from 'lucide-react'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 import { cn } from '@/lib/utils/cn'
 // import { Button } from './button'
@@ -95,6 +95,7 @@ function useCarousel() {
 
 interface CustomProps {
   hideControlsOnDesktop?: boolean
+  variant?: "default" | "white";
 }
 
 const Carousel = React.forwardRef<
@@ -110,6 +111,7 @@ const Carousel = React.forwardRef<
       className,
       children,
       hideControlsOnDesktop = false,
+      variant = "default",
       ...props
     },
     ref
@@ -184,6 +186,13 @@ const Carousel = React.forwardRef<
 
     // const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(api)
 
+    const buttonClasses = cn(
+      "relative left-auto top-auto right-auto translate-y-0 border border-solid rounded-lg bg-transparent hover:rounded-[24px] transition-all duration-200 h-10 w-10",
+      variant === "white"
+        ? "hover:bg-whitish border-whitish-opacity-32"
+        : "hover:bg-navy hover:text-white border-navy-opacity-32"
+    );
+
     return (
       <CarouselContext.Provider
         value={{
@@ -210,12 +219,19 @@ const Carousel = React.forwardRef<
 
           {/* Scroll Progress Indicator */}
           <div
-            className={`relative w-full mt-8 h-1 bg-gray-300 rounded-full overflow-hidden md:max-w-3xl mx-auto ${
-              hideControlsOnDesktop ? 'lg:hidden' : ''
-            }`}
+            className={cn(
+              "relative w-full mt-8 rounded-full overflow-hidden md:max-w-2xl mx-auto",
+              hideControlsOnDesktop ? "lg:hidden" : "",
+              variant === "white"
+                ? "bg-whitish-opacity-16 h-0.5"
+                : "bg-gray-300 h-0.5"
+            )}
           >
             <div
-              className="absolute top-0 left-0 h-full w-full bg-navy rounded-full transition-transform duration-0"
+              className={cn(
+                "absolute top-0 left-0 h-full w-full rounded-full transition-transform duration-0",
+                variant === "white" ? "bg-whitish" : "bg-navy"
+              )}
               style={{
                 transform: `translateX(${scrollProgress - 100}%)`,
               }}
@@ -228,8 +244,8 @@ const Carousel = React.forwardRef<
             }`}
           >
             <div className="embla__buttons space-x-2">
-              <CarouselPrevious className="relative left-auto top-auto right-auto translate-y-0 border border-solid border-navy-opacity-32 rounded-md bg-transparent" />
-              <CarouselNext className="relative left-auto top-auto right-auto translate-y-0 border border-solid border-navy-opacity-32 rounded-md bg-transparent" />
+              <CarouselPrevious className={buttonClasses} />
+              <CarouselNext className={buttonClasses} />
             </div>
 
             {/* <div className="embla__progress">
@@ -332,7 +348,7 @@ const CarouselPrevious = React.forwardRef<
       onClick={scrollPrev}
       {...props}
     >
-      <ArrowLeft className="h-4 w-4" />
+      <ChevronLeft className="h-5 w-5" />
       <span className="sr-only">Previous slide</span>
     </Button>
   )
@@ -361,7 +377,7 @@ const CarouselNext = React.forwardRef<
       onClick={scrollNext}
       {...props}
     >
-      <ArrowRight className="h-4 w-4" />
+      <ChevronRight className="h-5 w-5" />
       <span className="sr-only">Next slide</span>
     </Button>
   )

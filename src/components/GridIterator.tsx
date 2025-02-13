@@ -11,6 +11,7 @@ interface GridIteratorProps<T> {
   hideControlsOnDesktop?: boolean
   withoutCarousel?: boolean
   footnote?: string
+  variant?: 'default' | 'white'
 }
 
 const GridIterator = <T,>({
@@ -20,6 +21,7 @@ const GridIterator = <T,>({
   hideControlsOnDesktop = false,
   withoutCarousel = false, // TODO: add to props chain
   footnote,
+  variant,
 }: GridIteratorProps<T>) => {
   const getGridClasses = (columns: number) => {
     switch (columns) {
@@ -54,6 +56,7 @@ const GridIterator = <T,>({
           renderItem={(item, index) => renderItem(item as T, index)}
           columns={columns}
           hideControlsOnDesktop={hideControlsOnDesktop}
+          variant={variant}
         />
       )}
 

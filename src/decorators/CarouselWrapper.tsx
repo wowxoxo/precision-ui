@@ -13,12 +13,14 @@ export const CarouselWrapper = <T,>({
   columns,
   hideControlsOnDesktop,
   className,
+  variant,
 }: {
   items: T[]
   renderItem: (item: T, index: number) => React.ReactNode
   columns: number
   hideControlsOnDesktop: boolean
   className?: string
+  variant?: 'default' | 'white'
 }) => {
   const carouselColumnsClasses = (size?: number) => {
     switch (size ?? columns) {
@@ -40,6 +42,7 @@ export const CarouselWrapper = <T,>({
       }}
       className={cn('my-carousel w-full -mt-3', className)}
       hideControlsOnDesktop={hideControlsOnDesktop}
+      variant={variant}
     >
       <CarouselContent className="-ml-4 pt-3">
         {items.map((item, index) => (
