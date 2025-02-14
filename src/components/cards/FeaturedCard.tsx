@@ -9,7 +9,7 @@ import { cva } from 'class-variance-authority'
 import { getAdapter } from '@/Adapters'
 
 export interface FeaturedCardProps {
-  size: 1 | 2 | 3
+  size: 1 | 2 | 3 | 4
   tags: TagItemProps[]
   link: string
   title: string
@@ -41,6 +41,7 @@ const FeaturedCard: React.FC<FeaturedCardProps> = ({
           1: 'sm:col-span-1',
           2: 'sm:col-span-2',
           3: 'sm:col-span-3',
+          4: 'sm:col-span-4',
         },
       },
       defaultVariants: {

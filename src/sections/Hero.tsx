@@ -41,14 +41,29 @@ const sliderContentVariants = cva('', {
 
 const titleVariants = cva('', {
   variants: {
-    titleContainerSize: {
-      default: 'mb-5 max-w-[700px]',
-      medium: 'max-w-[550px]',
-      // small: '',
+    contentContainerSize: {
+      default: 'mb-5 lg:max-w-[700px]',
+      medium: 'lg:max-w-[590px]',
+      large: 'lg:max-w-5xl',
+      // small: "",
     },
   },
   defaultVariants: {
-    titleContainerSize: 'default',
+    contentContainerSize: 'default',
+  },
+})
+
+const descVariants = cva('', {
+  variants: {
+    contentContainerSize: {
+      default: 'lg:max-w-[460px]',
+      medium: 'lg:max-w-[370px]',
+      large: 'lg:max-w-2xl',
+      // small: "",
+    },
+  },
+  defaultVariants: {
+    contentContainerSize: 'default',
   },
 })
 
@@ -63,7 +78,7 @@ export interface HeroProps {
   breadcrumbs?: BreadcrumbProps[]
   bottomButtons?: CommonButtonProps[]
   size?: 'default' | 'small' | 'medium'
-  titleContainerSize?: 'default' | 'medium'
+  contentContainerSize?: 'default' | 'medium' | 'large'
   imageSize?: 'default' | 'small' | 'medium'
   linesImage?: string
 }
@@ -144,7 +159,7 @@ const childrenComponent = (componentType: 'search-news') => {
 
 const Hero: React.FC<HeroProps> = ({
   title,
-  titleContainerSize,
+  contentContainerSize,
   desc,
   price,
   oldPrice,
@@ -198,14 +213,14 @@ const Hero: React.FC<HeroProps> = ({
           {/* Slider Content */}
           <div
             className={cn(
-              'w-auto sm:p-10 pt-10 sm:pt-32 flex flex-col justify-center items-start max-w-[800px] col-span-7 border-[1px] border-t-0 border-r-0 border-b-0 border-l-0 lg:border-l-[1px] border-whitish-opacity-16 border-solid pb-4',
+              'w-auto sm:p-10 pt-10 sm:pt-32 flex flex-col justify-center items-start col-span-7 border-[1px] border-t-0 border-r-0 border-b-0 border-l-0 lg:border-l-[1px] border-whitish-opacity-16 border-solid pb-4',
               sliderContentVariants({ size })
             )}
           >
             <Heading
               level={1}
               as={'h1'}
-              className={cn('', titleVariants({ titleContainerSize }))}
+              className={cn('', titleVariants({ contentContainerSize }))}
             >
               <SafeHtmlRenderer html={title} />
             </Heading>
@@ -213,13 +228,10 @@ const Hero: React.FC<HeroProps> = ({
             <div className="space-y-10">
               <Text
                 variant="body"
-                className={`text-whitish-opacity-60 mt-5
-                  ${
-                    titleContainerSize === 'medium'
-                      ? 'max-w-[370px]'
-                      : 'max-w-[460px]'
-                  }
-                    `}
+                className={cn(
+                  descVariants({ contentContainerSize }),
+                  'text-whitish-opacity-60 mt-5'
+                )}
               >
                 {desc}
               </Text>
