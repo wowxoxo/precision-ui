@@ -49,18 +49,77 @@ export { SafeHtmlRenderer }
 export { Checkbox, CheckboxWithLabel }
 export { Tag }
 
+// small blocks
+
+export { Breadcrumbs, type BreadcrumbProps } from './components/breadcrumbs'
+
+// cards
+import Advantage, { AdvantageProps } from './components/cards/Advantage'
+import Advantage2, { Advantage2Props } from './components/cards/Advantage2'
+import AdvantageWithAccordion, {
+  AdvantageWithAccordionProps,
+} from './components/cards/AdvantageWithAccordion'
+import ConnectCard, { ConnectCardProps } from './components/cards/Connect'
+import DocCard, { DocCardProps } from './components/cards/Doc'
+import FAQCard, { FAQItem, FAQCardProps } from './components/cards/FAQ'
+import FeaturedCard, {
+  FeaturedCardProps,
+} from './components/cards/FeaturedCard'
+import LicenseCard, { LicenseCardProps } from './components/cards/License'
+import PackageCard, { PackageCardProps } from './components/cards/Package'
+// import GridIterator from './components/GridIterator'
+import Plate, { PlateCardProps } from './components/cards/Plate'
+import Product, { ProductCardProps } from './components/cards/Product'
+import Rate, { RateCardProps } from './components/cards/Rate'
+
+export {
+  Advantage,
+  Advantage2,
+  AdvantageWithAccordion,
+  ConnectCard,
+  DocCard,
+  FAQCard,
+  FeaturedCard,
+  LicenseCard,
+  PackageCard,
+  Plate,
+  Product,
+  Rate,
+  type AdvantageProps,
+  type Advantage2Props,
+  type AdvantageWithAccordionProps,
+  type ConnectCardProps,
+  type DocCardProps,
+  type FAQCardProps,
+  type FAQItem,
+  type FeaturedCardProps,
+  type LicenseCardProps,
+  type PackageCardProps,
+  type PlateCardProps,
+  type ProductCardProps,
+  type RateCardProps,
+}
+
+import ShowMoreAccordionTrigger from './components/pieces/ShowMoreAccordionTrigger'
+export { ShowMoreAccordionTrigger }
+
+export { TagLink, type TagLinkProps } from './components/ui/TagLink'
+
+import ArticlePreviewTag from './components/ArticlePreviewTag'
+export { ArticlePreviewTag }
+
 // sections
 
 import CTA from './sections/CTA'
 import Hero from './sections/Hero'
 import Partners from './sections/Partners'
-import Section from './sections/Section'
+import Section, { SectionProps } from './sections/Section'
 import CardsGridSection from './sections/CardsGridSection'
 
 export { CTA }
 export { Hero }
 export { Partners }
-export { Section }
+export { Section, type SectionProps }
 export { CardsGridSection }
 
 import Heading from './components/core/typography/Heading'
@@ -94,3 +153,12 @@ export {
 } from './components/ui/dialog'
 
 export { ScrollArea, ScrollBar } from './components/ui/scroll-area'
+
+export {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from './components/ui/accordion'
+
+export { Tabs, TabsList, TabsTrigger, TabsContent } from './components/ui/tabs'

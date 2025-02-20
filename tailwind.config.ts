@@ -79,7 +79,7 @@ const config: Config = {
         grey: {
           1: 'hsl(var(--precision-ui-tw-grey-1))',
           2: 'hsl(var(--precision-ui-tw-grey-2))',
-          3: "hsl(var(--precision-ui-tw-grey-3))",
+          3: 'hsl(var(--precision-ui-tw-grey-3))',
         },
         danger: 'hsl(var(--precision-ui-tw-danger))',
         border: 'hsl(var(--precision-ui-tw-border))',

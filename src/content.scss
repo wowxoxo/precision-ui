@@ -1,0 +1,67 @@
+.content {
+  blockquote {
+    color: hsla(var(--precision-ui-tw-sapphire));
+    position: relative;
+    padding-left: 40px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0px;
+      top: 0;
+      height: 100%;
+      width: 1px;
+      background: hsla(var(--precision-ui-tw-sapphire));
+      background: hsla(var(--precision-ui-tw-navy));
+    }
+  }
+}
+
+.content {
+  .no-content-rules {
+    div {
+      margin-top: 0;
+    }
+
+    div + div {
+      margin-top: 0;
+    }
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .color {
+    &_white {
+      color: #fff;
+    }
+  }
+
+  .iit-tt-content_type_quote blockquote {
+    color: hsla(var(--precision-ui-tw-navy));
+  }
+
+  .table_type_full-width {
+    width: 100%;
+  }
+}
+
+.content .simple-table {
+  border: 1px solid #ebebeb;
+  margin-bottom: 40px;
+
+  td,
+  th {
+    padding: 15px;
+  }
+
+  tr td,
+  tr th {
+    border-bottom: 1px solid #ebebeb;
+  }
+
+  thead {
+    font-weight: 600;
+  }
+}
