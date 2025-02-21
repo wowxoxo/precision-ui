@@ -13,7 +13,7 @@
     "type": "git",
     "url": "git+https://github.com/wowxoxo/precision-ui.git"
   },
-  "version": "0.7.1",
+  "version": "0.7.2",
   "type": "module",
   "module": "./dist/index.es.js",
   "types": "./dist/index.d.ts",
