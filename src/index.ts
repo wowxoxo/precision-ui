@@ -83,6 +83,7 @@ import Product, {
 import Rate, {
   RateCardProps,
   RateCardPropsWithoutHTMLAttributes,
+  RateButtonProps,
 } from './components/cards/Rate'
 
 export {
@@ -114,6 +115,7 @@ export {
   type ProductCardPropsWithoutHtmlAttributes,
   type RateCardProps,
   type RateCardPropsWithoutHTMLAttributes,
+  type RateButtonProps,
 }
 
 import ShowMoreAccordionTrigger from './components/pieces/ShowMoreAccordionTrigger'

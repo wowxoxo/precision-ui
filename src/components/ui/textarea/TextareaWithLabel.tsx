@@ -1,7 +1,8 @@
+import React, { useId } from 'react'
+
 import { InputVariant } from '../input/types'
 import { Label } from '../label'
 import { Textarea } from './Textarea'
-import { useId } from 'react'
 
 interface TextareaWithLabelProps {
   variant?: InputVariant
