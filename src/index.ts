@@ -24,6 +24,8 @@ export { ButtonPrimary, type ButtonPrimaryProps }
 export { ButtonSecondary, type ButtonSecondaryProps }
 export { ButtonText, type ButtonTextProps }
 export { ButtonUnique, type ButtonUniqueProps }
+import { ConsultButtonProps } from './sections/common'
+export type { ConsultButtonProps }
 
 export { AppLink }
 
@@ -32,6 +34,8 @@ export { registerAdapter }
 // ui
 import { Input } from './components/ui/input/Input'
 import { InputWithLabel } from './components/ui/input/InputWithLabel'
+import SearchInput from './components/ui/input/SearchInput'
+import SearchInputWithButton from './components/ui/input/SearchInputWithButton'
 import { Textarea } from './components/ui/textarea'
 import { TextareaWithLabel } from './components/ui/textarea'
 import { Label } from './components/ui/label'
@@ -39,15 +43,15 @@ import Informer from './components/Informer'
 import SafeHtmlRenderer from './components/SafeHtml'
 import { Checkbox } from './components/ui/checkbox'
 import { CheckboxWithLabel } from './components/ui/checkbox'
-import { Tag } from './components/ui/Tag'
+import { Tag, type TagProps, type TagItemProps } from './components/ui/Tag'
 
-export { Input, InputWithLabel }
+export { Input, InputWithLabel, SearchInput, SearchInputWithButton }
 export { Textarea, TextareaWithLabel }
 export { Label }
 export { Informer }
 export { SafeHtmlRenderer }
 export { Checkbox, CheckboxWithLabel }
-export { Tag }
+export { Tag, type TagProps, type TagItemProps }
 
 // small blocks
 
@@ -66,11 +70,20 @@ import FeaturedCard, {
   FeaturedCardProps,
 } from './components/cards/FeaturedCard'
 import LicenseCard, { LicenseCardProps } from './components/cards/License'
-import PackageCard, { PackageCardProps } from './components/cards/Package'
+import PackageCard, {
+  PackageCardProps,
+  PackageCardPropsWithoutHTMLAttributes,
+} from './components/cards/Package'
 // import GridIterator from './components/GridIterator'
 import Plate, { PlateCardProps } from './components/cards/Plate'
-import Product, { ProductCardProps } from './components/cards/Product'
-import Rate, { RateCardProps } from './components/cards/Rate'
+import Product, {
+  ProductCardProps,
+  ProductCardPropsWithoutHtmlAttributes,
+} from './components/cards/Product'
+import Rate, {
+  RateCardProps,
+  RateCardPropsWithoutHTMLAttributes,
+} from './components/cards/Rate'
 
 export {
   Advantage,
@@ -95,9 +108,12 @@ export {
   type FeaturedCardProps,
   type LicenseCardProps,
   type PackageCardProps,
+  type PackageCardPropsWithoutHTMLAttributes,
   type PlateCardProps,
   type ProductCardProps,
+  type ProductCardPropsWithoutHtmlAttributes,
   type RateCardProps,
+  type RateCardPropsWithoutHTMLAttributes,
 }
 
 import ShowMoreAccordionTrigger from './components/pieces/ShowMoreAccordionTrigger'
@@ -110,15 +126,17 @@ export { ArticlePreviewTag }
 
 // sections
 
-import CTA from './sections/CTA'
-import Hero from './sections/Hero'
-import Partners from './sections/Partners'
+import GridIterator from './components/GridIterator'
+import CTA, { CTAProps } from './sections/CTA'
+import Hero, { HeroButton, HeroProps } from './sections/Hero'
+import Partners, { PartnersProps } from './sections/Partners'
 import Section, { SectionProps } from './sections/Section'
 import CardsGridSection from './sections/CardsGridSection'
 
-export { CTA }
-export { Hero }
-export { Partners }
+export { GridIterator }
+export { CTA, type CTAProps }
+export { Hero, HeroButton, type HeroProps }
+export { Partners, type PartnersProps }
 export { Section, type SectionProps }
 export { CardsGridSection }
 
