@@ -135,6 +135,11 @@ import Partners, { PartnersProps } from './sections/Partners'
 import Section, { SectionProps } from './sections/Section'
 import CardsGridSection from './sections/CardsGridSection'
 export { CarouselWrapper } from './decorators/CarouselWrapper'
+export {
+  Combobox,
+  type ComboboxProps,
+  type ComboboxOption,
+} from './components/ui/combobox'
 
 export { GridIterator }
 export { CTA, type CTAProps }

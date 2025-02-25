@@ -98,6 +98,7 @@ interface CustomProps {
   hideControlsOnDesktop?: boolean
   variant?: 'default' | 'white'
   controlsAlign?: 'left' | 'center'
+  progressClass?: string
 }
 
 const Carousel = React.forwardRef<
@@ -115,6 +116,7 @@ const Carousel = React.forwardRef<
       hideControlsOnDesktop = false,
       variant = 'default',
       controlsAlign = 'center',
+      progressClass,
       ...props
     },
     ref
@@ -228,7 +230,10 @@ const Carousel = React.forwardRef<
               variant === 'white'
                 ? 'bg-whitish-opacity-16 h-0.5'
                 : 'bg-gray-300 h-0.5',
-              controlsAlign === 'center' ? 'mx-auto md:max-w-2xl' : ''
+              controlsAlign === 'center'
+                ? 'mx-auto md:max-w-2xl'
+                : 'md:max-w-xl',
+              progressClass
             )}
           >
             <div
