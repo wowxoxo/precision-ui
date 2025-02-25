@@ -15,6 +15,7 @@ import {
 import { Button } from '@/components/ui/button'
 import { Check } from 'lucide-react'
 import React from 'react'
+import { ScrollArea } from './scroll-area'
 import { cn } from '@/lib/utils/cn'
 
 export interface ComboboxOption {
@@ -74,24 +75,33 @@ export const Combobox: React.FC<ComboboxProps> = ({
         <Command className={cn(commandClassName)}>
           <CommandInput placeholder={searchPlaceholder} className="h-9" />
           <CommandList>
-            <CommandEmpty>Результаты не найдены.</CommandEmpty>
-            <CommandGroup>
-              {options.map((option) => (
-                <CommandItem
-                  key={option.value}
-                  value={option.value}
-                  onSelect={() => handleSelect(option.value)}
-                >
-                  {option.label}
-                  <Check
-                    className={cn(
-                      'ml-auto',
-                      value === option.value ? 'opacity-100' : 'opacity-0'
-                    )}
-                  />
-                </CommandItem>
-              ))}
-            </CommandGroup>
+            <ScrollArea
+              className={cn(
+                'max-h-[calc(100dvh-1rem)]',
+                options.length > 12 ? 'h-96' : ''
+              )}
+            >
+              <div className="p-0">
+                <CommandEmpty>Результаты не найдены.</CommandEmpty>
+                <CommandGroup>
+                  {options.map((option) => (
+                    <CommandItem
+                      key={option.value}
+                      value={option.value}
+                      onSelect={() => handleSelect(option.value)}
+                    >
+                      {option.label}
+                      <Check
+                        className={cn(
+                          'ml-auto',
+                          value === option.value ? 'opacity-100' : 'opacity-0'
+                        )}
+                      />
+                    </CommandItem>
+                  ))}
+                </CommandGroup>
+              </div>
+            </ScrollArea>
           </CommandList>
         </Command>
       </PopoverContent>

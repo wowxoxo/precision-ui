@@ -54,6 +54,10 @@ const defaultOptions = [
   { value: 'remix', label: 'Remix' },
   { value: 'astro', label: 'Astro' },
 ]
+const aLotOfOptions = Array.from({ length: 100 }, (_, index) => ({
+  value: `option-${index + 1}`,
+  label: `Option ${index + 1}`,
+}))
 
 export const DefaultCombobox: Story = {
   args: {
@@ -74,7 +78,7 @@ export const ComboboxWithDefaultValue: Story = {
 
 export const ComboboxWithCustomClasses: Story = {
   args: {
-    options: defaultOptions,
+    options: aLotOfOptions,
     placeholder: 'Select framework...',
     buttonClassName: 'custom-button-class',
     popoverContentClassName: 'custom-popover-class',
