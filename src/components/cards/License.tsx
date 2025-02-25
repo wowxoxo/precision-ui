@@ -3,6 +3,7 @@ import { Dialog, DialogContent, DialogTitle, DialogTrigger } from '../ui/dialog'
 import ArticlePreviewTag from '../ArticlePreviewTag'
 import React from 'react'
 import Text from '../core/typography/Text'
+import truncateText from '@/lib/utils/truncateText'
 
 export interface LicenseCardProps {
   title: string
@@ -24,7 +25,7 @@ const LicenseCard: React.FC<LicenseCardProps> = ({ title, date, img }) => {
       <Dialog>
         <DialogTrigger asChild>
           <div className="p-8 gap-4 flex flex-col hover:cursor-pointer">
-            <Text variant="small-body">{title}</Text>
+            <Text variant="small-body">{truncateText(title, 229)}</Text>
             <div className="bg-navy-opacity-4 rounded-sm">
               <div className="relative mx-auto w-1/3 my-4 max-w-32 bg-sapphire">
                 {/* <div

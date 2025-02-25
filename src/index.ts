@@ -24,8 +24,8 @@ export { ButtonPrimary, type ButtonPrimaryProps }
 export { ButtonSecondary, type ButtonSecondaryProps }
 export { ButtonText, type ButtonTextProps }
 export { ButtonUnique, type ButtonUniqueProps }
-import { ConsultButtonProps } from './sections/common'
-export type { ConsultButtonProps }
+import { ConsultButtonProps, CommonButtonProps } from './sections/common'
+export type { ConsultButtonProps, CommonButtonProps }
 
 export { AppLink }
 
@@ -134,6 +134,7 @@ import Hero, { HeroButton, HeroProps } from './sections/Hero'
 import Partners, { PartnersProps } from './sections/Partners'
 import Section, { SectionProps } from './sections/Section'
 import CardsGridSection from './sections/CardsGridSection'
+export { CarouselWrapper } from './decorators/CarouselWrapper'
 
 export { GridIterator }
 export { CTA, type CTAProps }

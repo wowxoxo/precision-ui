@@ -10,6 +10,7 @@ import { cn } from '@/lib/utils/cn'
 // Button here to reuse
 import { Slot } from '@radix-ui/react-slot'
 import { cva, type VariantProps } from 'class-variance-authority'
+// import { DotButton, useDotButton } from '../CarouselDotButton'
 
 const buttonVariants = cva(
   'inline-flex items-center justify-center whitespace-nowrap rounded-full typo_variant_button ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed border-none',
@@ -95,7 +96,8 @@ function useCarousel() {
 
 interface CustomProps {
   hideControlsOnDesktop?: boolean
-  variant?: "default" | "white";
+  variant?: 'default' | 'white'
+  controlsAlign?: 'left' | 'center'
 }
 
 const Carousel = React.forwardRef<
@@ -111,7 +113,8 @@ const Carousel = React.forwardRef<
       className,
       children,
       hideControlsOnDesktop = false,
-      variant = "default",
+      variant = 'default',
+      controlsAlign = 'center',
       ...props
     },
     ref
@@ -187,11 +190,11 @@ const Carousel = React.forwardRef<
     // const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(api)
 
     const buttonClasses = cn(
-      "relative left-auto top-auto right-auto translate-y-0 border border-solid rounded-lg bg-transparent hover:rounded-[24px] transition-all duration-200 h-10 w-10",
-      variant === "white"
-        ? "hover:bg-whitish border-whitish-opacity-32"
-        : "hover:bg-navy hover:text-white border-navy-opacity-32"
-    );
+      'relative left-auto top-auto right-auto translate-y-0 border border-solid rounded-lg bg-transparent hover:rounded-[24px] transition-all duration-200 h-10 w-10',
+      variant === 'white'
+        ? 'hover:bg-whitish border-whitish-opacity-32'
+        : 'hover:bg-navy hover:text-white border-navy-opacity-32'
+    )
 
     return (
       <CarouselContext.Provider
@@ -220,17 +223,18 @@ const Carousel = React.forwardRef<
           {/* Scroll Progress Indicator */}
           <div
             className={cn(
-              "relative w-full mt-8 rounded-full overflow-hidden md:max-w-2xl mx-auto",
-              hideControlsOnDesktop ? "lg:hidden" : "",
-              variant === "white"
-                ? "bg-whitish-opacity-16 h-0.5"
-                : "bg-gray-300 h-0.5"
+              'relative w-full mt-8 rounded-full overflow-hidden',
+              hideControlsOnDesktop ? 'lg:hidden' : '',
+              variant === 'white'
+                ? 'bg-whitish-opacity-16 h-0.5'
+                : 'bg-gray-300 h-0.5',
+              controlsAlign === 'center' ? 'mx-auto md:max-w-2xl' : ''
             )}
           >
             <div
               className={cn(
-                "absolute top-0 left-0 h-full w-full rounded-full transition-transform duration-0",
-                variant === "white" ? "bg-whitish" : "bg-navy"
+                'absolute top-0 left-0 h-full w-full rounded-full transition-transform duration-0',
+                variant === 'white' ? 'bg-whitish' : 'bg-navy'
               )}
               style={{
                 transform: `translateX(${scrollProgress - 100}%)`,
@@ -239,9 +243,11 @@ const Carousel = React.forwardRef<
           </div>
 
           <div
-            className={`embla__controls max-w-sm mx-auto mt-6 flex justify-center gap-4 ${
-              hideControlsOnDesktop ? 'lg:hidden' : ''
-            }`}
+            className={cn(
+              'embla__controls max-w-sm mt-6 flex gap-4',
+              hideControlsOnDesktop ? 'lg:hidden' : '',
+              controlsAlign === 'center' ? 'mx-auto flex justify-center' : ''
+            )}
           >
             <div className="embla__buttons space-x-2">
               <CarouselPrevious className={buttonClasses} />
@@ -264,12 +270,12 @@ const Carousel = React.forwardRef<
             </div>
 
             <div className="embla__dots">
-              {scrollSnaps.map((_, index) => (
+              {scrollSnaps.map((_: unknown, index: number) => (
                 <DotButton
                   key={index}
                   onClick={() => onDotButtonClick(index)}
-                  className={"embla__dot".concat(
-                    index === selectedIndex ? " embla__dot--selected" : ""
+                  className={'embla__dot'.concat(
+                    index === selectedIndex ? ' embla__dot--selected' : ''
                   )}
                 />
               ))}
