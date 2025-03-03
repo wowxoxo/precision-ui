@@ -188,3 +188,5 @@ export {
 } from './components/ui/accordion'
 
 export { Tabs, TabsList, TabsTrigger, TabsContent } from './components/ui/tabs'
+
+export { useFetch } from '@/hooks/useFetch'
