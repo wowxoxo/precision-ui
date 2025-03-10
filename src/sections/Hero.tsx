@@ -81,6 +81,7 @@ export interface HeroProps {
   contentContainerSize?: 'default' | 'medium' | 'large'
   imageSize?: 'default' | 'small' | 'medium'
   linesImage?: string
+  onButtonClick?: (uniqId?: string) => void
 }
 
 export const HeroButton: React.FC<CommonButtonProps> = ({
@@ -92,6 +93,7 @@ export const HeroButton: React.FC<CommonButtonProps> = ({
   className,
   linkClassName,
   iconDirection,
+  onClick,
 }) => {
   if (href) {
     return (
@@ -127,7 +129,11 @@ export const HeroButton: React.FC<CommonButtonProps> = ({
   }
 
   return (
-    <ButtonPrimary theme={theme} iconDirection={iconDirection}>
+    <ButtonPrimary
+      theme={theme}
+      iconDirection={iconDirection}
+      onClick={onClick}
+    >
       {text}
     </ButtonPrimary>
   )
@@ -171,6 +177,7 @@ const Hero: React.FC<HeroProps> = ({
   size = 'default',
   imageSize,
   linesImage,
+  onButtonClick,
 }) => {
   const imageWidth = (size: 'small' | 'medium' | 'default') => {
     switch (size) {
@@ -255,7 +262,11 @@ const Hero: React.FC<HeroProps> = ({
               {buttons && (
                 <div className="flex gap-4 mt-12 w-full">
                   {buttons.map((button) => (
-                    <HeroButton key={button.text} {...button} />
+                    <HeroButton
+                      key={button.text}
+                      {...button}
+                      onClick={() => onButtonClick?.(button.uniqId)}
+                    />
                   ))}
                 </div>
               )}
@@ -278,6 +289,7 @@ const Hero: React.FC<HeroProps> = ({
                 {...button}
                 className="w-full backdrop-blur-[8px]"
                 linkClassName="w-full"
+                onClick={() => onButtonClick?.(button.uniqId)}
               />
             ))}
           </div>

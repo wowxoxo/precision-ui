@@ -7,6 +7,8 @@ export interface CommonButtonProps {
   className?: string
   linkClassName?: string
   iconDirection?: 'default' | 'down'
+  onClick?: () => void
+  uniqId?: string
 }
 
 export interface ConsultButtonProps extends CommonButtonProps {
