@@ -11,9 +11,10 @@ export interface CTAProps {
   desc: string
   img: string
   buttons: CommonButtonProps[]
+  onButtonClick?: (uniqId?: string) => void
 }
 
-const CTA: React.FC<CTAProps> = ({ title, desc, img, buttons }) => {
+const CTA: React.FC<CTAProps> = ({ title, desc, img, buttons, onButtonClick }) => {
   const ImageWrapper = getAdapter('ImageWrapper')
 
   return (
@@ -36,7 +37,7 @@ const CTA: React.FC<CTAProps> = ({ title, desc, img, buttons }) => {
 
               <div className="flex space-x-4">
                 {buttons.map((button, index) => (
-                  <HeroButton key={index} {...button} />
+                  <HeroButton key={index} {...button} onClick={() => onButtonClick?.(button.uniqId)} />
                 ))}
               </div>
             </div>
