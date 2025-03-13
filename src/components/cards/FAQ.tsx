@@ -23,7 +23,7 @@ export interface FAQCardProps {
 const FAQCard: React.FC<FAQCardProps> = ({ questions, type }) => {
   return (
     <div>
-      <Accordion type={type} collapsible className="space-y-3">
+      <Accordion type={type} collapsible={true} className="space-y-3">
         {questions.map((question, index) => (
           <AccordionItem key={index} value={`item-${index}`}>
             <AccordionTrigger size="small">

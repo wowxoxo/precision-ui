@@ -58,19 +58,21 @@ export interface RateButtonProps {
   title?: string
   link?: string
   isBuyButton?: boolean
-  onClick?: () => void
+  uniqId?: string
+  onClick?: (uniqId?: string) => void
 }
 
 export const RateButton: React.FC<RateButtonProps> = ({
   variant,
   title,
   link,
+  uniqId,
   onClick,
 }) => {
   const LinkWrapper = getAdapter('LinkWrapper')
 
   const button = (
-    <ButtonSecondary variant={variant} onClick={onClick}>
+    <ButtonSecondary variant={variant} onClick={() => onClick?.(uniqId)}>
       {title || 'Подробнее'}
     </ButtonSecondary>
   )
@@ -91,7 +93,13 @@ export interface RateCardProps
   price: string
   desc: string
   link: string
-  onClickBuyButton?: (title: string) => void
+  onClickBuyButton?: ({
+    title,
+    uniqId,
+  }: {
+    title: string
+    uniqId?: string
+  }) => void
   buttons?: RateButtonProps[]
   tags?: TagItemProps[]
   titleInformer?: string
@@ -175,7 +183,10 @@ const RateCard: React.FC<RateCardProps> = ({
             variant={button.variant}
             title={button.title}
             link={button.link}
-            onClick={() => button.isBuyButton && onClickBuyButton?.(title)}
+            onClick={() =>
+              button.isBuyButton &&
+              onClickBuyButton?.({ title, uniqId: button.uniqId })
+            }
           />
         ))}
       </div>

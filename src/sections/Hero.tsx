@@ -100,7 +100,7 @@ export const HeroButton: React.FC<CommonButtonProps> = ({
       <ButtonPrimary
         href={href}
         theme={theme}
-        className={className}
+        className={cn(className, 'w-fit')}
         linkClassName={linkClassName}
         iconDirection={iconDirection}
       >
