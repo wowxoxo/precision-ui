@@ -9,6 +9,7 @@ interface TextareaWithLabelProps {
   label?: string
   id?: string
   className?: string
+  maxLength?: number
 }
 
 export function TextareaWithLabel({
@@ -16,6 +17,7 @@ export function TextareaWithLabel({
   variant = 'default',
   label,
   className,
+  maxLength,
 }: TextareaWithLabelProps) {
   const generatedId = useId()
   const textareaId = id || generatedId
@@ -40,10 +42,9 @@ export function TextareaWithLabel({
       <Textarea
         id={textareaId}
         variant={variant}
-        className={`focus:outline-none '${textareaClasses}'`}
+        maxLength={maxLength}
+        className={`focus:outline-none ${textareaClasses}`}
       />
-
-      {/* {desc && <p className="text-sm text-muted-foreground">{desc}</p>} */}
     </div>
   )
 }

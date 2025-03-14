@@ -100,7 +100,7 @@ export const HeroButton: React.FC<CommonButtonProps> = ({
       <ButtonPrimary
         href={href}
         theme={theme}
-        className={cn(className, 'w-fit')}
+        className={cn(className)}
         linkClassName={linkClassName}
         iconDirection={iconDirection}
       >
@@ -264,6 +264,8 @@ const Hero: React.FC<HeroProps> = ({
                   {buttons.map((button) => (
                     <HeroButton
                       key={button.text}
+                      className="w-fit"
+                      target={button.target}
                       {...button}
                       onClick={() => onButtonClick?.(button.uniqId)}
                     />

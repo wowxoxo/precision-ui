@@ -27,16 +27,52 @@ export interface TextareaProps
 }
 
 const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
-  ({ className, variant, ...props }, ref) => {
+  ({ className, variant, maxLength, value, onChange, ...props }, ref) => {
+    const [charCount, setCharCount] = React.useState(
+      typeof value === 'string' ? value.length : 0
+    )
+
+    React.useEffect(() => {
+      if (typeof value === 'string') {
+        setCharCount(value.length)
+      }
+    }, [value])
+
+    const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+      const newValue = e.target.value
+      setCharCount(newValue.length)
+      if (onChange) {
+        onChange(e)
+      }
+    }
+
     return (
-      <textarea
-        className={cn(textareaVariants({ variant, className }))}
-        ref={ref}
-        {...props}
-      />
+      <div className="relative w-full">
+        <textarea
+          className={cn(textareaVariants({ variant, className }))}
+          ref={ref}
+          maxLength={maxLength}
+          value={value}
+          onChange={handleChange}
+          {...props}
+        />
+        {maxLength !== undefined && (
+          <span
+            className={cn(
+              'absolute bottom-1 right-2 text-xs pointer-events-none',
+              variant === 'blue'
+                ? 'text-white opacity-70'
+                : 'text-navy opacity-70'
+            )}
+          >
+            {charCount}/{maxLength}
+          </span>
+        )}
+      </div>
     )
   }
 )
+
 Textarea.displayName = 'Textarea'
 
 export { Textarea }
