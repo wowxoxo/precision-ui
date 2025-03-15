@@ -75,7 +75,7 @@ const ButtonPrimary: React.FC<ButtonPrimaryProps> = ({
   // asChild = false,
   ...props
 }) => {
-  const containerStyles = 'flex justify-between items-center gap-8 w-full'
+  const containerStyles = 'flex justify-between items-center gap-8 w-fit'
   if (href) {
     return (
       <a href={href} className={linkClassName}>
