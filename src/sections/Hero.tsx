@@ -133,6 +133,7 @@ export const HeroButton: React.FC<CommonButtonProps> = ({
       theme={theme}
       iconDirection={iconDirection}
       onClick={onClick}
+      className={cn(className)}
     >
       {text}
     </ButtonPrimary>

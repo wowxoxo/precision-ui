@@ -17,8 +17,9 @@ export interface ConnectCardProps {
   withLogo?: boolean
   className?: string
   size?: 1 | 2
-  onClickConsultButton?: () => void
+  onClickConsultButton?: (uniqId?: string) => void
   buttons?: ConsultButtonProps[]
+  uniqId?: string
 }
 
 const ConnectCard: React.FC<ConnectCardProps> = ({
@@ -29,6 +30,7 @@ const ConnectCard: React.FC<ConnectCardProps> = ({
   size,
   onClickConsultButton,
   buttons,
+  uniqId,
 }) => {
   let sizeClass = ''
   switch (size) {
@@ -88,8 +90,10 @@ const ConnectCard: React.FC<ConnectCardProps> = ({
                 </ButtonSecondary>
               ) : (
                 <ButtonSecondary
-                  onClick={
-                    button.isConsultButton ? onClickConsultButton : undefined
+                  onClick={() =>
+                    button.isConsultButton
+                      ? onClickConsultButton?.(uniqId)
+                      : undefined
                   }
                 >
                   {button.text}
