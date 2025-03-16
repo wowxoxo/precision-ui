@@ -57,6 +57,7 @@ export interface ButtonPrimaryProps
     ArrowContainerPropsToButton {
   className?: string
   linkClassName?: string
+  containerClassName?: string
   children?: React.ReactNode
   // as?: 'button' | 'a'
   href?: string
@@ -66,6 +67,7 @@ export interface ButtonPrimaryProps
 const ButtonPrimary: React.FC<ButtonPrimaryProps> = ({
   className,
   linkClassName,
+  containerClassName,
   children,
   theme,
   iconDirection,
@@ -80,7 +82,7 @@ const ButtonPrimary: React.FC<ButtonPrimaryProps> = ({
     return (
       <a href={href} className={linkClassName}>
         <Button className={cn(buttonVariants({ theme, className }))} {...props}>
-          <div className={containerStyles}>
+          <div className={cn(containerStyles, containerClassName)}>
             {children}
             <div
               className={cn(arrowContainerVariants({ theme, iconDirection }))}
