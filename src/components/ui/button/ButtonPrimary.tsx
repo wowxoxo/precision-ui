@@ -60,6 +60,7 @@ export interface ButtonPrimaryProps
   children?: React.ReactNode
   // as?: 'button' | 'a'
   href?: string
+  target?: '_blank'
   asChild?: boolean
 }
 
@@ -72,13 +73,14 @@ const ButtonPrimary: React.FC<ButtonPrimaryProps> = ({
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   size,
   href,
+  target,
   // asChild = false,
   ...props
 }) => {
   const containerStyles = 'flex justify-between items-center gap-8'
   if (href) {
     return (
-      <a href={href} className={linkClassName}>
+      <a href={href} className={linkClassName} target={target}>
         <Button className={cn(buttonVariants({ theme, className }))} {...props}>
           <div className={cn(containerStyles, 'w-full')}>
             {children}

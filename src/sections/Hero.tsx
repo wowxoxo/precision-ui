@@ -103,6 +103,7 @@ export const HeroButton: React.FC<CommonButtonProps> = ({
         className={cn(className)}
         linkClassName={linkClassName}
         iconDirection={iconDirection}
+        target={target}
       >
         {text}
       </ButtonPrimary>
@@ -293,6 +294,8 @@ const Hero: React.FC<HeroProps> = ({
                 className="w-full backdrop-blur-[8px]"
                 linkClassName="w-full"
                 onClick={() => onButtonClick?.(button.uniqId)}
+                // target={button.target}
+                target="_blank"
               />
             ))}
           </div>
