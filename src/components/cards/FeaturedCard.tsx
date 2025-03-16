@@ -1,8 +1,8 @@
+import React, { Fragment } from 'react'
 import { Tag, TagItemProps } from '../ui/Tag'
 
 import { ButtonText } from '../ui/button'
 import Heading from '../core/typography/Heading'
-import React from 'react'
 import Text from '../core/typography/Text'
 import { cn } from '@/lib/utils/cn'
 import { cva } from 'class-variance-authority'
@@ -11,7 +11,7 @@ import { getAdapter } from '@/Adapters'
 export interface FeaturedCardProps {
   size: 1 | 2 | 3 | 4
   tags: TagItemProps[]
-  link: string
+  link?: string
   title: string
   desc?: string
   className?: string
@@ -34,7 +34,7 @@ const FeaturedCard: React.FC<FeaturedCardProps> = ({
   detailsText,
 }) => {
   const cardStyles = cva(
-    'p-6 pb-4 bg-whitish rounded-lg transition-all bottom-0 transform duration-300 hover:scale1-[1.015] border border-transparent hover:border-sapphire1 relative hover:bottom-1 cursor-pointer col-span-1 flex flex-col justify-between items-start sm:min-h-[264px] h-full',
+    'p-6 pb-4 bg-whitish rounded-lg transition-all bottom-0 transform duration-300 hover:scale1-[1.015] border border-transparent hover:border-sapphire1 relative col-span-1 flex flex-col justify-between items-start sm:min-h-[264px] h-full',
     {
       variants: {
         size: {
@@ -52,8 +52,8 @@ const FeaturedCard: React.FC<FeaturedCardProps> = ({
 
   const LinkWrapper = getAdapter('LinkWrapper')
 
-  return (
-    <LinkWrapper href={link} className={cn(cardStyles({ size, className }))}>
+  const component = (
+    <Fragment>
       <div data-test-id="content-container">
         <div className="flex space-x-2">
           {tags.map((tag, index) => (
@@ -92,10 +92,30 @@ const FeaturedCard: React.FC<FeaturedCardProps> = ({
             {price}
           </Heading>
         </div>
-        <ButtonText icon="arrowRight">{detailsText || 'Подробнее'}</ButtonText>
+        {link && (
+          <ButtonText icon="arrowRight">
+            {detailsText || 'Подробнее'}
+          </ButtonText>
+        )}
       </div>
-    </LinkWrapper>
+    </Fragment>
   )
+
+  if (link) {
+    return (
+      <LinkWrapper
+        href={link}
+        className={cn(
+          cardStyles({ size, className }),
+          'cursor-pointer hover:bottom-1'
+        )}
+      >
+        {component}
+      </LinkWrapper>
+    )
+  }
+
+  return <div className={cn(cardStyles({ size, className }))}>{component}</div>
 }
 
 export default FeaturedCard

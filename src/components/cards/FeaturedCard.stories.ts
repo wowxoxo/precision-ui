@@ -128,3 +128,13 @@ export const FeaturedCardNoPrice: Story = {
     detailsText: 'Find Out More',
   },
 }
+export const FeaturedCardNoButton: Story = {
+  args: {
+    size: 2,
+    tags: sampleTags,
+    title: 'Card Without Price',
+    desc: 'This card does not include any pricing information.',
+    showDivider: false,
+    detailsText: 'Find Out More',
+  },
+}
