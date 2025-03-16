@@ -84,11 +84,7 @@ export interface HeroProps {
   onButtonClick?: (uniqId?: string) => void
 }
 
-interface HeroButtonProps extends CommonButtonProps {
-  containerClassName?: string
-}
-
-export const HeroButton: React.FC<HeroButtonProps> = ({
+export const HeroButton: React.FC<CommonButtonProps> = ({
   text,
   href,
   target,
@@ -96,7 +92,6 @@ export const HeroButton: React.FC<HeroButtonProps> = ({
   theme,
   className,
   linkClassName,
-  containerClassName,
   iconDirection,
   onClick,
 }) => {
@@ -139,7 +134,6 @@ export const HeroButton: React.FC<HeroButtonProps> = ({
       iconDirection={iconDirection}
       onClick={onClick}
       className={cn(className)}
-      containerClassName={containerClassName}
     >
       {text}
     </ButtonPrimary>
@@ -298,7 +292,6 @@ const Hero: React.FC<HeroProps> = ({
                 {...button}
                 className="w-full backdrop-blur-[8px]"
                 linkClassName="w-full"
-                containerClassName="w-full"
                 onClick={() => onButtonClick?.(button.uniqId)}
               />
             ))}

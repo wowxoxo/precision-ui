@@ -57,7 +57,6 @@ export interface ButtonPrimaryProps
     ArrowContainerPropsToButton {
   className?: string
   linkClassName?: string
-  containerClassName?: string
   children?: React.ReactNode
   // as?: 'button' | 'a'
   href?: string
@@ -67,7 +66,6 @@ export interface ButtonPrimaryProps
 const ButtonPrimary: React.FC<ButtonPrimaryProps> = ({
   className,
   linkClassName,
-  containerClassName,
   children,
   theme,
   iconDirection,
@@ -77,12 +75,12 @@ const ButtonPrimary: React.FC<ButtonPrimaryProps> = ({
   // asChild = false,
   ...props
 }) => {
-  const containerStyles = 'flex justify-between items-center gap-8 w-fit'
+  const containerStyles = 'flex justify-between items-center gap-8'
   if (href) {
     return (
       <a href={href} className={linkClassName}>
         <Button className={cn(buttonVariants({ theme, className }))} {...props}>
-          <div className={cn(containerStyles, containerClassName)}>
+          <div className={cn(containerStyles, 'w-full')}>
             {children}
             <div
               className={cn(arrowContainerVariants({ theme, iconDirection }))}
@@ -101,7 +99,7 @@ const ButtonPrimary: React.FC<ButtonPrimaryProps> = ({
       asChild
       {...props}
     >
-      <div className={containerStyles}>
+      <div className={cn(containerStyles)}>
         {children}
         <div className={cn(arrowContainerVariants({ theme, iconDirection }))}>
           <ArrowRight16X16 />

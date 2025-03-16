@@ -74,7 +74,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const defaultButtons: CommonButtonProps[] = [
-  { text: 'Primary Button', theme: 'default' },
+  { text: 'Primary Button', theme: 'default', href: '#' },
   { text: 'Secondary Button', theme: 'opacity' },
 ]
 
