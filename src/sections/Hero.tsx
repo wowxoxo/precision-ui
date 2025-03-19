@@ -18,6 +18,7 @@ const contentContainerVariants = cva('', {
     size: {
       default: 'sm:pb-32',
       medium: 'sm:pb-[116px]',
+      large: 'sm:pb-32', // not used, copy from default
       small: 'sm:pb-10',
     },
   },
@@ -29,7 +30,7 @@ const contentContainerVariants = cva('', {
 const sliderContentVariants = cva('', {
   variants: {
     size: {
-      default: 'sm:pb-[76px]',
+      default: 'sm:pb-[80px]',
       medium: 'sm:pb-6',
       small: 'sm:pb-6',
     },
@@ -45,7 +46,7 @@ const titleVariants = cva('', {
       default: 'mb-5 lg:max-w-[700px]',
       medium: 'lg:max-w-[590px]',
       large: 'lg:max-w-5xl',
-      // small: "",
+      small: 'lg:max-w-[700px]', // not used, copy from default
     },
   },
   defaultVariants: {
@@ -59,7 +60,7 @@ const descVariants = cva('', {
       default: 'lg:max-w-[460px]',
       medium: 'lg:max-w-[370px]',
       large: 'lg:max-w-2xl',
-      // small: "",
+      small: 'lg:max-w-[460px]', // not used, copy from default
     },
   },
   defaultVariants: {
@@ -78,7 +79,8 @@ export interface HeroProps {
   breadcrumbs?: BreadcrumbProps[]
   bottomButtons?: CommonButtonProps[]
   size?: 'default' | 'small' | 'medium'
-  contentContainerSize?: 'default' | 'medium' | 'large'
+  contentContainerSize?: 'default' | 'medium' | 'small'
+  contentContainerBottomSize?: 'default' | 'small'
   imageSize?: 'default' | 'small' | 'medium'
   linesImage?: string
   onButtonClick?: (uniqId?: string) => void
@@ -168,6 +170,7 @@ const childrenComponent = (componentType: 'search-news') => {
 const Hero: React.FC<HeroProps> = ({
   title,
   contentContainerSize,
+  contentContainerBottomSize,
   desc,
   price,
   oldPrice,
@@ -211,7 +214,9 @@ const Hero: React.FC<HeroProps> = ({
           data-test-id="content-container"
           className={cn(
             'w-full relative z-20 grid grid-cols-1 sm:grid-cols-9 pb-12',
-            contentContainerVariants({ size })
+            contentContainerVariants({
+              size: contentContainerBottomSize || size,
+            })
           )}
         >
           {/* Navigation */}
@@ -234,12 +239,12 @@ const Hero: React.FC<HeroProps> = ({
               <SafeHtmlRenderer html={title} />
             </Heading>
 
-            <div className="space-y-10">
+            <div className="space-y-8">
               <Text
                 variant="body"
                 className={cn(
                   descVariants({ contentContainerSize }),
-                  'text-whitish-opacity-60 mt-5'
+                  'text-whitish-opacity-60'
                 )}
               >
                 {desc}

@@ -17,7 +17,7 @@ const buttonVariants = cva(
       },
       size: {
         default: 'px-[18px] py-[15px]',
-        sm: 'px-[13.5px] py-[11px] hover:bg-white hover:text-navy',
+        sm: 'px-[13.5px] py-[11px] hover:text-navy',
       },
     },
     defaultVariants: {
