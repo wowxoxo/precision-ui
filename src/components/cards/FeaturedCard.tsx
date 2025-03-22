@@ -19,6 +19,15 @@ export interface FeaturedCardProps {
   price?: string
   oldPrice?: string
   detailsText?: string
+  withWidthLimit?: boolean
+  uniqId?: string
+  onButtonClick?: ({
+    uniqId,
+    title,
+  }: {
+    uniqId?: string
+    title?: string
+  }) => void
 }
 
 const FeaturedCard: React.FC<FeaturedCardProps> = ({
@@ -32,6 +41,9 @@ const FeaturedCard: React.FC<FeaturedCardProps> = ({
   price,
   oldPrice,
   detailsText,
+  withWidthLimit,
+  uniqId,
+  onButtonClick,
 }) => {
   const cardStyles = cva(
     'p-6 pb-4 bg-whitish rounded-lg transition-all bottom-0 transform duration-300 hover:scale1-[1.015] border border-transparent hover:border-sapphire1 relative col-span-1 !flex flex-col justify-between items-start sm:min-h-[264px] h-full',
@@ -63,13 +75,20 @@ const FeaturedCard: React.FC<FeaturedCardProps> = ({
           ))}
         </div>
         <div className="space-y-2">
-          <Heading level={5} className="mt-6 lg:max-w-sm" as={'div'}>
+          <Heading
+            level={5}
+            className={cn('mt-6', withWidthLimit && 'lg:max-w-sm')}
+            as={'div'}
+          >
             {title}
           </Heading>
           {desc && (
             <Text
               variant="small-body"
-              className="text-navy-opacity-60 lg:max-w-sm"
+              className={cn(
+                'text-navy-opacity-60',
+                withWidthLimit && ' lg:max-w-sm'
+              )}
             >
               {desc}
             </Text>
@@ -115,7 +134,14 @@ const FeaturedCard: React.FC<FeaturedCardProps> = ({
     )
   }
 
-  return <div className={cn(cardStyles({ size, className }))}>{component}</div>
+  return (
+    <div
+      className={cn(cardStyles({ size, className }))}
+      onClick={() => onButtonClick?.({ uniqId, title })}
+    >
+      {component}
+    </div>
+  )
 }
 
 export default FeaturedCard

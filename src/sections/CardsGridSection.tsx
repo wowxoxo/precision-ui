@@ -35,6 +35,13 @@ interface CardsGridSectionProps<T> {
   hideControlsOnDesktop?: boolean
   withoutCarousel?: boolean
   footnote?: string
+  onButtonClick?: ({
+    uniqId,
+    title,
+  }: {
+    uniqId?: string
+    title?: string
+  }) => void
 }
 
 const CardsGridSection = <T,>({
@@ -53,6 +60,7 @@ const CardsGridSection = <T,>({
   hideControlsOnDesktop,
   withoutCarousel,
   footnote,
+  onButtonClick,
 }: CardsGridSectionProps<T>) => {
   const Component = componentMap[component] || Advantage
 
@@ -73,7 +81,9 @@ const CardsGridSection = <T,>({
         columns={columns}
         hideControlsOnDesktop={hideControlsOnDesktop}
         withoutCarousel={withoutCarousel}
-        renderItem={(item, index) => <Component key={index} {...item} />}
+        renderItem={(item, index) => (
+          <Component key={index} {...item} onButtonClick={onButtonClick} />
+        )}
         footnote={footnote}
       />
     </Section>
