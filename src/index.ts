@@ -133,7 +133,9 @@ import CTA, { CTAProps } from './sections/CTA'
 import Hero, { HeroButton, HeroProps } from './sections/Hero'
 import Partners, { PartnersProps } from './sections/Partners'
 import Section, { SectionProps } from './sections/Section'
-import CardsGridSection from './sections/CardsGridSection'
+import CardsGridSection, {
+  CardsGridSectionProps,
+} from './sections/CardsGridSection'
 export { CarouselWrapper } from './decorators/CarouselWrapper'
 export {
   Combobox,
@@ -146,7 +148,7 @@ export { CTA, type CTAProps }
 export { Hero, HeroButton, type HeroProps }
 export { Partners, type PartnersProps }
 export { Section, type SectionProps }
-export { CardsGridSection }
+export { CardsGridSection, type CardsGridSectionProps }
 
 import Heading from './components/core/typography/Heading'
 import Text from './components/core/typography/Text'

@@ -19,7 +19,7 @@ const componentMap: { [key: string]: React.ElementType } = {
   Plate,
 }
 
-interface CardsGridSectionProps<T> {
+export interface CardsGridSectionProps<T> {
   title: string
   sectionId?: string
   desc?: string
