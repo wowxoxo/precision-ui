@@ -138,3 +138,19 @@ export const FeaturedCardNoButton: Story = {
     detailsText: 'Find Out More',
   },
 }
+export const FeaturedCardNoLink: Story = {
+  args: {
+    size: 2,
+    tags: sampleTags,
+    title: 'Card Without Price',
+    desc: 'This card does not include any pricing information.',
+    showDivider: false,
+    detailsText: 'Find Out More',
+    withButton: true,
+    onButtonClick({ uniqId, title }) {
+      console.log(
+        `Button clicked for card with uniqId: ${uniqId}, title: ${title}`
+      )
+    },
+  },
+}

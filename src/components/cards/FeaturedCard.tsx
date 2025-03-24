@@ -12,6 +12,7 @@ export interface FeaturedCardProps {
   size: 1 | 2 | 3 | 4
   tags: TagItemProps[]
   link?: string
+  withButton?: boolean
   title: string
   desc?: string
   className?: string
@@ -34,6 +35,7 @@ const FeaturedCard: React.FC<FeaturedCardProps> = ({
   size,
   tags,
   link,
+  withButton,
   title,
   desc,
   className,
@@ -111,8 +113,8 @@ const FeaturedCard: React.FC<FeaturedCardProps> = ({
             {price}
           </Heading>
         </div>
-        {link && (
-          <ButtonText icon="arrowRight">
+        {(withButton || link) && (
+          <ButtonText icon="arrowRight" onClick={() => withButton && onButtonClick?.({ uniqId, title })}>
             {detailsText || 'Подробнее'}
           </ButtonText>
         )}
@@ -137,7 +139,6 @@ const FeaturedCard: React.FC<FeaturedCardProps> = ({
   return (
     <div
       className={cn(cardStyles({ size, className }))}
-      onClick={() => onButtonClick?.({ uniqId, title })}
     >
       {component}
     </div>
