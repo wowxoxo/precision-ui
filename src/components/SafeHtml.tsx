@@ -163,9 +163,11 @@ const validateHtmlBasic = (htmlString: string) => {
 const SafeHtmlRenderer = ({
   html,
   className,
+  withoutContentClass,
 }: {
   html: string
   className?: string
+  withoutContentClass?: boolean
 }) => {
   const isValid = validateHtmlBasic(html)
   // console.log("isValidHTML", isValid);
@@ -178,7 +180,7 @@ const SafeHtmlRenderer = ({
 
   return (
     <div
-      className={['content', className].filter(Boolean).join(' ')}
+      className={[!withoutContentClass && 'content', className].filter(Boolean).join(' ')}
       dangerouslySetInnerHTML={{ __html: html }}
     />
   )

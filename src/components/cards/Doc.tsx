@@ -4,9 +4,9 @@ import Text from '../core/typography/Text'
 
 export interface DocCardProps {
   title: string
-  format: string
+  format?: string
   link: string
-  date: string
+  date?: string
 }
 
 const DocCard: React.FC<DocCardProps> = ({ title, format, link, date }) => {
@@ -22,9 +22,11 @@ const DocCard: React.FC<DocCardProps> = ({ title, format, link, date }) => {
         <Text variant="body" as="div">
           {title}
         </Text>
-        <Text variant="caption" className="text-navy-opacity-40">
-          {format} · {date}
-        </Text>
+        {(format || date) && (
+          <Text variant="caption" className="text-navy-opacity-40">
+            {format && date ? `${format} · ${date}` : format || date}
+          </Text>
+        )}
       </div>
     </a>
   )
