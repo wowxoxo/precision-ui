@@ -25,7 +25,7 @@ const CTA: React.FC<CTAProps> = ({ title, desc, img, buttons, onButtonClick }) =
             <div></div>
             <div className="space-y-12 mb-24 mt-[128px] pr-8 lg:pr-8 xl:pr-28">
               <div className=" space-y-6">
-                <Heading level={2}>{title}</Heading>
+                <Heading level={2} as='div'>{title}</Heading>
                 <Text
                   variant="body"
                   className="text-whitish-opacity-60"

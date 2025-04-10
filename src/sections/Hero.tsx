@@ -19,6 +19,7 @@ const contentContainerVariants = cva('', {
       default: 'sm:pb-32',
       medium: 'sm:pb-[116px]',
       large: 'sm:pb-32', // not used, copy from default
+      smaller: 'sm:pb-16',
       small: 'sm:pb-10',
     },
   },
@@ -80,7 +81,7 @@ export interface HeroProps {
   bottomButtons?: CommonButtonProps[]
   size?: 'default' | 'small' | 'medium'
   contentContainerSize?: 'default' | 'medium' | 'small'
-  contentContainerBottomSize?: 'default' | 'small'
+  contentContainerBottomSize?: 'default' | 'small' | 'smaller'
   imageSize?: 'default' | 'small' | 'medium'
   linesImage?: string
   onButtonClick?: (uniqId?: string) => void

@@ -60,6 +60,7 @@ export interface ProductCardProps
   desc: string
   icon: string
   link?: string
+  target?: '_blank' | '_self'
   size?: 1 | 2
   buttons?: ProductCardButtonProps[]
 }
@@ -74,6 +75,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
   desc,
   icon,
   link,
+  target,
   variant,
   size,
   buttons,
@@ -144,6 +146,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
     component = (
       <LinkWrapper
         href={link}
+        target={target}
         className={cn(
           'block h-full relative transition-all bottom-0 hover:bottom-2 transform duration-300 border border-transparent rounded-lg hover1:border-navy-opacity-16',
           size === 2 ? 'sm:col-span-2' : 'sm:col-span-1'

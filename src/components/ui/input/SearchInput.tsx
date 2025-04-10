@@ -51,7 +51,7 @@ const SearchInput: React.FC<SearchInputProps> = ({
 
   if (variant === 'white') {
     return (
-      <div className="relative w-full max-w-md">
+      <div className="relative w-full 2xl:max-w-[456px]">
         {/* TODO: replace with icon from icon lib */}
         {/* <div className="bg-navy-opacity-16 p-1 rounded-full">
           <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />

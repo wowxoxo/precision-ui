@@ -8,7 +8,7 @@ import { getAdapter } from '@/Adapters'
 
 interface Content {
   title: string
-  content: string[]
+  content: (string | React.ReactNode)[]
 }
 
 export interface ConnectCardProps {
