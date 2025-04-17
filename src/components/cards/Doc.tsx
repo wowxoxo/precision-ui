@@ -6,14 +6,17 @@ export interface DocCardProps {
   title: string
   format?: string
   link: string
+  target?: '_blank'
   date?: string
+  download?: boolean
 }
 
-const DocCard: React.FC<DocCardProps> = ({ title, format, link, date }) => {
+const DocCard: React.FC<DocCardProps> = ({ title, format, link, target, date, download = true }) => {
   return (
     <a
       href={link}
-      download
+      target={target}
+      download={download}
       className="flex bg-whitish p-4 pr-8 rounded-lg space-x-2 transition-colors border border-transparent hover:bg-navy-opacity-41 hover:border-navy-opacity-16"
     >
       {/* TODO: Add correct icon from ui kit */}

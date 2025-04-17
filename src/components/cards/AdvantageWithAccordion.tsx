@@ -28,9 +28,22 @@ const AdvantageWithAccordion: React.FC<AdvantageWithAccordionProps> = ({
 }) => {
   const uniqueId = useId()
 
-  const heightModeClass = heightMode === 'full' ? 'h-full' : 'h-fit'
+  const heightModeClass =
+    heightMode === 'full' ? 'h-full flex flex-col justify-between' : 'h-fit'
 
   const ImageWrapper = getAdapter('ImageWrapper')
+
+  const image = (
+    <div className="p-4 bg-turquoise-opacity-20 rounded-lg mb-6 inline-flex self-start">
+      <ImageWrapper
+        src={icon}
+        alt={`Изображение для ${title}`}
+        width={32}
+        height={32}
+        className="object-contain"
+      />
+    </div>
+  )
 
   return (
     <div
@@ -40,17 +53,17 @@ const AdvantageWithAccordion: React.FC<AdvantageWithAccordionProps> = ({
         className
       )}
     >
-      <div className="p-4 bg-turquoise-opacity-20 rounded-lg mb-6 inline-flex">
-        <ImageWrapper
-          src={icon}
-          alt={`Изображение для ${title}`}
-          width={32}
-          height={32}
-          className="object-contain"
-        />
-      </div>
+      {heightMode === 'full' ? (
+        <div>
+          {image}
+          <Heading level={5}>{title}</Heading>
+        </div>
+      ) : (
+        image
+      )}
+
       <div className="space-y-6">
-        <Heading level={5}>{title}</Heading>
+        {heightMode !== 'full' && <Heading level={5}>{title}</Heading>}
 
         {desc && (
           <Accordion type="single" collapsible>
