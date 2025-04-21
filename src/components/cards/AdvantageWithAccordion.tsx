@@ -56,7 +56,9 @@ const AdvantageWithAccordion: React.FC<AdvantageWithAccordionProps> = ({
       {heightMode === 'full' ? (
         <div>
           {image}
-          <Heading level={5}>{title}</Heading>
+          <Heading level={5} className="mb-5">
+            {title}
+          </Heading>
         </div>
       ) : (
         image

@@ -4,6 +4,7 @@ import { cn } from '@/lib/utils/cn'
 import Heading from '@/components/core/typography/Heading'
 import Text from '@/components/core/typography/Text'
 import ButtonPrimary from '@/components/ui/button/ButtonPrimary'
+import SafeHtmlRenderer from '@/components/SafeHtml'
 
 const sectionVariants = cva('space-y-12', {
   variants: {
@@ -79,7 +80,11 @@ const Section: React.FC<SectionProps> = ({
             <Heading level={2} className="text-center max-w-[900px]">
               {title}
             </Heading>
-            {desc && <Text className="text-center max-w-6xl">{desc}</Text>}
+            {desc && (
+              <Text className="text-center max-w-5xl" as={'div'}>
+                <SafeHtmlRenderer html={desc} />
+              </Text>
+            )}
           </div>
         )}
         {children}
