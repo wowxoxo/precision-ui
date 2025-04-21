@@ -59,7 +59,7 @@ export interface PackageCardProps
   price: string
   priceDesc?: string
   desc?: string
-  link: string
+  link?: string
   onClickBuyButton?: (title: string) => void
   buttons?: RateButtonProps[]
   tags?: TagItemProps[]
@@ -102,14 +102,24 @@ const PackageCard: React.FC<PackageCardProps> = ({
         <div className="space-y-12 mb-12">
           <div className="space-y-6">
             <div className="flex space-x-2 items-center relative">
-              <AppLink
-                href={link}
-                variant={variant === 'navy' ? 'white' : 'navy'}
-              >
-                <Heading level={4} as={'span'}>
+              {link ? (
+                <AppLink
+                  href={link}
+                  variant={variant === 'navy' ? 'white' : 'navy'}
+                >
+                  <Heading level={4} as={'span'}>
+                    {title}
+                  </Heading>
+                </AppLink>
+              ) : (
+                <Heading
+                  level={4}
+                  as={'span'}
+                  className={variant === 'navy' ? 'text-whitish' : 'text-navy'}
+                >
                   {title}
                 </Heading>
-              </AppLink>
+              )}
               {titleInformer && <Informer content={titleInformer} />}
             </div>
             <Text
