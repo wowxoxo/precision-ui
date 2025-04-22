@@ -80,7 +80,7 @@ export interface HeroProps {
   breadcrumbs?: BreadcrumbProps[]
   bottomButtons?: CommonButtonProps[]
   size?: 'default' | 'small' | 'medium'
-  contentContainerSize?: 'default' | 'medium' | 'small'
+  contentContainerSize?: 'default' | 'medium' | 'small' | 'large'
   contentContainerBottomSize?: 'default' | 'small' | 'smaller'
   imageSize?: 'default' | 'small' | 'medium'
   linesImage?: string

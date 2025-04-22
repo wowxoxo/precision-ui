@@ -64,6 +64,7 @@ export interface PackageCardProps
   buttons?: RateButtonProps[]
   tags?: TagItemProps[]
   titleInformer?: string
+  colSize?: 1 | 2 | 3 | 4
 }
 
 export interface PackageCardPropsWithoutHTMLAttributes
@@ -85,9 +86,22 @@ const PackageCard: React.FC<PackageCardProps> = ({
   buttons,
   tags,
   titleInformer,
+  colSize,
 }) => {
+  const itemSizeClass =
+    colSize === 1
+      ? 'lg:app-col-span-1'
+      : colSize === 2
+      ? 'lg:app-col-span-2'
+      : colSize === 3
+      ? 'lg:app-col-span-3'
+      : colSize === 4
+      ? 'lg:app-col-span-4'
+      : ''
   return (
-    <div className={cn(packageCardVariants({ variant, className }))}>
+    <div
+      className={cn(packageCardVariants({ variant, className }), itemSizeClass)}
+    >
       <div>
         {tags && (
           <div className="flex space-x-2 mb-6">
