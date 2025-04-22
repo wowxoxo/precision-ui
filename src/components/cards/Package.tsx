@@ -90,13 +90,13 @@ const PackageCard: React.FC<PackageCardProps> = ({
 }) => {
   const itemSizeClass =
     colSize === 1
-      ? 'lg:app-col-span-1'
+      ? 'lg:col-span-1'
       : colSize === 2
-      ? 'lg:app-col-span-2'
+      ? 'lg:col-span-2'
       : colSize === 3
-      ? 'lg:app-col-span-3'
+      ? 'lg:col-span-3'
       : colSize === 4
-      ? 'lg:app-col-span-4'
+      ? 'sm:col-span-6 xl:col-span-4'
       : ''
   return (
     <div
