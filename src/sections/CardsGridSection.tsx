@@ -9,8 +9,7 @@ import Product from '@/components/cards/Product'
 import Rate from '@/components/cards/Rate'
 import React from 'react'
 
-// Map component names to actual components
-const componentMap: { [key: string]: React.ElementType } = {
+const defaultComponentMap: { [key: string]: React.ElementType } = {
   Advantage,
   Advantage2,
   Rate,
@@ -42,6 +41,7 @@ export interface CardsGridSectionProps<T> {
     uniqId?: string
     title?: string
   }) => void
+  externalComponentMap?: { [key: string]: React.ElementType }
 }
 
 const CardsGridSection = <T,>({
@@ -61,8 +61,10 @@ const CardsGridSection = <T,>({
   withoutCarousel,
   footnote,
   onButtonClick,
+  externalComponentMap = {},
 }: CardsGridSectionProps<T>) => {
-  const Component = componentMap[component] || Advantage
+  const componentMap = { ...defaultComponentMap, ...externalComponentMap }
+  const Component = componentMap[component] || defaultComponentMap.Advantage
 
   return (
     <Section
