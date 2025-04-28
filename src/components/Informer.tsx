@@ -33,8 +33,8 @@ const Informer = ({ content }: InformerProps) => {
               <span className="sr-only">Warning</span>
             </Button>
           </TooltipTrigger>
-          <TooltipContent>
-            <div>{content}</div>
+          <TooltipContent className="p-4">
+            <div className="max-w-80 text-navy-opacity-60">{content}</div>
           </TooltipContent>
         </Tooltip>
       </div>
@@ -50,7 +50,7 @@ const Informer = ({ content }: InformerProps) => {
               <span className="sr-only">Warning</span>
             </Button>
           </PopoverTrigger>
-          <PopoverContent className="px-3 py-1.5">
+          <PopoverContent className="px-3 py-1.5 text-navy-opacity-60">
             <div>{content}</div>
           </PopoverContent>
         </Popover>
