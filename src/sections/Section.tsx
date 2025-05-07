@@ -78,7 +78,7 @@ const Section: React.FC<SectionProps> = ({
         {title && (
           <div className="space-y-4 flex flex-col items-center">
             <Heading level={2} className="text-center max-w-[900px]">
-              {title}
+              <SafeHtmlRenderer html={title} />
             </Heading>
             {desc && (
               <Text className="text-center max-w-5xl" as={'div'}>
