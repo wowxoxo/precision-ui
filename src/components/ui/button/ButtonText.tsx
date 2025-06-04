@@ -2,6 +2,7 @@ import React from 'react'
 import { Button } from './button'
 import {
   ArrowLinkRight16X16,
+  ArrowLinkLeft16X16,
   MoreLink16X16,
   LessLink16X16,
 } from '@iit/precision-ui-icons'
@@ -48,12 +49,20 @@ const textContainerVariants = cva('', {
   },
 })
 
-export type ButtonTextIconName = 'arrowRight' | 'plus' | 'minus' | 'download'
+export type ButtonTextIconName =
+  | 'arrowRight'
+  | 'arrowLeft'
+  | 'plus'
+  | 'minus'
+  | 'download'
 
 const iconDefiner = (icon?: ButtonTextIconName, size?: number) => {
   switch (icon) {
     case 'arrowRight':
       return <ArrowLinkRight16X16 width={size} height={size} />
+
+    case 'arrowLeft':
+      return <ArrowLinkLeft16X16 width={size} height={size} />
 
     case 'plus':
       return <MoreLink16X16 width={size} height={size} />
