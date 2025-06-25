@@ -12,6 +12,7 @@ interface GridIteratorProps<T> {
   withoutCarousel?: boolean
   footnote?: string
   variant?: 'default' | 'white'
+  lastCustomNode?: React.ReactNode
 }
 
 const GridIterator = <T,>({
@@ -22,6 +23,7 @@ const GridIterator = <T,>({
   withoutCarousel = false, // TODO: add to props chain
   footnote,
   variant,
+  lastCustomNode,
 }: GridIteratorProps<T>) => {
   const getGridClasses = (columns: number) => {
     switch (columns) {
@@ -52,10 +54,13 @@ const GridIterator = <T,>({
               {renderItem(item, index)}
             </React.Fragment>
           ))}
+
+          {lastCustomNode}
         </div>
       ) : (
         <CarouselWrapper
           items={items}
+          lastCustomNode={lastCustomNode}
           // renderItem={renderItem}
           renderItem={(item, index) => renderItem(item as T, index)}
           columns={columns}

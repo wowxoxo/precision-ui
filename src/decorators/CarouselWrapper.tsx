@@ -15,6 +15,7 @@ export const CarouselWrapper = <T,>({
   className,
   variant,
   controlsAlign,
+  lastCustomNode,
 }: {
   items: T[]
   renderItem: (item: T, index: number) => React.ReactNode
@@ -23,6 +24,7 @@ export const CarouselWrapper = <T,>({
   className?: string
   variant?: 'default' | 'white'
   controlsAlign?: 'left' | 'center'
+  lastCustomNode?: React.ReactNode
 }) => {
   const carouselColumnsClasses = (size?: number) => {
     switch (size ?? columns) {
@@ -58,6 +60,7 @@ export const CarouselWrapper = <T,>({
             {renderItem(item, index)}
           </CarouselItem>
         ))}
+        {lastCustomNode}
       </CarouselContent>
     </Carousel>
   )

@@ -42,6 +42,7 @@ export interface CardsGridSectionProps<T> {
     title?: string
   }) => void
   externalComponentMap?: { [key: string]: React.ElementType }
+  lastCustomNode?: React.ReactNode
 }
 
 const CardsGridSection = <T,>({
@@ -62,6 +63,7 @@ const CardsGridSection = <T,>({
   footnote,
   onButtonClick,
   externalComponentMap = {},
+  lastCustomNode,
 }: CardsGridSectionProps<T>) => {
   const componentMap = { ...defaultComponentMap, ...externalComponentMap }
   const Component = componentMap[component] || defaultComponentMap.Advantage
@@ -87,6 +89,7 @@ const CardsGridSection = <T,>({
           <Component key={index} {...item} onButtonClick={onButtonClick} />
         )}
         footnote={footnote}
+        lastCustomNode={lastCustomNode}
       />
     </Section>
   )
