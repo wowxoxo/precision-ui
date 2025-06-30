@@ -9,7 +9,7 @@
 html {
   font-size: 20px;
   font-size: 16px;
-  @include responsive-font(16px);
+  // @include responsive-font(16px);
   /* FIXME: it was 20, explore and fix if needed */
 }
 
