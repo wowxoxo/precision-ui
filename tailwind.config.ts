@@ -19,6 +19,7 @@ const config: Config = {
     screens: {
       mobile: '360px', // design
       xs: '360px',
+      '2xs': '500px',
       sm: '640px',
       tablet: '768px', // design
       md: '768px',
