@@ -56,7 +56,7 @@ const AdvantageWithAccordion: React.FC<AdvantageWithAccordionProps> = ({
       {heightMode === 'full' ? (
         <div>
           {image}
-          <Heading level={5} className="mb-5">
+          <Heading level={5} as="div" className="mb-5">
             {title}
           </Heading>
         </div>
@@ -65,7 +65,11 @@ const AdvantageWithAccordion: React.FC<AdvantageWithAccordionProps> = ({
       )}
 
       <div className="space-y-6">
-        {heightMode !== 'full' && <Heading level={5}>{title}</Heading>}
+        {heightMode !== 'full' && (
+          <Heading level={5} as="div">
+            {title}
+          </Heading>
+        )}
 
         {desc && (
           <Accordion type="single" collapsible>

@@ -24,7 +24,7 @@ const Advantage: React.FC<AdvantageProps> = ({ title, desc, icon }) => {
           className="object-contain"
         />
       </div>
-      <Heading level={5} className="mb-2">
+      <Heading level={5} as="div" className="mb-2">
         {title}
       </Heading>
       {desc && (

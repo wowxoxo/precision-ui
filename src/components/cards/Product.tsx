@@ -95,7 +95,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
         />
       </div>
       <div className="space-y-2">
-        <Heading level={5} className="mt-4 mb-2">
+        <Heading level={5} className="mt-4 mb-2" as="div">
           {title}
         </Heading>
         <Text variant="small-body" className={cn(descVariants({ variant }))}>
