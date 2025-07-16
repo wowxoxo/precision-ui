@@ -38,7 +38,7 @@ const AccordionTrigger = React.forwardRef<
     const iconSize = size === 'default' ? 'h-10 w-10 p-2' : 'w-10 h-10 p-[10px]'
     return (
       <AccordionPrimitive.Header asChild>
-        <div className="flex">
+        <div className="flex" role="heading" aria-level={3}>
           <AccordionPrimitive.Trigger
             ref={ref}
             className={cn(
