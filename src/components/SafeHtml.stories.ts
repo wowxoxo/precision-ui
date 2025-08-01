@@ -18,6 +18,15 @@ const meta: Meta<typeof SafeHtmlRenderer> = {
       control: { type: 'text' },
       description: 'Additional class names for styling the rendered content.',
     },
+    truncateLength: {
+      control: { type: 'number', min: 0 },
+      description:
+        'If set, truncates the text content to this length and appends "..."',
+    },
+    withoutContentClass: {
+      control: { type: 'boolean' },
+      description: 'If true, omits the default "content" class.',
+    },
   },
 }
 
@@ -34,7 +43,7 @@ export const ValidHtml: Story = {
 
 export const InvalidHtml: Story = {
   args: {
-    html: `<div><span>Invalid HTML example<div>`, // Missing closing span tag
+    html: `<div><span>Invalid HTML example<div>`, // Missing closing span
   },
 }
 
@@ -53,5 +62,19 @@ export const HtmlWithAttributes: Story = {
 export const HtmlWithInlineStyles: Story = {
   args: {
     html: `<div style="background-color: lightgrey; padding: 10px;">Styled content</div>`,
+  },
+}
+
+export const TruncatedHtml: Story = {
+  args: {
+    html: `<p>This is a very long description that should be truncated when the truncateLength is set.</p>`,
+    truncateLength: 50,
+  },
+}
+
+export const TruncatedWithValidHtml: Story = {
+  args: {
+    html: 'The quick brown fox jumps over the lazy dog.',
+    truncateLength: 20,
   },
 }

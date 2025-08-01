@@ -104,22 +104,22 @@ const validateSelfClosingTags = (htmlString: string) => {
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   for (const [_, tag, attributes] of selfClosingTags) {
-    const attrRegex = /(\w+)=["']([^"']*)["']/g
-    const attrs = [...attributes.matchAll(attrRegex)]
+    if (attributes) {
+      const attrRegex = /(\w+)=["']([^"']*)["']/g
+      const attrs = [...attributes.matchAll(attrRegex)]
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    for (const [_, attrName, attrValue] of attrs) {
-      if (!attrName || !attrValue) {
-        return false // Invalid attribute format
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      for (const [__, attrName, attrValue] of attrs) {
+        if (!attrName || !attrValue) {
+          return false // Invalid attribute format
+        }
       }
-    }
-
-    // Check for unclosed attributes
-    const unclosedAttrRegex = /(\w+)=["'][^"']*$/g
-    const unclosedAttrs = [...attributes.matchAll(unclosedAttrRegex)]
-
-    if (unclosedAttrs.length > 0) {
-      return false // Unclosed attribute in self-closing tag
+      // Check for unclosed attributes
+      const unclosedAttrRegex = /(\w+)=["'][^"']*$/g
+      const unclosedAttrs = [...attributes.matchAll(unclosedAttrRegex)]
+      if (unclosedAttrs.length > 0) {
+        return false // Unclosed attribute in self-closing tag
+      }
     }
   }
 
@@ -137,7 +137,7 @@ const validateInlineStyles = (htmlString: string) => {
     const styleRules = styleContent.split(';')
     for (const rule of styleRules) {
       if (rule.trim()) {
-        const [property, value] = rule.split(':')
+        const [property, value] = rule.split(':').map((s) => s.trim())
         if (!property || !value) {
           return false // Invalid style declaration
         }
@@ -158,16 +158,29 @@ const validateHtmlBasic = (htmlString: string) => {
   )
 }
 
-////
+// Utility to extract plain text from HTML string
+const htmlToText = (html: string): string => {
+  const tempDiv = document.createElement('div')
+  tempDiv.innerHTML = html
+  return tempDiv.textContent || tempDiv.innerText || ''
+}
+
+// Utility to truncate text safely
+const truncateText = (text: string, maxLength: number): string => {
+  if (text.length <= maxLength) return text
+  return text.slice(0, maxLength).trim() + '...'
+}
 
 const SafeHtmlRenderer = ({
   html,
   className,
   withoutContentClass,
+  truncateLength,
 }: {
   html: string
   className?: string
   withoutContentClass?: boolean
+  truncateLength?: number
 }) => {
   const isValid = validateHtmlBasic(html)
   // console.log("isValidHTML", isValid);
@@ -175,13 +188,20 @@ const SafeHtmlRenderer = ({
 
   if (!isValid) {
     console.error('Invalid HTML content:', html)
-    return <div style={{ color: 'red' }}>Invalid HTML content</div>
+    return <div style={{ color: 'red' }}>Некорректное HTML содержимое</div>
   }
+
+  // If truncateLength is provided, extract text, truncate, and render as plain HTML-safe text
+  const processedHtml = truncateLength
+    ? truncateText(htmlToText(html), truncateLength)
+    : html
 
   return (
     <div
-      className={[!withoutContentClass && 'content', className].filter(Boolean).join(' ')}
-      dangerouslySetInnerHTML={{ __html: html }}
+      className={[!withoutContentClass && 'content', className]
+        .filter(Boolean)
+        .join(' ')}
+      dangerouslySetInnerHTML={{ __html: processedHtml }}
     />
   )
 }
