@@ -160,9 +160,27 @@ const validateHtmlBasic = (htmlString: string) => {
 
 // Utility to extract plain text from HTML string
 const htmlToText = (html: string): string => {
-  const tempDiv = document.createElement('div')
-  tempDiv.innerHTML = html
-  return tempDiv.textContent || tempDiv.innerText || ''
+  const entityMap = {
+    nbsp: ' ',
+    amp: '&',
+    lt: '<',
+    gt: '>',
+    quot: '"',
+  } as const // `as const` makes TypeScript infer literal types and enables key inference
+
+  type EntityKey = keyof typeof entityMap
+
+  const isValidEntity = (name: string): name is EntityKey => {
+    return Object.prototype.hasOwnProperty.call(entityMap, name)
+  }
+
+  return html
+    .replace(/<[^>]*>/g, '') // Strip HTML
+    .replace(/&([a-z]+);/g, (_, name: string) => {
+      return isValidEntity(name) ? entityMap[name] : ''
+    })
+    .replace(/\s+/g, ' ') // Normalize whitespace
+    .trim()
 }
 
 // Utility to truncate text safely
