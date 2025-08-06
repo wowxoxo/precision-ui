@@ -30,7 +30,7 @@ const FAQCard: React.FC<FAQCardProps> = ({ questions, type }) => {
               {question.question}
             </AccordionTrigger>
             <AccordionContent>
-              <SafeHtmlRenderer html={question.answer} />
+              <SafeHtmlRenderer html={question.answer} truncateLength={300} />
 
               {question.linkToFull && (
                 <div className="pt-6 no-content-rules">
