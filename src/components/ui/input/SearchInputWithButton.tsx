@@ -1,22 +1,23 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from 'react'
 
-import { Button } from "../button";
-import { Close16X16 } from "@iit/precision-ui-icons";
-import { Input } from "@/components/ui/input";
-import { SearchIcon } from "lucide-react";
-import { cn } from "@/lib/utils/cn";
+import { Button } from '../button'
+import { Close16X16 } from '@iit/precision-ui-icons'
+import { Input } from '@/components/ui/input'
+import { SearchIcon } from 'lucide-react'
+import { cn } from '@/lib/utils/cn'
 
 interface SearchInputWithButtonProps {
-  id?: string;
-  placeholder?: string;
-  className?: string;
-  containerClassName?: string;
-  value?: string;
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
-  onClickSubmitButton?: () => void;
-  onClickClearButton?: () => void;
-  withoutBottomBorder?: boolean;
+  id?: string
+  placeholder?: string
+  className?: string
+  containerClassName?: string
+  value?: string
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
+  onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void
+  onClickSubmitButton?: () => void
+  onClickClearButton?: () => void
+  withoutBottomBorder?: boolean
+  submitButtonClassName?: string
 }
 
 const SearchInputWithButton: React.FC<SearchInputWithButtonProps> = ({
@@ -24,47 +25,48 @@ const SearchInputWithButton: React.FC<SearchInputWithButtonProps> = ({
   placeholder,
   className,
   containerClassName,
-  value = "",
+  value = '',
   onChange,
   onKeyDown,
   onClickSubmitButton,
   onClickClearButton,
   withoutBottomBorder,
+  submitButtonClassName,
   ...props
 }) => {
-  const [inputValue, setInputValue] = useState(value);
-  const [isHovered, setIsHovered] = useState(false); // Track hover state
-  const inputRef = useRef<HTMLInputElement>(null);
+  const [inputValue, setInputValue] = useState(value)
+  const [isHovered, setIsHovered] = useState(false) // Track hover state
+  const inputRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
-    setInputValue(value);
-  }, [value]);
+    setInputValue(value)
+  }, [value])
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(event.target.value);
+    setInputValue(event.target.value)
     if (onChange) {
-      onChange(event);
+      onChange(event)
     }
-  };
+  }
 
   const handleClearClick = () => {
-    setInputValue("");
+    setInputValue('')
     if (inputRef.current) {
-      inputRef.current.focus();
+      inputRef.current.focus()
     }
     if (onChange) {
       onChange({
-        target: { value: "" },
-      } as React.ChangeEvent<HTMLInputElement>);
+        target: { value: '' },
+      } as React.ChangeEvent<HTMLInputElement>)
     }
     if (onClickClearButton) {
-      onClickClearButton();
+      onClickClearButton()
     }
-  };
+  }
 
   return (
     <div
-      className={cn("relative w-full max-w-2xl", containerClassName)}
+      className={cn('relative w-full max-w-2xl', containerClassName)}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -73,9 +75,9 @@ const SearchInputWithButton: React.FC<SearchInputWithButtonProps> = ({
         id={id}
         placeholder={placeholder}
         className={cn(
-          "w-full pl-8 pr-20 hover:bg-navy-opacity-4-absolute rounded-full bg-whitish h-14",
+          'w-full pl-8 pr-20 hover:bg-navy-opacity-4-absolute rounded-full bg-whitish h-14',
           className,
-          withoutBottomBorder && "border-b border-transparent"
+          withoutBottomBorder && 'border-b border-transparent'
         )}
         value={inputValue}
         onChange={handleInputChange}
@@ -87,11 +89,11 @@ const SearchInputWithButton: React.FC<SearchInputWithButtonProps> = ({
         variant="ghost"
         size="icon"
         className={cn(
-          "absolute right-14 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground p-0 hover:bg-navy group",
-          isHovered ? "bg-white" : "bg-navy-opacity-8"
+          'absolute right-14 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground p-0 hover:bg-navy group duration-200 transition-colors',
+          isHovered ? 'bg-white' : 'bg-navy-opacity-8'
         )}
         onClick={handleClearClick}
-        style={{ display: inputValue ? "block" : "none" }}
+        style={{ display: inputValue.length >= 3 ? 'block' : 'none' }}
       >
         <Close16X16 className="h-[10px] w-[10px] left-[5px] top-0 relative text-navy group-hover:text-whitish" />
         <span className="sr-only">Очистить</span>
@@ -99,16 +101,17 @@ const SearchInputWithButton: React.FC<SearchInputWithButtonProps> = ({
 
       <Button
         className={cn(
-          "absolute right-2 top-1/2 -translate-y-1/2 text-navy h-10 w-10 hover:bg-navy group/submit disabled:pointer-events-auto active:transform active:scale-90",
-          isHovered ? "bg-white" : "bg-navy-opacity-8"
+          'absolute right-2 top-1/2 -translate-y-1/2 text-navy h-10 w-10 hover:bg-navy group/submit disabled:pointer-events-auto active:transform active:scale-90 duration-200 transition-colors',
+          submitButtonClassName,
+          isHovered ? 'bg-white' : 'bg-navy-opacity-8'
         )}
-        disabled={!inputValue}
+        disabled={inputValue.length < 3}
         onClick={onClickSubmitButton || undefined}
       >
         <SearchIcon className="h-4 w-4 group-hover/submit:text-whitish" />
       </Button>
     </div>
-  );
-};
+  )
+}
 
-export default SearchInputWithButton;
+export default SearchInputWithButton
