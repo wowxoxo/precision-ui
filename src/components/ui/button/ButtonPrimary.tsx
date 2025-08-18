@@ -60,7 +60,7 @@ export interface ButtonPrimaryProps
   children?: React.ReactNode
   // as?: 'button' | 'a'
   href?: string
-  target?: '_blank'
+  target?: '_blank' | '_self'
   asChild?: boolean
 }
 

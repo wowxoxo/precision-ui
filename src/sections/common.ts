@@ -1,7 +1,7 @@
 export interface CommonButtonProps {
   text: string
   href?: string
-  target?: '_blank'
+  target?: '_blank' | '_self'
   anchor?: boolean
   theme?: 'default' | 'opacity' | 'sapphire' // sapphire is for primary button
   className?: string

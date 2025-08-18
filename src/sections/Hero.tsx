@@ -300,8 +300,7 @@ const Hero: React.FC<HeroProps> = ({
                 className="w-full backdrop-blur-[8px]"
                 linkClassName="w-full"
                 onClick={() => onButtonClick?.(button.uniqId)}
-                // target={button.target}
-                target="_blank"
+                target={button.target}
               />
             ))}
           </div>
