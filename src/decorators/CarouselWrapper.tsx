@@ -13,6 +13,7 @@ export const CarouselWrapper = <T,>({
   columns,
   hideControlsOnDesktop,
   className,
+  itemClassName,
   variant,
   controlsAlign,
   lastCustomNode,
@@ -22,6 +23,7 @@ export const CarouselWrapper = <T,>({
   columns: number
   hideControlsOnDesktop: boolean
   className?: string
+  itemClassName?: string
   variant?: 'default' | 'white'
   controlsAlign?: 'left' | 'center'
   lastCustomNode?: React.ReactNode
@@ -55,7 +57,7 @@ export const CarouselWrapper = <T,>({
             key={index}
             className={`pl-4 ${carouselColumnsClasses(
               (item as { size?: number }).size // Safely access `size` property
-            )}`}
+            )} ${itemClassName}`}
           >
             {renderItem(item, index)}
           </CarouselItem>
