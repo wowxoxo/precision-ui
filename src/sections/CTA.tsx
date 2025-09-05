@@ -12,13 +12,14 @@ export interface CTAProps {
   img: string
   buttons: CommonButtonProps[]
   onButtonClick?: (uniqId?: string) => void
+  sectionId?: string
 }
 
-const CTA: React.FC<CTAProps> = ({ title, desc, img, buttons, onButtonClick }) => {
+const CTA: React.FC<CTAProps> = ({ title, desc, img, buttons, onButtonClick, sectionId }) => {
   const ImageWrapper = getAdapter('ImageWrapper')
 
   return (
-    <section className="container">
+    <section className="container" id={sectionId}>
       <div className="mx-auto w-full h-[606px]1 bg-gradient-to-b from-navy to-sapphire text-white rounded-2xl px-6 relative xl:min-h-[500px]">
         <div className="space-y-12 relative z-10">
           <div className="w-full grid grid-cols-1 lg:grid-cols-2">
