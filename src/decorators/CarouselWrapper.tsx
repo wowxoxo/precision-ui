@@ -51,7 +51,7 @@ export const CarouselWrapper = <T,>({
       variant={variant}
       controlsAlign={controlsAlign}
     >
-      <CarouselContent className="-ml-4 pt-3">
+      <CarouselContent className="lg:-ml-4 pt-3">
         {items.map((item, index) => (
           <CarouselItem
             key={index}

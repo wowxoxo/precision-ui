@@ -229,7 +229,8 @@ const Hero: React.FC<HeroProps> = ({
           <div
             className={cn(
               'w-auto sm:p-10 pt-10 sm:pt-32 flex flex-col justify-center items-start col-span-7 border-[1px] border-t-0 border-r-0 border-b-0 border-l-0 lg:border-l-[1px] border-whitish-opacity-16 border-solid pb-4',
-              sliderContentVariants({ size })
+              sliderContentVariants({ size }),
+              bottomButtons ? 'pb-[60px]' : ''
             )}
           >
             <Heading
@@ -291,7 +292,7 @@ const Hero: React.FC<HeroProps> = ({
         </div>
 
         {bottomButtons && (
-          <div className="flex gap-4 absolute bottom-8 z-30 w-[96%] mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 absolute bottom-8 z-30 w-[96%] left-1/2 -translate-x-1/2">
             {bottomButtons.map((button) => (
               <HeroButton
                 key={button.text}
