@@ -292,7 +292,14 @@ const Hero: React.FC<HeroProps> = ({
         </div>
 
         {bottomButtons && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 absolute bottom-8 z-30 w-[96%] left-1/2 -translate-x-1/2">
+          <div
+            className={cn(
+              'gap-4 absolute bottom-8 z-30 w-[96%]',
+              bottomButtons.length === 4
+                ? 'grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 left-1/2 -translate-x-1/2'
+                : 'flex'
+            )}
+          >
             {bottomButtons.map((button) => (
               <HeroButton
                 key={button.text}
