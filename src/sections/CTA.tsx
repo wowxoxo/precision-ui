@@ -15,7 +15,14 @@ export interface CTAProps {
   sectionId?: string
 }
 
-const CTA: React.FC<CTAProps> = ({ title, desc, img, buttons, onButtonClick, sectionId }) => {
+const CTA: React.FC<CTAProps> = ({
+  title,
+  desc,
+  img,
+  buttons,
+  onButtonClick,
+  sectionId,
+}) => {
   const ImageWrapper = getAdapter('ImageWrapper')
 
   return (
@@ -26,7 +33,9 @@ const CTA: React.FC<CTAProps> = ({ title, desc, img, buttons, onButtonClick, sec
             <div></div>
             <div className="space-y-12 mb-24 mt-[128px] pr-8 lg:pr-8 xl:pr-28">
               <div className=" space-y-6">
-                <Heading level={2} as='div'>{title}</Heading>
+                <Heading level={2} as="div">
+                  {title}
+                </Heading>
                 <Text
                   variant="body"
                   className="text-whitish-opacity-60"
@@ -36,9 +45,13 @@ const CTA: React.FC<CTAProps> = ({ title, desc, img, buttons, onButtonClick, sec
                 </Text>
               </div>
 
-              <div className="flex space-x-4">
+              <div className="flex space-y-4 sm:space-y-0 sm:space-x-4 flex-col sm:flex-row">
                 {buttons.map((button, index) => (
-                  <HeroButton key={index} {...button} onClick={() => onButtonClick?.(button.uniqId)} />
+                  <HeroButton
+                    key={index}
+                    {...button}
+                    onClick={() => onButtonClick?.(button.uniqId)}
+                  />
                 ))}
               </div>
             </div>

@@ -23,7 +23,7 @@ const packageCardVariants = cva(
     defaultVariants: {
       variant: 'default',
     },
-  }
+  },
 )
 
 const descVariants = cva('', {
@@ -51,7 +51,8 @@ const dividerVariants = cva('w-full h-[1px]', {
 })
 
 export interface PackageCardProps
-  extends React.HTMLAttributes<HTMLDivElement>,
+  extends
+    React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof packageCardVariants> {
   className?: string
   title: string
@@ -67,8 +68,10 @@ export interface PackageCardProps
   colSize?: 1 | 2 | 3 | 4
 }
 
-export interface PackageCardPropsWithoutHTMLAttributes
-  extends Omit<PackageCardProps, keyof React.HTMLAttributes<HTMLDivElement>> {
+export interface PackageCardPropsWithoutHTMLAttributes extends Omit<
+  PackageCardProps,
+  keyof React.HTMLAttributes<HTMLDivElement>
+> {
   className?: string
   title: string
 }
@@ -92,12 +95,12 @@ const PackageCard: React.FC<PackageCardProps> = ({
     colSize === 1
       ? 'lg:col-span-1'
       : colSize === 2
-      ? 'lg:col-span-2'
-      : colSize === 3
-      ? 'lg:col-span-3'
-      : colSize === 4
-      ? 'sm:col-span-6 xl:col-span-4'
-      : ''
+        ? 'lg:col-span-2'
+        : colSize === 3
+          ? 'col-span-3 lg:col-span-3'
+          : colSize === 4
+            ? 'sm:col-span-6 xl:col-span-4'
+            : ''
   return (
     <div
       className={cn(packageCardVariants({ variant, className }), itemSizeClass)}

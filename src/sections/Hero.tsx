@@ -44,7 +44,7 @@ const sliderContentVariants = cva('', {
 const titleVariants = cva('', {
   variants: {
     contentContainerSize: {
-      default: 'mb-5 lg:max-w-[700px]',
+      default: 'mb-5 lg:max-w-[700px] w-full',
       medium: 'lg:max-w-[590px]',
       large: 'lg:max-w-5xl',
       small: 'lg:max-w-[700px]', // not used, copy from default
@@ -217,7 +217,9 @@ const Hero: React.FC<HeroProps> = ({
             'w-full relative z-20 grid grid-cols-1 sm:grid-cols-9 pb-12',
             contentContainerVariants({
               size: contentContainerBottomSize || size,
-            })
+            }),
+            bottomButtons?.length == 3 ? 'pb-24 md:pb-12' : '',
+            bottomButtons?.length == 4 ? 'pb-36 md:pb-12' : '',
           )}
         >
           {/* Navigation */}
@@ -230,7 +232,7 @@ const Hero: React.FC<HeroProps> = ({
             className={cn(
               'w-auto sm:p-10 pt-10 sm:pt-32 flex flex-col justify-center items-start col-span-7 border-[1px] border-t-0 border-r-0 border-b-0 border-l-0 lg:border-l-[1px] border-whitish-opacity-16 border-solid pb-4',
               sliderContentVariants({ size }),
-              bottomButtons ? 'pb-[60px]' : ''
+              bottomButtons ? 'pb-[60px]' : '',
             )}
           >
             <Heading
@@ -241,12 +243,12 @@ const Hero: React.FC<HeroProps> = ({
               <SafeHtmlRenderer html={title} />
             </Heading>
 
-            <div className="space-y-8">
+            <div className="space-y-8 w-full">
               <Text
                 variant="body"
                 className={cn(
                   descVariants({ contentContainerSize }),
-                  'text-whitish-opacity-60'
+                  'text-whitish-opacity-60',
                 )}
               >
                 {desc}
@@ -269,11 +271,11 @@ const Hero: React.FC<HeroProps> = ({
               )}
 
               {buttons && (
-                <div className="flex gap-4 mt-12 w-full">
+                <div className="flex gap-4 mt-12 w-full flex-col md:flex-row">
                   {buttons.map((button) => (
                     <HeroButton
                       key={button.text}
-                      className="w-fit"
+                      className="w-full md:w-fit"
                       target={button.target}
                       {...button}
                       onClick={() => onButtonClick?.(button.uniqId)}
@@ -294,10 +296,10 @@ const Hero: React.FC<HeroProps> = ({
         {bottomButtons && (
           <div
             className={cn(
-              'gap-4 absolute bottom-8 z-30 w-[96%]',
+              'gap-4 absolute bottom-8 z-30 w-[96%] pr-5 md:pr-0',
               bottomButtons.length === 4
                 ? 'grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 left-1/2 -translate-x-1/2'
-                : 'flex'
+                : 'flex flex-col md:flex-row',
             )}
           >
             {bottomButtons.map((button) => (

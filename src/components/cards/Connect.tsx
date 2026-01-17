@@ -9,6 +9,7 @@ import { getAdapter } from '@/Adapters'
 interface Content {
   title: string
   content: (string | React.ReactNode)[]
+  wideDesktopCard?: boolean
 }
 
 export interface ConnectCardProps {
@@ -49,7 +50,7 @@ const ConnectCard: React.FC<ConnectCardProps> = ({
       className={cn(
         'bg-whitish p-6 rounded-lg flex flex-col justify-between relative',
         className,
-        sizeClass
+        sizeClass,
       )}
     >
       <div className="space-y-4">
@@ -79,7 +80,7 @@ const ConnectCard: React.FC<ConnectCardProps> = ({
       )}
 
       {buttons && (
-        <div className="flex space-x-3">
+        <div className="flex flex-col lg:flex-row lg:space-x-3 space-y-3 lg:space-y-0">
           {buttons?.map((button, index) => (
             <div key={index}>
               {button.href ? (

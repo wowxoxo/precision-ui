@@ -25,7 +25,8 @@ const sectionVariants = cva('space-y-12', {
 })
 
 export interface SectionProps
-  extends React.HTMLAttributes<HTMLDivElement>,
+  extends
+    React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof sectionVariants> {
   title: string
   sectionId?: string
@@ -72,13 +73,16 @@ const Section: React.FC<SectionProps> = ({
           sectionVariants({ variant, corners }),
           withoutTopPadding && 'pt-0',
           withoutBottomPadding && 'pb-0',
-          className
+          className,
         )}
       >
         {title && (
           <div className="space-y-4 flex flex-col items-center">
-            <Heading level={2} className="text-center max-w-[900px]">
-              <SafeHtmlRenderer html={title} />
+            <Heading level={2} className="text-center max-w-[900px] w-full">
+              <SafeHtmlRenderer
+                html={title}
+                className="break-words 2xs:break-normal"
+              />
             </Heading>
             {desc && (
               <Text className="text-center max-w-5xl" as={'div'}>
