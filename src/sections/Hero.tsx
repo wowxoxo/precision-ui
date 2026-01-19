@@ -218,8 +218,10 @@ const Hero: React.FC<HeroProps> = ({
             contentContainerVariants({
               size: contentContainerBottomSize || size,
             }),
-            bottomButtons?.length == 3 ? 'pb-24 md:pb-12' : '',
-            bottomButtons?.length == 4 ? 'pb-36 md:pb-12' : '',
+            bottomButtons?.length == 1 ? 'pb-12' : '',
+            bottomButtons?.length == 2 ? 'pb-24 md:pb-12' : '',
+            bottomButtons?.length == 3 ? 'pb-44 md:pb-12' : '',
+            bottomButtons?.length == 4 ? 'pb-64 md:pb-12' : '',
           )}
         >
           {/* Navigation */}
@@ -296,7 +298,7 @@ const Hero: React.FC<HeroProps> = ({
         {bottomButtons && (
           <div
             className={cn(
-              'gap-4 absolute bottom-8 z-30 w-[96%] pr-5 md:pr-0',
+              'gap-4 absolute bottom-8 z-30 w-[96%] pr-8 md:pr-0',
               bottomButtons.length === 4
                 ? 'grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 left-1/2 -translate-x-1/2'
                 : 'flex flex-col md:flex-row',

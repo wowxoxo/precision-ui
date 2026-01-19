@@ -23,11 +23,11 @@ const buttonVariants = cva(
       theme: 'default',
       size: 'default',
     },
-  }
+  },
 )
 
 const arrowContainerVariants = cva(
-  'rounded-full bg-navy-opacity-4 h-10 w-10 inline-flex items-center justify-center group-hover:bg-transparent duration-200',
+  'rounded-full bg-navy-opacity-4 h-10 w-10 inline-flex items-center justify-center group-hover:bg-transparent duration-200 min-w-10 min-h-10',
   {
     variants: {
       theme: {
@@ -44,7 +44,7 @@ const arrowContainerVariants = cva(
       theme: 'default',
       iconDirection: 'default',
     },
-  }
+  },
 )
 
 interface ArrowContainerPropsToButton {
@@ -52,7 +52,8 @@ interface ArrowContainerPropsToButton {
 }
 
 export interface ButtonPrimaryProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+  extends
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants>,
     ArrowContainerPropsToButton {
   className?: string
