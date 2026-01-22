@@ -300,9 +300,9 @@ const Hero: React.FC<HeroProps> = ({
             className={cn(
               'gap-4 absolute bottom-8 z-30 w-[96%] px-10 sm:px-8 lg:px-0',
               bottomButtons.length === 4
-                ? 'grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 left-1/2 -translate-x-1/2'
+                ? 'grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 left-1/2 -translate-x-1/2'
                 : bottomButtons.length === 3
-                  ? 'grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 left-1/2 -translate-x-1/2'
+                  ? 'grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 left-1/2 -translate-x-1/2'
                   : 'flex flex-col md:flex-row',
             )}
           >
