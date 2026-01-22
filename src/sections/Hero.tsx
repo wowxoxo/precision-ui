@@ -220,7 +220,7 @@ const Hero: React.FC<HeroProps> = ({
             }),
             bottomButtons?.length == 1 && 'pb-36 xl:pb-32',
             bottomButtons?.length == 2 && 'pb-36 xl:pb-32',
-            bottomButtons?.length == 3 && 'pb-52 md:pb-48 xl:pb-32',
+            bottomButtons?.length == 3 && 'pb-52 sm:pb-52 md:pb-48 xl:pb-32',
             bottomButtons?.length == 4 && 'pb-[280px] sm:pb-[280px] xl:pb-32',
           )}
         >
