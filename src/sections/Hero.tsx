@@ -82,7 +82,6 @@ export interface HeroProps {
   size?: 'default' | 'small' | 'medium'
   contentContainerSize?: 'default' | 'medium' | 'small' | 'large'
   contentContainerBottomSize?: 'default' | 'small' | 'smaller'
-  contentContainerCustomClass?: string
   imageSize?: 'default' | 'small' | 'medium'
   linesImage?: string
   onButtonClick?: (uniqId?: string) => void
@@ -173,7 +172,6 @@ const Hero: React.FC<HeroProps> = ({
   title,
   contentContainerSize,
   contentContainerBottomSize,
-  contentContainerCustomClass,
   desc,
   price,
   oldPrice,
@@ -223,8 +221,7 @@ const Hero: React.FC<HeroProps> = ({
             bottomButtons?.length == 1 && 'pb-36 xl:pb-32',
             bottomButtons?.length == 2 && 'pb-36 xl:pb-32',
             bottomButtons?.length == 3 && 'pb-52 md:pb-48 xl:pb-32',
-            bottomButtons?.length == 4 && 'pb-[280px] sm:pb-60 xl:pb-32',
-            contentContainerCustomClass,
+            bottomButtons?.length == 4 && 'pb-[280px] sm:pb-[280px] xl:pb-32',
           )}
         >
           {/* Navigation */}
