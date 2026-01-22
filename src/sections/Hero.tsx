@@ -208,6 +208,10 @@ const Hero: React.FC<HeroProps> = ({
 
   const ImageWrapper = getAdapter('ImageWrapper')
 
+  console.log('a1', bottomButtons?.length == 4 ? 'test1_1' : 'test1_2')
+  console.log('a2', bottomButtons?.length == 4 && 'test2')
+  console.log('a3', bottomButtons && bottomButtons.length == 4 && 'test3')
+
   return (
     <section className="container relative">
       <div className="mx-auto w-full h-[606px]1 bg-gradient-to-b from-navy to-sapphire text-white rounded-2xl px-6 relative overflow-hidden">
@@ -218,10 +222,11 @@ const Hero: React.FC<HeroProps> = ({
             contentContainerVariants({
               size: contentContainerBottomSize || size,
             }),
-            bottomButtons?.length == 1 ? 'pb-12' : '',
-            bottomButtons?.length == 2 ? 'pb-24 md:pb-12' : '',
-            bottomButtons?.length == 3 ? 'pb-44 md:pb-12' : '',
-            bottomButtons?.length == 4 ? 'pb-64 md:pb-12' : '',
+            bottomButtons?.length == 1 && 'pb-12',
+            bottomButtons?.length == 2 && 'pb-24 md:pb-12',
+            bottomButtons?.length == 3 && 'pb-44 md:pb-12',
+            bottomButtons?.length == 4 && 'pb-64 md:pb-12',
+            bottomButtons && bottomButtons.length == 4 && 'test',
           )}
         >
           {/* Navigation */}
