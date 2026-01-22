@@ -13,7 +13,7 @@ import { getAdapter } from '@/Adapters'
 
 // import { SearchInput } from '@/components/ui/input'
 
-const contentContainerVariants = cva('', {
+const contentContainerVariants = cva('pb-12', {
   variants: {
     size: {
       default: 'sm:pb-32',
@@ -208,25 +208,20 @@ const Hero: React.FC<HeroProps> = ({
 
   const ImageWrapper = getAdapter('ImageWrapper')
 
-  console.log('a1', bottomButtons?.length == 4 ? 'test1_1' : 'test1_2')
-  console.log('a2', bottomButtons?.length == 4 && 'test2')
-  console.log('a3', bottomButtons && bottomButtons.length == 4 && 'test3')
-
   return (
     <section className="container relative">
       <div className="mx-auto w-full h-[606px]1 bg-gradient-to-b from-navy to-sapphire text-white rounded-2xl px-6 relative overflow-hidden">
         <div
           data-test-id="content-container"
           className={cn(
-            'w-full relative z-20 grid grid-cols-1 sm:grid-cols-9 pb-12',
+            'w-full relative z-20 grid grid-cols-1 sm:grid-cols-9',
             contentContainerVariants({
               size: contentContainerBottomSize || size,
             }),
-            bottomButtons?.length == 1 && 'pb-12',
-            bottomButtons?.length == 2 && 'pb-24 md:pb-12',
-            bottomButtons?.length == 3 && 'pb-44 md:pb-12',
-            bottomButtons?.length == 4 && 'pb-64 md:pb-12',
-            bottomButtons && bottomButtons.length == 4 && 'test',
+            bottomButtons?.length == 1 && 'xl:pb-32',
+            bottomButtons?.length == 2 && 'pb-36 xl:pb-32',
+            bottomButtons?.length == 3 && 'pb-52 md:pb-32 xl:pb-32',
+            bottomButtons?.length == 4 && 'pb-[280px] sm:pb-52 xl:pb-32',
           )}
         >
           {/* Navigation */}
@@ -303,10 +298,12 @@ const Hero: React.FC<HeroProps> = ({
         {bottomButtons && (
           <div
             className={cn(
-              'gap-4 absolute bottom-8 z-30 w-[96%] pr-8 md:pr-0',
+              'gap-4 absolute bottom-8 z-30 w-[96%] px-8 md:px-0',
               bottomButtons.length === 4
                 ? 'grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 left-1/2 -translate-x-1/2'
-                : 'flex flex-col md:flex-row',
+                : bottomButtons.length === 3
+                  ? 'grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 left-1/2 -translate-x-1/2'
+                  : 'flex flex-col md:flex-row',
             )}
           >
             {bottomButtons.map((button) => (
