@@ -82,6 +82,7 @@ export interface HeroProps {
   size?: 'default' | 'small' | 'medium'
   contentContainerSize?: 'default' | 'medium' | 'small' | 'large'
   contentContainerBottomSize?: 'default' | 'small' | 'smaller'
+  contentContainerCustomClass?: string
   imageSize?: 'default' | 'small' | 'medium'
   linesImage?: string
   onButtonClick?: (uniqId?: string) => void
@@ -172,6 +173,7 @@ const Hero: React.FC<HeroProps> = ({
   title,
   contentContainerSize,
   contentContainerBottomSize,
+  contentContainerCustomClass,
   desc,
   price,
   oldPrice,
@@ -221,7 +223,8 @@ const Hero: React.FC<HeroProps> = ({
             bottomButtons?.length == 1 && 'pb-36 xl:pb-32',
             bottomButtons?.length == 2 && 'pb-36 xl:pb-32',
             bottomButtons?.length == 3 && 'pb-52 md:pb-48 xl:pb-32',
-            bottomButtons?.length == 4 && 'pb-[280px] sm:pb-52 xl:pb-32',
+            bottomButtons?.length == 4 && 'pb-[280px] sm:pb-60 xl:pb-32',
+            contentContainerCustomClass,
           )}
         >
           {/* Navigation */}
@@ -298,7 +301,7 @@ const Hero: React.FC<HeroProps> = ({
         {bottomButtons && (
           <div
             className={cn(
-              'gap-4 absolute bottom-8 z-30 w-[96%] px-10 sm:px-8 lg:px-0',
+              'gap-4 absolute bottom-8 z-30 w-[96%] px-4 sm:px-8 lg:px-0',
               bottomButtons.length === 4
                 ? 'grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 left-1/2 -translate-x-1/2'
                 : bottomButtons.length === 3
