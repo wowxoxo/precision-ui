@@ -97,9 +97,9 @@ const PackageCard: React.FC<PackageCardProps> = ({
       : colSize === 2
         ? 'lg:col-span-2'
         : colSize === 3
-          ? 'col-span-1 lg:col-span-3'
+          ? 'col-span-3 lg:col-span-3'
           : colSize === 4
-            ? 'col-span-1 sm:col-span-3 xl:col-span-4'
+            ? 'col-span-3 xl:col-span-4'
             : ''
   return (
     <div
