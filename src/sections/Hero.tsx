@@ -218,7 +218,7 @@ const Hero: React.FC<HeroProps> = ({
             contentContainerVariants({
               size: contentContainerBottomSize || size,
             }),
-            bottomButtons?.length == 1 && 'xl:pb-32',
+            bottomButtons?.length == 1 && 'pb-36 xl:pb-32',
             bottomButtons?.length == 2 && 'pb-36 xl:pb-32',
             bottomButtons?.length == 3 && 'pb-52 md:pb-32 xl:pb-32',
             bottomButtons?.length == 4 && 'pb-[280px] sm:pb-52 xl:pb-32',
